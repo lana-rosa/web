@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Motores de respuesta / IA — permitidos explícitamente para AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.lanarosacrochet.com/sitemap.xml
