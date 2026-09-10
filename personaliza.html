@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personaliza tu amigurumi — Lana Rosa Crochet</title>
+<meta name="description" content="Sube una foto de referencia y cuéntanos los detalles: te tejemos a mano un amigurumi personalizado, único e irrepetible.">
+<link rel="canonical" href="https://www.lanarosacrochet.com/personaliza.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lana Rosa Crochet">
+<meta property="og:title" content="Personaliza tu amigurumi — Lana Rosa Crochet">
+<meta property="og:description" content="Sube tu foto de referencia y te tejemos a mano un amigurumi único.">
+<meta property="og:url" content="https://www.lanarosacrochet.com/personaliza.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rosa-principal: #D8017C; --rosa-medio: #FF8FD4; --rosa-suave: #F9DDF4;
+  --azul-acero: #93C7F9; --blanco-hueso: #EFEBEB; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
+  --fuente-titulo: 'Mango AC', 'Fraunces', Georgia, serif;
+  --fuente-cuerpo: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radio-suave: 20px; --sombra-suave: 0 12px 32px rgba(58, 42, 46, 0.10);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--fuente-cuerpo); color: var(--tinta); background: var(--blanco-hueso); line-height: 1.6; }
+h1, h2, h3 { font-family: var(--fuente-titulo); font-weight: 600; margin: 0 0 0.4em; }
+h1 { font-size: clamp(2.1rem, 4.2vw, 2.8rem); }
+h2 { font-size: 1.3rem; color: var(--rosa-principal); }
+.contenedor { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--rosa-principal); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(239, 235, 235, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado .contenedor.barra { max-width: 1200px; display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
+.logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
+.nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
+.nav-principal a:hover { color: var(--rosa-principal); }
+.boton-whatsapp { background: var(--rosa-principal); color: var(--blanco) !important; padding: 10px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+@media (max-width: 900px) { .nav-principal { display: none; } }
+.encabezado-pagina { padding: 48px 0 16px; }
+.encabezado-pagina p { color: var(--tinta-suave); font-size: 1.05rem; max-width: 62ch; }
+.pasos-resumen { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px; }
+.paso-chip { background: var(--blanco); border-radius: 999px; padding: 8px 16px; font-size: 0.82rem; color: var(--tinta-suave); box-shadow: var(--sombra-suave); }
+.paso-chip b { color: var(--rosa-principal); }
+form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); padding: 32px; box-shadow: var(--sombra-suave); margin-bottom: 60px; }
+.campo { margin-bottom: 22px; }
+.campo label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+.campo .ayuda { font-size: 0.8rem; color: var(--tinta-suave); margin-top: 4px; }
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"],
+.campo select,
+.campo textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid var(--rosa-suave);
+  font-family: var(--fuente-cuerpo); font-size: 0.95rem; background: var(--blanco-hueso); color: var(--tinta);
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: none; border-color: var(--rosa-principal); }
+.campo textarea { resize: vertical; min-height: 100px; }
+.fila-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 640px) { .fila-doble { grid-template-columns: 1fr; } }
+.zona-foto {
+  border: 2px dashed var(--rosa-medio); border-radius: 16px; padding: 24px; text-align: center;
+  background: var(--rosa-suave); cursor: pointer;
+}
+.zona-foto input[type="file"] { display: none; }
+.zona-foto .texto-zona { color: var(--rosa-principal); font-weight: 600; }
+.zona-foto .subtexto { font-size: 0.82rem; color: var(--tinta-suave); margin-top: 6px; }
+#previsualizacion { margin-top: 14px; max-width: 220px; border-radius: 12px; display: none; }
+.boton-enviar {
+  width: 100%; background: var(--rosa-principal); color: var(--blanco); border: none;
+  padding: 16px; border-radius: 999px; font-weight: 600; font-size: 1.02rem; cursor: pointer;
+}
+.boton-enviar:hover { background: #b40167; }
+.boton-enviar:disabled { background: var(--tinta-suave); cursor: not-allowed; }
+#mensaje-estado { margin-top: 18px; padding: 16px; border-radius: 12px; display: none; font-size: 0.95rem; }
+#mensaje-estado.exito { background: #e6f4ea; color: #2e7d32; display: block; }
+#mensaje-estado.error { background: #fdecea; color: #c62828; display: block; }
+.pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
+.pie a { color: var(--rosa-medio); }
+</style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor barra">
+    <a href="index.html" class="logo">Lana Rosa Crochet</a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-principal">
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="personaliza.html">Personaliza el tuyo</a></li>
+        <li><a href="aprende.html">Aprende</a></li>
+        <li><a href="rosina.html">Rosina</a></li>
+        <li><a href="revista.html">Revista</a></li>
+        <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
+      </ul>
+    </nav>
+    <a class="boton-whatsapp" href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+  </div>
+</header>
+
+<main class="contenedor">
+  <div class="encabezado-pagina">
+    <h1>Personaliza tu amigurumi</h1>
+    <p>Sube una foto de referencia y cuéntanos los detalles — nosotras nos encargamos de convertirla en una pieza tejida a mano, única e irrepetible.</p>
+  </div>
+
+  <div class="pasos-resumen">
+    <span class="paso-chip"><b>1.</b> Sube tu foto</span>
+    <span class="paso-chip"><b>2.</b> Cuéntanos los detalles</span>
+    <span class="paso-chip"><b>3.</b> Te cotizamos por WhatsApp</span>
+    <span class="paso-chip"><b>4.</b> Confirmas y empezamos a tejer</span>
+  </div>
+
+  <form class="tarjeta" id="form-personalizado">
+    <div class="campo">
+      <label for="foto">Foto de referencia</label>
+      <label class="zona-foto" for="foto">
+        <span class="texto-zona">Toca aquí para subir una foto</span>
+        <div class="subtexto">JPG, PNG o WEBP — hasta 8 MB</div>
+        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/webp,image/heic">
+      </label>
+      <img id="previsualizacion" alt="Vista previa de la foto subida">
+      <div class="ayuda">Si no tienes foto a la mano, puedes dejarlo en blanco y enviarla luego por WhatsApp.</div>
+    </div>
+
+    <div class="fila-doble">
+      <div class="campo">
+        <label for="nombre">Tu nombre*</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="telefono">Teléfono / WhatsApp*</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3001234567">
+      </div>
+    </div>
+
+    <div class="fila-doble">
+      <div class="campo">
+        <label for="correo">Correo (opcional)</label>
+        <input type="email" id="correo" name="correo">
+      </div>
+      <div class="campo">
+        <label for="ciudad">Ciudad de envío</label>
+        <select id="ciudad" name="ciudad">
+          <option value="">Selecciona tu ciudad</option>
+          <option value="Manizales">Manizales</option>
+          <option value="Villamaría">Villamaría</option>
+          <option value="Chinchiná">Chinchiná</option>
+          <option value="Palestina">Palestina</option>
+          <option value="Neira">Neira</option>
+          <option value="Otro (nacional)">Otra ciudad de Colombia</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="descripcion">¿Qué quieres que tejamos?*</label>
+      <textarea id="descripcion" name="descripcion" required placeholder="Ej: Un amigurumi de mi perrita, con su collar rojo y las orejas caídas, tamaño mediano."></textarea>
+    </div>
+
+    <div class="campo">
+      <label for="mensaje">Detalles adicionales, ocasión o mensaje para la tarjeta</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Ej: Es un regalo de cumpleaños para mi mamá, sería genial tenerlo antes del 20 de este mes."></textarea>
+    </div>
+
+    <button type="submit" class="boton-enviar" id="boton-enviar">Enviar mi solicitud</button>
+    <div id="mensaje-estado"></div>
+  </form>
+</main>
+
+<footer class="pie">
+  <p>© 2026 Lana Rosa Crochet · <a href="index.html">Volver al inicio</a></p>
+</footer>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://ngjoognzvehwjtpqwrqe.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_2TQ_piaHlSMHa79zjmOOXg_6bEwgkKD';
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const inputFoto = document.getElementById('foto');
+const previsualizacion = document.getElementById('previsualizacion');
+inputFoto.addEventListener('change', () => {
+  const archivo = inputFoto.files[0];
+  if (archivo) {
+    previsualizacion.src = URL.createObjectURL(archivo);
+    previsualizacion.style.display = 'block';
+  }
+});
+
+const form = document.getElementById('form-personalizado');
+const boton = document.getElementById('boton-enviar');
+const mensajeEstado = document.getElementById('mensaje-estado');
+
+form.addEventListener('submit', async (evento) => {
+  evento.preventDefault();
+  mensajeEstado.className = '';
+  mensajeEstado.style.display = 'none';
+  boton.disabled = true;
+  boton.textContent = 'Enviando...';
+
+  try {
+    let fotoUrl = null;
+    const archivo = inputFoto.files[0];
+
+    if (archivo) {
+      const extension = archivo.name.split('.').pop();
+      const nombreArchivo = `${Date.now()}-${Math.random().toString(36).slice(2)}.${extension}`;
+      const { error: errorSubida } = await supabase
+        .storage
+        .from('solicitudes-personalizadas')
+        .upload(nombreArchivo, archivo);
+
+      if (errorSubida) throw new Error('No se pudo subir la foto: ' + errorSubida.message);
+
+      const { data: urlPublica } = supabase
+        .storage
+        .from('solicitudes-personalizadas')
+        .getPublicUrl(nombreArchivo);
+
+      fotoUrl = urlPublica.publicUrl;
+    }
+
+    const { data, error } = await supabase.rpc('crear_solicitud_personalizada', {
+      p_nombre: document.getElementById('nombre').value,
+      p_telefono: document.getElementById('telefono').value,
+      p_correo: document.getElementById('correo').value || null,
+      p_descripcion: document.getElementById('descripcion').value,
+      p_ciudad: document.getElementById('ciudad').value || null,
+      p_foto_url: fotoUrl,
+      p_mensaje: document.getElementById('mensaje').value || null
+    });
+
+    if (error) throw new Error(error.message);
+
+    mensajeEstado.className = 'exito';
+    mensajeEstado.style.display = 'block';
+    mensajeEstado.textContent = `¡Listo! Tu solicitud quedó registrada con el radicado ${data}. Te vamos a escribir por WhatsApp o correo con la cotización muy pronto.`;
+    form.reset();
+    previsualizacion.style.display = 'none';
+    boton.textContent = 'Enviar mi solicitud';
+    boton.disabled = false;
+
+  } catch (err) {
+    mensajeEstado.className = 'error';
+    mensajeEstado.style.display = 'block';
+    mensajeEstado.textContent = 'Algo salió mal: ' + err.message + '. Si el problema persiste, escríbenos directo por WhatsApp.';
+    boton.textContent = 'Enviar mi solicitud';
+    boton.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
