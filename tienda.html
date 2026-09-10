@@ -6,6 +6,8 @@
 <title>Tienda — Amigurumis, peluches y accesorios tejidos a mano | Lana Rosa Crochet</title>
 <meta name="description" content="Amigurumis, peluches, llaveros y macetas tejidas a mano en Manizales. Piezas únicas listas para enviar a toda Colombia. Personalización disponible.">
 <link rel="canonical" href="https://www.lanarosacrochet.com/tienda.html">
+<link rel="icon" type="image/png" href="img/favicon-256.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lana Rosa Crochet">
@@ -1105,12 +1107,12 @@ h1, h2, h3 { font-family: var(--fuente-titulo); font-weight: 600; margin: 0 0 0.
 h1 { font-size: clamp(2.1rem, 4.2vw, 2.8rem); }
 h2 { font-size: 1.6rem; color: var(--rosa-principal); }
 h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.logo-img { height: 34px; width: auto; display: block; }
 .contenedor { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 a { color: var(--rosa-principal); }
 .encabezado { position: sticky; top: 0; z-index: 20; background: rgba(239, 235, 235, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
-.logo-img { height: 34px; width: auto; display: block; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
 .nav-principal a:hover { color: var(--rosa-principal); }
@@ -1124,8 +1126,9 @@ a { color: var(--rosa-principal); }
 .categoria-seccion { padding: 20px 0 48px; scroll-margin-top: 130px; }
 .grid-productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; }
 .producto-card { background: var(--blanco); border-radius: var(--radio-suave); overflow: hidden; box-shadow: var(--sombra-suave); display: flex; flex-direction: column; }
-.producto-foto { background: var(--rosa-suave); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 12px; }
-.producto-foto span { font-size: 0.78rem; color: var(--rosa-principal); text-align: center; }
+.producto-foto { background: var(--rosa-suave); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; position: relative; }
+.producto-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.producto-foto .foto-marcador { font-size: 0.78rem; color: var(--rosa-principal); text-align: center; padding: 12px; align-items: center; justify-content: center; height: 100%; }
 .producto-info { padding: 16px; display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
 .producto-precio { font-weight: 600; color: var(--tinta); margin: 0; }
 .producto-estado { font-size: 0.8rem; margin: 0 0 10px; font-weight: 500; }
@@ -1138,8 +1141,6 @@ a { color: var(--rosa-principal); }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
 </style>
-<link rel="icon" type="image/png" href="img/favicon-256.png">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 
@@ -1187,7 +1188,11 @@ a { color: var(--rosa-principal); }
       <h2>Amigurumis</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca fashionista rubia 29cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339252.jpg" alt="Muñeca fashionista rubia 29cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca fashionista rubia 29cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca fashionista rubia 29cm</h3>
             <p class="producto-precio">$187.000 COP</p>
@@ -1196,7 +1201,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Amigurumi de criatura verde tipo planta 14cm*15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095031.jpg" alt="Amigurumi de criatura verde tipo planta 14cm*15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Amigurumi de criatura verde tipo planta 14cm*15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Amigurumi de criatura verde tipo planta 14cm*15cm</h3>
             <p class="producto-precio">$120.000 COP</p>
@@ -1205,7 +1214,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca de niña con botones en los ojos 19cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339276.jpg" alt="Muñeca de niña con botones en los ojos 19cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de niña con botones en los ojos 19cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca de niña con botones en los ojos 19cm</h3>
             <p class="producto-precio">$95.000 COP</p>
@@ -1214,7 +1227,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de niño explorador con gorra 22cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095062.jpg" alt="Muñeco de niño explorador con gorra 22cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de niño explorador con gorra 22cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de niño explorador con gorra 22cm</h3>
             <p class="producto-precio">$120.000 COP</p>
@@ -1223,7 +1240,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco guerrero de cabello puntiagudo 20cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/muneco-guerrero-de-cabello-puntiagudo-20cm.jpg" alt="Muñeco guerrero de cabello puntiagudo 20cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero de cabello puntiagudo 20cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco guerrero de cabello puntiagudo 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
@@ -1232,7 +1253,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de mago joven con lentes redondos 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783550.jpg" alt="Muñeco de mago joven con lentes redondos 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de mago joven con lentes redondos 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de mago joven con lentes redondos 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1241,7 +1266,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca de gatita blanca con moño 10cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339283.jpg" alt="Muñeca de gatita blanca con moño 10cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de gatita blanca con moño 10cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca de gatita blanca con moño 10cm</h3>
             <p class="producto-precio">$40.000 COP</p>
@@ -1250,7 +1279,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca de bruja con cabello rizado 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783505.jpg" alt="Muñeca de bruja con cabello rizado 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de bruja con cabello rizado 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca de bruja con cabello rizado 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1259,7 +1292,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Ingeniero Civil 22cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095086.jpg" alt="Ingeniero Civil 22cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Ingeniero Civil 22cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Ingeniero Civil 22cm</h3>
             <p class="producto-precio">$120.000 COP</p>
@@ -1268,7 +1305,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca de ovejita enfermera de peluches 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783598.jpg" alt="Muñeca de ovejita enfermera de peluches 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de ovejita enfermera de peluches 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca de ovejita enfermera de peluches 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1277,7 +1318,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco futbolista con camiseta albiceleste 20cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095093.jpg" alt="Muñeco futbolista con camiseta albiceleste 20cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco futbolista con camiseta albiceleste 20cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco futbolista con camiseta albiceleste 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
@@ -1286,7 +1331,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de cantante con guante blanco 19cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095017.jpg" alt="Muñeco de cantante con guante blanco 19cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de cantante con guante blanco 19cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de cantante con guante blanco 19cm</h3>
             <p class="producto-precio">$95.000 COP</p>
@@ -1295,7 +1344,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco ratón clásico con orejas redondas 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339269.jpg" alt="Muñeco ratón clásico con orejas redondas 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco ratón clásico con orejas redondas 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco ratón clásico con orejas redondas 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
@@ -1304,7 +1357,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca ratoncita con moño y lazo 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339290.jpg" alt="Muñeca ratoncita con moño y lazo 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca ratoncita con moño y lazo 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca ratoncita con moño y lazo 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
@@ -1313,7 +1370,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca Hazel 31cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339245.jpg" alt="Muñeca Hazel 31cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Hazel 31cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca Hazel 31cm</h3>
             <p class="producto-precio">$217.000 COP</p>
@@ -1322,7 +1383,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca Lydia 30cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339238.jpg" alt="Muñeca Lydia 30cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Lydia 30cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca Lydia 30cm</h3>
             <p class="producto-precio">$197.000 COP</p>
@@ -1331,7 +1396,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca navegante pelirroja 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783512.jpg" alt="Muñeca navegante pelirroja 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca navegante pelirroja 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca navegante pelirroja 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1340,7 +1409,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Oveja con Vestido 23cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095048.jpg" alt="Oveja con Vestido 23cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Oveja con Vestido 23cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Oveja con Vestido 23cm</h3>
             <p class="producto-precio">$127.000 COP</p>
@@ -1349,7 +1422,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de pato con traje de marinero 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095079.jpg" alt="Muñeco de pato con traje de marinero 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de pato con traje de marinero 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de pato con traje de marinero 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
@@ -1358,7 +1435,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco pirata de cabello negro con pecas 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783536.jpg" alt="Muñeco pirata de cabello negro con pecas 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata de cabello negro con pecas 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco pirata de cabello negro con pecas 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1367,7 +1448,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca de princesa de cabello largo dorado 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095055.jpg" alt="Muñeca de princesa de cabello largo dorado 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de princesa de cabello largo dorado 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca de princesa de cabello largo dorado 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1376,7 +1461,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Ratón Peréz 28cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339214.jpg" alt="Ratón Peréz 28cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Ratón Peréz 28cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Ratón Peréz 28cm</h3>
             <p class="producto-precio">$157.000 COP</p>
@@ -1385,7 +1474,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de mago pelirrojo 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783567.jpg" alt="Muñeco de mago pelirrojo 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de mago pelirrojo 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de mago pelirrojo 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1394,7 +1487,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco espadachín con bandana verde 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783574.jpg" alt="Muñeco espadachín con bandana verde 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco espadachín con bandana verde 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco espadachín con bandana verde 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1403,7 +1500,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeca con temática de fresa y sombrero 25cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339207.jpg" alt="Muñeca con temática de fresa y sombrero 25cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca con temática de fresa y sombrero 25cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeca con temática de fresa y sombrero 25cm</h3>
             <p class="producto-precio">$130.000 COP</p>
@@ -1412,7 +1513,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco cocinero pirata con traje elegante ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783581.jpg" alt="Muñeco cocinero pirata con traje elegante" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco cocinero pirata con traje elegante ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco cocinero pirata con traje elegante</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1421,7 +1526,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco pirata francotirador con nariz larga ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709847783529.jpg" alt="Muñeco pirata francotirador con nariz larga" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata francotirador con nariz larga ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco pirata francotirador con nariz larga</h3>
             <p class="producto-precio">$85.000 COP</p>
@@ -1430,7 +1539,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco guerrero orgulloso de cabello negro 20cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/muneco-guerrero-orgulloso-de-cabello-negro-20cm.jpg" alt="Muñeco guerrero orgulloso de cabello negro 20cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero orgulloso de cabello negro 20cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco guerrero orgulloso de cabello negro 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
@@ -1439,7 +1552,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Muñeco de osito amarillo con corazón 10cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709575095000.jpg" alt="Muñeco de osito amarillo con corazón 10cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de osito amarillo con corazón 10cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Muñeco de osito amarillo con corazón 10cm</h3>
             <p class="producto-precio">$55.000 COP</p>
@@ -1454,7 +1571,11 @@ a { color: var(--rosa-principal); }
       <h2>Peluches</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Castor con Fresa 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264981.jpg" alt="Peluche Castor con Fresa 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Castor con Fresa 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Castor con Fresa 15cm</h3>
             <p class="producto-precio">$52.000 COP</p>
@@ -1463,7 +1584,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Cerdo 21cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264974.jpg" alt="Peluche Cerdo 21cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Cerdo 21cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Cerdo 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
@@ -1472,7 +1597,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Conejo (Sin ropa) 22cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264912.jpg" alt="Peluche Conejo (Sin ropa) 22cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Conejo (Sin ropa) 22cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Conejo (Sin ropa) 22cm</h3>
             <p class="producto-precio">$65.000 COP</p>
@@ -1481,7 +1610,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Dinosaurio 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293769.jpg" alt="Peluche Dinosaurio 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Dinosaurio 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Dinosaurio 14cm</h3>
             <p class="producto-precio">$35.000 COP</p>
@@ -1490,7 +1623,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Elefante 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293752.jpg" alt="Peluche Elefante 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Elefante 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Elefante 14cm</h3>
             <p class="producto-precio">$38.000 COP</p>
@@ -1499,7 +1636,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Gato (Huevo) 11cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293714.jpg" alt="Peluche Gato (Huevo) 11cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Gato (Huevo) 11cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Gato (Huevo) 11cm</h3>
             <p class="producto-precio">$35.000 COP</p>
@@ -1508,7 +1649,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche gato 21cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264967.jpg" alt="Peluche gato 21cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche gato 21cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche gato 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
@@ -1517,7 +1662,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Oso 21cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264929.jpg" alt="Peluche Oso 21cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Oso 21cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Oso 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
@@ -1526,7 +1675,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Pingüino 14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293790.jpg" alt="Peluche Pingüino 14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pingüino 14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Pingüino 14cm</h3>
             <p class="producto-precio">$42.000 COP</p>
@@ -1535,7 +1688,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Pollito (Huevo) 12cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/peluche-pollito-huevo-12cm.jpg" alt="Peluche Pollito (Huevo) 12cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pollito (Huevo) 12cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Pollito (Huevo) 12cm</h3>
             <p class="producto-precio">$35.000 COP</p>
@@ -1544,7 +1701,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Sin Rostro 15cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264905.jpg" alt="Peluche Sin Rostro 15cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Sin Rostro 15cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Sin Rostro 15cm</h3>
             <p class="producto-precio">$42.000 COP</p>
@@ -1553,7 +1714,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche de perrito blanco clásico 32cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264943.jpg" alt="Peluche de perrito blanco clásico 32cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche de perrito blanco clásico 32cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche de perrito blanco clásico 32cm</h3>
             <p class="producto-precio">$110.000 COP</p>
@@ -1562,7 +1727,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche de superhéroe arácnido 22cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293721.jpg" alt="Peluche de superhéroe arácnido 22cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche de superhéroe arácnido 22cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche de superhéroe arácnido 22cm</h3>
             <p class="producto-precio">$70.000 COP</p>
@@ -1577,7 +1746,11 @@ a { color: var(--rosa-principal); }
       <h2>Charms</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Abeja 6cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246243.jpg" alt="Llavero Abeja 6cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Abeja 6cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Abeja 6cm</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1586,7 +1759,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Abeja con Gafas 6cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246205.jpg" alt="Llavero Abeja con Gafas 6cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Abeja con Gafas 6cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Abeja con Gafas 6cm</h3>
             <p class="producto-precio">$14.000 COP</p>
@@ -1595,7 +1772,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Ballena 5cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293745.jpg" alt="Llavero Ballena 5cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Ballena 5cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Ballena 5cm</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1604,7 +1785,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Balón Colombia ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/llavero-balon-colombia.jpg" alt="Llavero Balón Colombia" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Balón Colombia ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Balón Colombia</h3>
             <p class="producto-precio">$15.000 COP</p>
@@ -1613,7 +1798,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Capibara con Disfraz 7cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293783.jpg" alt="Llavero Capibara con Disfraz 7cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Capibara con Disfraz 7cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Capibara con Disfraz 7cm</h3>
             <p class="producto-precio">$22.000 COP</p>
@@ -1622,7 +1811,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Corazón 5cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246212.jpg" alt="Llavero Corazón 5cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Corazón 5cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Corazón 5cm</h3>
             <p class="producto-precio">$18.000 COP</p>
@@ -1631,7 +1824,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero de Pulpo 4cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246281.jpg" alt="Llavero de Pulpo 4cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero de Pulpo 4cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero de Pulpo 4cm</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1640,7 +1837,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Estrella 6cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709164727718.jpg" alt="Llavero Estrella 6cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Estrella 6cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Estrella 6cm</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1649,7 +1850,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Frailejón Ernesto Pérez 11cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293776.jpg" alt="Llavero Frailejón Ernesto Pérez 11cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Frailejón Ernesto Pérez 11cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Frailejón Ernesto Pérez 11cm</h3>
             <p class="producto-precio">$25.000 COP</p>
@@ -1658,7 +1863,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Fresa 5cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246298.jpg" alt="Llavero Fresa 5cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa 5cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Fresa 5cm</h3>
             <p class="producto-precio">$13.000 COP</p>
@@ -1667,7 +1876,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Fresa con sombrero de Pollo 6cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709164727732.jpg" alt="Llavero Fresa con sombrero de Pollo 6cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa con sombrero de Pollo 6cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Fresa con sombrero de Pollo 6cm</h3>
             <p class="producto-precio">$25.000 COP</p>
@@ -1676,7 +1889,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Fresa Peluche 8cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709724293738.jpg" alt="Llavero Fresa Peluche 8cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa Peluche 8cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Fresa Peluche 8cm</h3>
             <p class="producto-precio">$20.000 COP</p>
@@ -1685,7 +1902,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero de criatura de orejas puntiagudas 10cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709274339221.jpg" alt="Llavero de criatura de orejas puntiagudas 10cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero de criatura de orejas puntiagudas 10cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero de criatura de orejas puntiagudas 10cm</h3>
             <p class="producto-precio">$35.000 COP</p>
@@ -1694,7 +1915,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero de pirata con sombrero de paja ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/llavero-de-pirata-con-sombrero-de-paja.jpg" alt="Llavero de pirata con sombrero de paja" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero de pirata con sombrero de paja ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero de pirata con sombrero de paja</h3>
             <p class="producto-precio">$35.000 COP</p>
@@ -1703,7 +1928,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Medusa ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/llavero-medusa.jpg" alt="Llavero Medusa" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Medusa ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Medusa</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1712,7 +1941,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Pollito con Sombrero de Fresa 6cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709164727763.jpg" alt="Llavero Pollito con Sombrero de Fresa 6cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollito con Sombrero de Fresa 6cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Pollito con Sombrero de Fresa 6cm</h3>
             <p class="producto-precio">$25.000 COP</p>
@@ -1721,7 +1954,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Pollo 4cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246229.jpg" alt="Llavero Pollo 4cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollo 4cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Pollo 4cm</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1730,7 +1967,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Pollo con Gafas 4cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246267.jpg" alt="Llavero Pollo con Gafas 4cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollo con Gafas 4cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Pollo con Gafas 4cm</h3>
             <p class="producto-precio">$14.000 COP</p>
@@ -1739,7 +1980,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Pulpo con Gafas ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246236.jpg" alt="Llavero Pulpo con Gafas" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pulpo con Gafas ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Pulpo con Gafas</h3>
             <p class="producto-precio">$14.000 COP</p>
@@ -1748,7 +1993,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Rosa ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246250.jpg" alt="Llavero Rosa" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Rosa ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Rosa</h3>
             <p class="producto-precio">$12.000 COP</p>
@@ -1757,7 +2006,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Llavero Tortuga 8cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709253246274.jpg" alt="Llavero Tortuga 8cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Llavero Tortuga 8cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Llavero Tortuga 8cm</h3>
             <p class="producto-precio">$25.000 COP</p>
@@ -1772,7 +2025,11 @@ a { color: var(--rosa-principal); }
       <h2>Macetas</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Maceta de Zorro 12cm*12cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264998.jpg" alt="Maceta de Zorro 12cm*12cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Maceta de Zorro 12cm*12cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Maceta de Zorro 12cm*12cm</h3>
             <p class="producto-precio">$90.000 COP</p>
@@ -1781,7 +2038,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Maceta Margarita ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/maceta-margarita.jpg" alt="Maceta Margarita" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Maceta Margarita ]</span>
+          </div>
           <div class="producto-info">
             <h3>Maceta Margarita</h3>
             <p class="producto-precio">$45.000 COP</p>
@@ -1790,7 +2051,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Maceta Tulipán ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/maceta-tulipan.jpg" alt="Maceta Tulipán" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Maceta Tulipán ]</span>
+          </div>
           <div class="producto-info">
             <h3>Maceta Tulipán</h3>
             <p class="producto-precio">$45.000 COP</p>
@@ -1799,7 +2064,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Set Cactus "LOVE" 10cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264950.jpg" alt="Set Cactus "LOVE" 10cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Set Cactus "LOVE" 10cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Set Cactus "LOVE" 10cm</h3>
             <p class="producto-precio">$120.000 COP</p>
@@ -1814,7 +2083,11 @@ a { color: var(--rosa-principal); }
       <h2>Flores</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Regadera 8cm*14cm ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709298264936.jpg" alt="Regadera 8cm*14cm" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Regadera 8cm*14cm ]</span>
+          </div>
           <div class="producto-info">
             <h3>Regadera 8cm*14cm</h3>
             <p class="producto-precio">$42.000 COP</p>
@@ -1823,7 +2096,11 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Rosa Individual ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/7709164727770.jpg" alt="Rosa Individual" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Rosa Individual ]</span>
+          </div>
           <div class="producto-info">
             <h3>Rosa Individual</h3>
             <p class="producto-precio">$15.000 COP</p>
@@ -1838,7 +2115,11 @@ a { color: var(--rosa-principal); }
       <h2>Separadores de libros</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Gato Separador de Libros ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/gato-separador-de-libros.jpg" alt="Gato Separador de Libros" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Gato Separador de Libros ]</span>
+          </div>
           <div class="producto-info">
             <h3>Gato Separador de Libros</h3>
             <p class="producto-precio">$8.000 COP</p>
@@ -1853,7 +2134,11 @@ a { color: var(--rosa-principal); }
       <h2>Otros</h2>
       <div class="grid-productos">
         <article class="producto-card">
-          <div class="producto-foto"><span>[ Foto de Peluche Pato ]</span></div>
+          <div class="producto-foto">
+            <img src="img/productos/peluche-pato.jpg" alt="Peluche Pato" loading="lazy"
+                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pato ]</span>
+          </div>
           <div class="producto-info">
             <h3>Peluche Pato</h3>
             <p class="producto-precio">$35.000 COP</p>
