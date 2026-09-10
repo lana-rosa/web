@@ -153,6 +153,21 @@ section { padding: 72px 0; }
 .pie ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .pie .logo-pie { font-family: var(--fuente-titulo); color: var(--rosa-medio); font-size: 1.5rem; }
 .derechos { text-align: center; font-size: 0.82rem; opacity: 0.6; margin-top: 40px; }
+.pie-rico { background: var(--tinta); color: var(--blanco-hueso); padding: 50px 0 24px; font-size: 0.88rem; }
+.pie-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.2fr; gap: 30px; margin-bottom: 34px; }
+@media (max-width: 900px) { .pie-grid { grid-template-columns: 1fr 1fr; } }
+.pie-logo-wrap { background: #fff; display: inline-block; padding: 8px 14px; border-radius: 12px; margin-bottom: 14px; }
+.pie-logo-wrap img { height: 26px; display: block; }
+.pie-rico p { opacity: 0.85; margin: 0 0 6px; }
+.pie-rico h3 { color: var(--rosa-medio); font-size: 0.88rem; margin: 0 0 12px; font-family: var(--fuente-titulo); font-weight: 600; }
+.pie-rico ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.pie-rico a { color: var(--blanco-hueso); opacity: 0.85; text-decoration: none; }
+.pie-rico a:hover { opacity: 1; color: var(--rosa-medio); }
+.pie-pagos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.pie-pagos span { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 999px; font-size: 0.76rem; }
+.pie-legal { display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-bottom: 16px; font-size: 0.82rem; }
+.pie-legal a { opacity: 0.85; }
+.derechos { text-align: center; font-size: 0.78rem; opacity: 0.6; margin: 0; }
 </style>
 <link rel="icon" type="image/png" href="img/favicon-256.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -172,7 +187,7 @@ section { padding: 72px 0; }
         <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
       </ul>
     </nav>
-    <a class="boton-whatsapp" href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
 
@@ -303,27 +318,26 @@ section { padding: 72px 0; }
 
 </main>
 
-<footer class="pie">
-  <div class="contenedor">
+<footer class="pie-rico">
+  <div class="contenedor pie-grid">
     <div>
-      <p class="logo-pie">Lana Rosa Crochet</p>
-      <p style="opacity:0.85; font-size:0.92rem;">Manizales / Villamaría, Caldas, Colombia</p>
+      <div class="pie-logo-wrap"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet"></div>
+      <p>Amigurumis y accesorios tejidos a mano en Manizales / Villamaría, Colombia.</p>
     </div>
     <div>
-      <h3>Explora</h3>
+      <h3>Nosotros</h3>
       <ul>
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="aprende.html">Academy</a></li>
+        <li><a href="sobre-nosotras.html">Quiénes somos</a></li>
         <li><a href="rosina.html">Rosina</a></li>
-        <li><a href="revista.html">Revista</a></li>
+        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">Contáctanos</a></li>
       </ul>
     </div>
     <div>
-      <h3>Ayuda</h3>
+      <h3>Tienda</h3>
       <ul>
-        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
-        <li><a href="https://wa.me/57XXXXXXXXXX">Contacto por WhatsApp</a></li>
+        <li><a href="tienda.html">Ver catálogo</a></li>
+        <li><a href="personaliza.html">Personalizados</a></li>
+        <li><a href="aprende.html">Talleres</a></li>
       </ul>
     </div>
     <div>
@@ -333,8 +347,22 @@ section { padding: 72px 0; }
         <li><a href="https://www.facebook.com/lanarosacrochet" target="_blank" rel="noopener">Facebook</a></li>
       </ul>
     </div>
+    <div>
+      <h3>Medios de pago</h3>
+      <div class="pie-pagos">
+        <span>Efectivo</span><span>Nequi</span><span>Daviplata</span><span>Tarjeta débito/crédito</span>
+      </div>
+      <p>
+        <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a><br>
+        <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a>
+      </p>
+    </div>
   </div>
-  <p class="derechos">© 2026 Lana Rosa Crochet. Todos los derechos reservados.</p>
+  <div class="contenedor pie-legal">
+    <a href="politicas.html#cambios">Política de cambios</a>
+    <a href="politicas.html#datos">Tratamiento de datos</a>
+  </div>
+  <p class="derechos contenedor">© 2026 Lana Rosa Crochet. Todos los derechos reservados.</p>
 </footer>
 
 </body>
