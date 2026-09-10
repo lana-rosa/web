@@ -60,6 +60,7 @@ a { color: var(--rosa-principal); }
 .encabezado { position: sticky; top: 0; z-index: 20; background: rgba(239, 235, 235, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .barra { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
+.logo-img { height: 34px; width: auto; display: block; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
 .nav-principal a:hover { color: var(--rosa-principal); }
@@ -102,12 +103,14 @@ section { padding: 20px 0 60px; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
 </style>
+<link rel="icon" type="image/png" href="img/favicon-256.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 
 <header class="encabezado">
   <div class="contenedor barra">
-    <a href="index.html" class="logo">Lana Rosa Crochet</a>
+    <a href="index.html" class="logo"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet" class="logo-img"></a>
     <nav aria-label="Navegación principal">
       <ul class="nav-principal">
         <li><a href="tienda.html">Tienda</a></li>
@@ -130,13 +133,13 @@ section { padding: 20px 0 60px; }
   </section>
 
   <section class="contenedor">
-    <h2>Taller activo</h2>
+    <h2>Nuestro taller</h2>
     <article class="tarjeta-curso">
       <div class="foto-curso"><span>[ Foto real del taller "Desconecta para Conectar" — participantes tejiendo su posavasos ]</span></div>
       <div class="info-curso">
         <span class="etiqueta-nivel">Nivel principiante</span>
         <h3>Desconecta para Conectar — Posavasos flor en crochet</h3>
-        <p>Un espacio de tres horas para desconectarte del ruido de afuera y tejer con tus manos, sin necesidad de haber tejido antes. Sales con tu propio posavasos en forma de flor, listo para usar.</p>
+        <p>Un espacio de tres horas para desconectarte del ruido de afuera y tejer con tus manos, sin necesidad de haber tejido antes. Sales con tu propio posavasos en forma de flor, listo para usar. Ya hicimos la primera edición — y va a repetirse.</p>
         <ul class="detalles-curso">
           <li><span class="etiqueta">Duración:</span> 3 horas</li>
           <li><span class="etiqueta">Incluye:</span> Kit completo (lana, aguja de crochet, aguja lanera, marcadores de puntos, tijeras y bolsa de tela) + refrigerio</li>
@@ -144,7 +147,7 @@ section { padding: 20px 0 60px; }
           <li><span class="etiqueta">Para quién:</span> Cualquier persona, sin experiencia previa</li>
         </ul>
         <p class="precio-curso">$50.000 COP</p>
-        <a class="boton-primario" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Quiero%20inscribirme%20al%20taller%20Desconecta%20para%20Conectar" target="_blank" rel="noopener">Reservar mi cupo</a>
+        <a class="boton-primario" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Quiero%20que%20me%20avisen%20de%20la%20pr%C3%B3xima%20fecha%20del%20taller%20Desconecta%20para%20Conectar" target="_blank" rel="noopener">Avísenme de la próxima fecha</a>
       </div>
     </article>
   </section>
