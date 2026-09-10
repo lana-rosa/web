@@ -52,6 +52,7 @@ a { color: var(--rosa-principal); }
 .encabezado { position: sticky; top: 0; z-index: 20; background: rgba(239, 235, 235, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .barra { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
+.logo-img { height: 34px; width: auto; display: block; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
 .nav-principal a:hover { color: var(--rosa-principal); }
@@ -80,12 +81,14 @@ section { padding: 20px 0 56px; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
 </style>
+<link rel="icon" type="image/png" href="img/favicon-256.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 
 <header class="encabezado">
   <div class="contenedor barra">
-    <a href="index.html" class="logo">Lana Rosa Crochet</a>
+    <a href="index.html" class="logo"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet" class="logo-img"></a>
     <nav aria-label="Navegación principal">
       <ul class="nav-principal">
         <li><a href="tienda.html">Tienda</a></li>
