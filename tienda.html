@@ -1183,6 +1183,29 @@ a { color: var(--rosa-principal); }
 .boton-eliminar-item { background: none; border: none; color: var(--tinta-suave); font-size: 1.2rem; cursor: pointer; align-self: flex-start; }
 .carrito-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; padding: 16px 0; border-top: 1px solid rgba(58,42,46,0.12); margin-top: 12px; }
 .carrito-total span:last-child { color: var(--rosa-principal); }
+
+.producto-foto { cursor: pointer; }
+
+.overlay-modal-producto { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1001; display: none; align-items: center; justify-content: center; padding: 20px; }
+.overlay-modal-producto.abierto { display: flex; }
+.modal-producto { background: var(--blanco-hueso); border-radius: var(--radio-suave); max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-producto-cerrar { position: absolute; top: 14px; right: 14px; background: var(--blanco); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; z-index: 2; box-shadow: var(--sombra-suave); }
+.modal-producto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+@media (max-width: 640px) { .modal-producto-grid { grid-template-columns: 1fr; } }
+.modal-galeria { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: var(--rosa-suave); }
+.modal-galeria .foto-principal { aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: var(--blanco); }
+.modal-galeria .foto-principal img { width: 100%; height: 100%; object-fit: cover; }
+.modal-galeria .miniaturas { display: flex; gap: 6px; }
+.modal-galeria .miniaturas img { width: 60px; height: 60px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid transparent; }
+.modal-galeria .miniaturas img.activa { border-color: var(--rosa-principal); }
+.modal-info-producto { padding: 28px; }
+.modal-info-producto h2 { font-size: 1.4rem; margin-bottom: 8px; }
+.modal-info-producto .precio-modal { font-size: 1.3rem; font-weight: 700; color: var(--rosa-principal); margin-bottom: 10px; }
+.modal-info-producto .descripcion-modal { margin-bottom: 18px; color: var(--tinta-suave); }
+.ficha-tecnica { list-style: none; padding: 0; margin: 0 0 20px; font-size: 0.9rem; }
+.ficha-tecnica li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(58,42,46,0.08); }
+.ficha-tecnica li span:first-child { font-weight: 600; color: var(--tinta-suave); }
+.modal-botones { display: flex; flex-direction: column; gap: 10px; }
 .boton-ver-mas {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; margin: 24px 0 8px;
@@ -1197,6 +1220,14 @@ a { color: var(--rosa-principal); }
 .campo-buscador label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: 6px; }
 .campo-buscador input { width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--rosa-suave); background: var(--blanco); font-family: var(--fuente-cuerpo); font-size: 0.95rem; color: var(--tinta); }
 .campo-buscador input:focus { outline: none; border-color: var(--rosa-principal); }
+.campo { margin-bottom: 18px; }
+.campo label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.92rem; }
+.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); padding: 26px; box-shadow: var(--sombra-suave); }
+#selector-estrellas span.activa { color: var(--rosa-principal); }
+.tarjeta-resena { background: var(--blanco); border-radius: 16px; padding: 18px; box-shadow: var(--sombra-suave); }
+.tarjeta-resena .estrellas-resena { color: var(--rosa-principal); font-size: 1.1rem; margin-bottom: 6px; }
+.tarjeta-resena p.comentario-resena { color: var(--tinta-suave); font-size: 0.92rem; margin-bottom: 10px; }
+.tarjeta-resena .autor-resena { font-weight: 600; font-size: 0.88rem; }
 .aviso-personalizado { background: var(--rosa-suave); border-radius: var(--radio-suave); padding: 28px 32px; margin: 20px 0 40px; max-width: 780px; }
 .aviso-personalizado a.boton-primario { display: inline-block; margin-top: 10px; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
@@ -2304,6 +2335,37 @@ a { color: var(--rosa-principal); }
     </div>
     <p style="font-weight:600; color:var(--rosa-principal); margin-top:14px;">🕒 Entrega: 1 semana después de confirmar el pago, o con envío inmediato según disponibilidad.</p>
   </div>
+
+  <section class="contenedor" id="resenas" style="padding:40px 0 60px;">
+    <h2 style="font-size:1.4rem; margin-bottom:6px;">Reseñas de nuestras clientas</h2>
+    <p style="color:var(--tinta-suave); margin-bottom:24px;">Comparte tu experiencia con tu pedido — tu reseña se publica luego de que la revisemos.</p>
+
+    <div id="lista-resenas" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px; margin-bottom:32px;"></div>
+    <p id="sin-resenas" style="display:none; color:var(--tinta-suave);">Todavía no hay reseñas publicadas — ¡sé la primera en dejar una!</p>
+
+    <details style="max-width:520px;">
+      <summary style="cursor:pointer; font-weight:600; color:var(--rosa-principal); margin-bottom:16px;">✍️ Dejar una reseña</summary>
+      <form id="form-resena" class="tarjeta" style="margin-top:14px;">
+        <div class="campo">
+          <label for="resena-nombre">Tu nombre*</label>
+          <input type="text" id="resena-nombre" required style="width:100%; padding:11px 14px; border-radius:12px; border:1.5px solid var(--rosa-suave); font-family:var(--fuente-cuerpo);">
+        </div>
+        <div class="campo">
+          <label>Calificación*</label>
+          <div id="selector-estrellas" style="font-size:1.8rem; cursor:pointer; color:var(--rosa-suave);">
+            <span data-valor="1">★</span><span data-valor="2">★</span><span data-valor="3">★</span><span data-valor="4">★</span><span data-valor="5">★</span>
+          </div>
+          <input type="hidden" id="resena-calificacion" value="0">
+        </div>
+        <div class="campo">
+          <label for="resena-comentario">Tu comentario*</label>
+          <textarea id="resena-comentario" required minlength="5" maxlength="600" rows="4" style="width:100%; padding:11px 14px; border-radius:12px; border:1.5px solid var(--rosa-suave); font-family:var(--fuente-cuerpo);"></textarea>
+        </div>
+        <button type="submit" class="boton-primario" style="border:none; cursor:pointer; width:100%;">Enviar reseña</button>
+        <p id="resena-mensaje" style="display:none; margin-top:12px; padding:12px; border-radius:10px;"></p>
+      </form>
+    </details>
+  </section>
 </main>
 
 <footer class="pie-rico">
@@ -2645,6 +2707,232 @@ function manejarErrorFoto(img) {
 
   actualizarContador();
 })();
+</script>
+<div class="overlay-modal-producto" id="overlay-modal-producto">
+  <div class="modal-producto" id="modal-producto">
+    <button class="modal-producto-cerrar" id="cerrar-modal-producto" aria-label="Cerrar">&times;</button>
+    <div class="modal-producto-grid">
+      <div class="modal-galeria">
+        <div class="foto-principal"><img id="modal-foto-principal" src="" alt=""></div>
+        <div class="miniaturas" id="modal-miniaturas"></div>
+      </div>
+      <div class="modal-info-producto">
+        <h2 id="modal-nombre"></h2>
+        <p class="precio-modal" id="modal-precio"></p>
+        <p class="descripcion-modal" id="modal-descripcion"></p>
+        <ul class="ficha-tecnica" id="modal-ficha"></ul>
+        <div class="modal-botones">
+          <button type="button" class="boton-primario" id="modal-boton-carrito" style="border:none; cursor:pointer;">🛒 Agregar al carrito</button>
+          <a class="boton-pedir" id="modal-boton-whatsapp" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATOS_PRODUCTOS = {"7709274339283": {"nombre": "Muñeca de gatita blanca con moño 10cm", "precio": 40000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "10cm"}, "7709575095000": {"nombre": "Muñeco de osito amarillo con corazón 10cm", "precio": 55000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "10cm"}, "7709274339269": {"nombre": "Muñeco ratón clásico con orejas redondas 15cm", "precio": 75000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709274339290": {"nombre": "Muñeca ratoncita con moño y lazo 15cm", "precio": 75000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709575095079": {"nombre": "Muñeco de pato con traje de marinero 15cm", "precio": 75000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709847783550": {"nombre": "Muñeco de mago joven con lentes redondos 14cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "14cm"}, "7709847783505": {"nombre": "Muñeca de bruja con cabello rizado 14cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "14cm"}, "7709847783598": {"nombre": "Muñeca de ovejita enfermera de peluches 15cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709847783512": {"nombre": "Muñeca navegante pelirroja 15cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709847783536": {"nombre": "Muñeco pirata de cabello negro con pecas 15cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709575095055": {"nombre": "Muñeca de princesa de cabello largo dorado 15cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709847783567": {"nombre": "Muñeco de mago pelirrojo 14cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "14cm"}, "7709847783574": {"nombre": "Muñeco espadachín con bandana verde 15cm", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "15cm"}, "7709847783581": {"nombre": "Muñeco cocinero pirata con traje elegante", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709847783529": {"nombre": "Muñeco pirata francotirador con nariz larga", "precio": 85000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709274339276": {"nombre": "Muñeca de niña con botones en los ojos 19cm", "precio": 95000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "19cm"}, "muneco-guerrero-de-cabello-puntiagudo-20cm": {"nombre": "Muñeco guerrero de cabello puntiagudo 20cm", "precio": 95000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "20cm"}, "7709575095093": {"nombre": "Muñeco futbolista con camiseta albiceleste 20cm", "precio": 95000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "20cm"}, "7709575095017": {"nombre": "Muñeco de cantante con guante blanco 19cm", "precio": 95000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "19cm"}, "muneco-guerrero-orgulloso-de-cabello-negro-20cm": {"nombre": "Muñeco guerrero orgulloso de cabello negro 20cm", "precio": 95000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "20cm"}, "7709575095031": {"nombre": "Amigurumi de criatura verde tipo planta 14cm*15cm", "precio": 120000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "14cm  x  15cm"}, "7709575095062": {"nombre": "Muñeco de niño explorador con gorra 22cm", "precio": 120000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "22cm"}, "7709575095086": {"nombre": "Ingeniero Civil 22cm", "precio": 120000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "22cm"}, "7709575095048": {"nombre": "Oveja con Vestido 23cm", "precio": 127000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "23cm"}, "7709274339207": {"nombre": "Muñeca con temática de fresa y sombrero 25cm", "precio": 130000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "25cm"}, "7709274339214": {"nombre": "Ratón Peréz 28cm", "precio": 157000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "28cm"}, "7709274339252": {"nombre": "Muñeca fashionista rubia 29cm", "precio": 187000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "29cm"}, "7709274339238": {"nombre": "Muñeca Lydia 30cm", "precio": 197000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "30cm"}, "7709274339245": {"nombre": "Muñeca Hazel 31cm", "precio": 217000, "categoria": "Amigurumis", "disponible": true, "descripcion": "Amigurumi tejido a mano en nuestro taller de Villamaría, Caldas. Una pieza única, suave y detallada, ideal para regalar o coleccionar.", "tamano": "31cm"}, "7709724293769": {"nombre": "Peluche Dinosaurio 14cm", "precio": 35000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "14cm"}, "7709724293714": {"nombre": "Peluche Gato (Huevo) 11cm", "precio": 35000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "11cm"}, "peluche-pollito-huevo-12cm": {"nombre": "Peluche Pollito (Huevo) 12cm", "precio": 35000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "12cm"}, "7709724293752": {"nombre": "Peluche Elefante 14cm", "precio": 38000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "14cm"}, "7709724293790": {"nombre": "Peluche Pingüino 14cm", "precio": 42000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "14cm"}, "7709298264905": {"nombre": "Peluche Sin Rostro 15cm", "precio": 42000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "15cm"}, "7709298264981": {"nombre": "Peluche Castor con Fresa 15cm", "precio": 52000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "15cm"}, "7709298264974": {"nombre": "Peluche Cerdo 21cm", "precio": 65000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "21cm"}, "7709298264912": {"nombre": "Peluche Conejo (Sin ropa) 22cm", "precio": 65000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "22cm"}, "7709298264967": {"nombre": "Peluche gato 21cm", "precio": 65000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "21cm"}, "7709298264929": {"nombre": "Peluche Oso 21cm", "precio": 65000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "21cm"}, "7709724293721": {"nombre": "Peluche de superhéroe arácnido 22cm", "precio": 70000, "categoria": "Peluches", "disponible": false, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "22cm"}, "7709298264943": {"nombre": "Peluche de perrito blanco clásico 32cm", "precio": 110000, "categoria": "Peluches", "disponible": true, "descripcion": "Peluche tejido a mano en Villamaría, Caldas. Suave, tierno y hecho para durar — perfecto para regalar en cualquier ocasión.", "tamano": "32cm"}, "7709253246243": {"nombre": "Llavero Abeja 6cm", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "6cm"}, "7709724293745": {"nombre": "Llavero Ballena 5cm", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "5cm"}, "7709253246281": {"nombre": "Llavero de Pulpo 4cm", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "4cm"}, "7709164727718": {"nombre": "Llavero Estrella 6cm", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "6cm"}, "llavero-medusa": {"nombre": "Llavero Medusa", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709253246229": {"nombre": "Llavero Pollo 4cm", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "4cm"}, "7709253246250": {"nombre": "Llavero Rosa", "precio": 12000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709253246298": {"nombre": "Llavero Fresa 5cm", "precio": 13000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "5cm"}, "7709253246205": {"nombre": "Llavero Abeja con Gafas 6cm", "precio": 14000, "categoria": "Charms", "disponible": false, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "6cm"}, "7709253246267": {"nombre": "Llavero Pollo con Gafas 4cm", "precio": 14000, "categoria": "Charms", "disponible": false, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "4cm"}, "7709253246236": {"nombre": "Llavero Pulpo con Gafas", "precio": 14000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "Consulta el tamaño por WhatsApp"}, "llavero-balon-colombia": {"nombre": "Llavero Balón Colombia", "precio": 15000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709253246212": {"nombre": "Llavero Corazón 5cm", "precio": 18000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "5cm"}, "7709724293738": {"nombre": "Llavero Fresa Peluche 8cm", "precio": 20000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "8cm"}, "7709724293783": {"nombre": "Llavero Capibara con Disfraz 7cm", "precio": 22000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "7cm"}, "7709724293776": {"nombre": "Llavero Frailejón Ernesto Pérez 11cm", "precio": 25000, "categoria": "Charms", "disponible": false, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "11cm"}, "7709164727732": {"nombre": "Llavero Fresa con sombrero de Pollo 6cm", "precio": 25000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "6cm"}, "7709164727763": {"nombre": "Llavero Pollito con Sombrero de Fresa 6cm", "precio": 25000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "6cm"}, "7709253246274": {"nombre": "Llavero Tortuga 8cm", "precio": 25000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "8cm"}, "7709274339221": {"nombre": "Llavero de criatura de orejas puntiagudas 10cm", "precio": 35000, "categoria": "Charms", "disponible": true, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "10cm"}, "llavero-de-pirata-con-sombrero-de-paja": {"nombre": "Llavero de pirata con sombrero de paja", "precio": 35000, "categoria": "Charms", "disponible": false, "descripcion": "Llavero tejido a mano, un detalle pequeño hecho con mucho cariño. Perfecto para acompañar bolsos, mochilas o como regalo sencillo.", "tamano": "Consulta el tamaño por WhatsApp"}, "maceta-margarita": {"nombre": "Maceta Margarita", "precio": 45000, "categoria": "Macetas", "disponible": true, "descripcion": "Maceta decorativa tejida a mano. Un toque artesanal y tierno para acompañar plantas, suculentas o flores en cualquier espacio.", "tamano": "Consulta el tamaño por WhatsApp"}, "maceta-tulipan": {"nombre": "Maceta Tulipán", "precio": 45000, "categoria": "Macetas", "disponible": true, "descripcion": "Maceta decorativa tejida a mano. Un toque artesanal y tierno para acompañar plantas, suculentas o flores en cualquier espacio.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709298264998": {"nombre": "Maceta de Zorro 12cm*12cm", "precio": 90000, "categoria": "Macetas", "disponible": true, "descripcion": "Maceta decorativa tejida a mano. Un toque artesanal y tierno para acompañar plantas, suculentas o flores en cualquier espacio.", "tamano": "12cm  x  12cm"}, "7709298264950": {"nombre": "Set Cactus \"LOVE\" 10cm", "precio": 120000, "categoria": "Macetas", "disponible": true, "descripcion": "Maceta decorativa tejida a mano. Un toque artesanal y tierno para acompañar plantas, suculentas o flores en cualquier espacio.", "tamano": "10cm"}, "7709164727770": {"nombre": "Rosa Individual", "precio": 15000, "categoria": "Flores", "disponible": true, "descripcion": "Flor tejida a mano — un detalle delicado que nunca se marchita, ideal para decorar o regalar.", "tamano": "Consulta el tamaño por WhatsApp"}, "7709298264936": {"nombre": "Regadera 8cm*14cm", "precio": 42000, "categoria": "Flores", "disponible": true, "descripcion": "Flor tejida a mano — un detalle delicado que nunca se marchita, ideal para decorar o regalar.", "tamano": "8cm  x  14cm"}, "gato-separador-de-libros": {"nombre": "Gato Separador de Libros", "precio": 8000, "categoria": "Separadores de libros", "disponible": true, "descripcion": "Separador de libros tejido a mano — práctico, tierno, y perfecto para los amantes de la lectura.", "tamano": "Consulta el tamaño por WhatsApp"}, "peluche-pato": {"nombre": "Peluche Pato", "precio": 35000, "categoria": "Otros", "disponible": true, "descripcion": "Pieza tejida a mano con dedicación en nuestro taller de Villamaría, Caldas.", "tamano": "Consulta el tamaño por WhatsApp"}};
+
+(function() {
+  var extensionesProducto = ['.jpg', '.jpg.png', '.jpg.jpg', '.png', '.jpeg'];
+
+  function probarExtensiones(idBase, callback) {
+    var intento = 0;
+    var img = new Image();
+    function siguiente() {
+      if (intento >= extensionesProducto.length) { callback(null); return; }
+      img.src = 'img/productos/' + idBase + extensionesProducto[intento];
+    }
+    img.onload = function() { callback(img.src); };
+    img.onerror = function() { intento++; siguiente(); };
+    siguiente();
+  }
+
+  var overlay = document.getElementById('overlay-modal-producto');
+  var fotoPrincipal = document.getElementById('modal-foto-principal');
+  var miniaturas = document.getElementById('modal-miniaturas');
+  var nombreEl = document.getElementById('modal-nombre');
+  var precioEl = document.getElementById('modal-precio');
+  var descripcionEl = document.getElementById('modal-descripcion');
+  var fichaEl = document.getElementById('modal-ficha');
+  var botonCarritoModal = document.getElementById('modal-boton-carrito');
+  var botonWhatsappModal = document.getElementById('modal-boton-whatsapp');
+
+  function formatoCOP(valor) { return '$' + valor.toLocaleString('es-CO'); }
+
+  function abrirModal(id) {
+    var producto = DATOS_PRODUCTOS[id];
+    if (!producto) return;
+
+    nombreEl.textContent = producto.nombre;
+    precioEl.textContent = formatoCOP(producto.precio) + ' COP';
+    descripcionEl.textContent = producto.descripcion;
+    fichaEl.innerHTML =
+      '<li><span>Tamaño</span><span>' + producto.tamano + '</span></li>' +
+      '<li><span>Material</span><span>Hilo acrílico premium</span></li>' +
+      '<li><span>Técnica</span><span>Crochet, tejido a mano</span></li>' +
+      '<li><span>Origen</span><span>Villamaría, Caldas</span></li>' +
+      '<li><span>Disponibilidad</span><span>' + (producto.disponible ? 'Disponible' : 'Bajo pedido') + '</span></li>';
+
+    var mensaje = 'Hola! Me interesa: ' + producto.nombre + ' (' + formatoCOP(producto.precio) + ')';
+    botonWhatsappModal.href = 'https://wa.me/573205072801?text=' + encodeURIComponent(mensaje);
+
+    botonCarritoModal.onclick = function() {
+      var CLAVE_CARRITO = 'carritoLanaRosa';
+      var carrito = [];
+      try { carrito = JSON.parse(localStorage.getItem(CLAVE_CARRITO)) || []; } catch (e) {}
+      var existente = carrito.find(function(i) { return i.id === id; });
+      if (existente) existente.cantidad++;
+      else carrito.push({ id: id, nombre: producto.nombre, precio: producto.precio, cantidad: 1 });
+      localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+      var contador = document.getElementById('contador-carrito');
+      if (contador) contador.textContent = carrito.reduce(function(s,i){return s+i.cantidad;}, 0);
+      botonCarritoModal.textContent = '✓ Agregado';
+      setTimeout(function() { botonCarritoModal.textContent = '🛒 Agregar al carrito'; }, 1200);
+    };
+
+    // Foto principal + hasta 2 fotos adicionales (id-2, id-3), si existen
+    var candidatos = [id, id + '-2', id + '-3'];
+    var urlsEncontradas = [];
+    var pendientes = candidatos.length;
+
+    urlsEncontradas = new Array(candidatos.length).fill(null);
+    candidatos.forEach(function(idBase, i) {
+      probarExtensiones(idBase, function(url) {
+        urlsEncontradas[i] = url;
+        pendientes--;
+        if (pendientes === 0) mostrarGaleria(urlsEncontradas.filter(Boolean));
+      });
+    });
+
+    function mostrarGaleria(urls) {
+      if (urls.length === 0) return;
+      fotoPrincipal.src = urls[0];
+      fotoPrincipal.alt = producto.nombre;
+      miniaturas.innerHTML = '';
+      if (urls.length > 1) {
+        urls.forEach(function(url, i) {
+          var mini = document.createElement('img');
+          mini.src = url;
+          mini.className = i === 0 ? 'activa' : '';
+          mini.addEventListener('click', function() {
+            fotoPrincipal.src = url;
+            miniaturas.querySelectorAll('img').forEach(function(m) { m.classList.remove('activa'); });
+            mini.classList.add('activa');
+          });
+          miniaturas.appendChild(mini);
+        });
+      }
+    }
+
+    overlay.classList.add('abierto');
+  }
+
+  document.getElementById('cerrar-modal-producto').addEventListener('click', function() {
+    overlay.classList.remove('abierto');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('abierto');
+  });
+
+  document.querySelectorAll('.producto-foto').forEach(function(foto) {
+    foto.addEventListener('click', function() {
+      var img = foto.querySelector('img');
+      if (img && img.dataset.id) abrirModal(img.dataset.id);
+    });
+  });
+})();
+</script>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://ngjoognzvehwjtpqwrqe.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_2TQ_piaHlSMHa79zjmOOXg_6bEwgkKD';
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const listaResenas = document.getElementById('lista-resenas');
+const sinResenas = document.getElementById('sin-resenas');
+
+function estrellasHtml(n) {
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+async function cargarResenas() {
+  const { data, error } = await supabase
+    .from('resenas_web')
+    .select('cliente_nombre, calificacion, comentario, created_at')
+    .eq('estado', 'aprobada')
+    .order('created_at', { ascending: false })
+    .limit(12);
+
+  if (error || !data || data.length === 0) {
+    sinResenas.style.display = 'block';
+    return;
+  }
+
+  listaResenas.innerHTML = data.map(r => `
+    <div class="tarjeta-resena">
+      <div class="estrellas-resena">${estrellasHtml(r.calificacion)}</div>
+      <p class="comentario-resena">"${r.comentario.replace(/</g, '&lt;')}"</p>
+      <p class="autor-resena">— ${r.cliente_nombre.replace(/</g, '&lt;')}</p>
+    </div>
+  `).join('');
+}
+
+cargarResenas();
+
+// Selector de estrellas
+const estrellas = document.querySelectorAll('#selector-estrellas span');
+const inputCalificacion = document.getElementById('resena-calificacion');
+estrellas.forEach(estrella => {
+  estrella.addEventListener('click', () => {
+    const valor = parseInt(estrella.dataset.valor, 10);
+    inputCalificacion.value = valor;
+    estrellas.forEach(e => e.classList.toggle('activa', parseInt(e.dataset.valor, 10) <= valor));
+  });
+});
+
+// Envío del formulario
+const formResena = document.getElementById('form-resena');
+const mensajeResena = document.getElementById('resena-mensaje');
+
+formResena.addEventListener('submit', async (evento) => {
+  evento.preventDefault();
+  const nombre = document.getElementById('resena-nombre').value;
+  const calificacion = parseInt(inputCalificacion.value, 10);
+  const comentario = document.getElementById('resena-comentario').value;
+
+  if (calificacion < 1) {
+    mensajeResena.style.display = 'block';
+    mensajeResena.style.background = '#fdecea';
+    mensajeResena.style.color = '#c62828';
+    mensajeResena.textContent = 'Por favor selecciona una calificación de estrellas.';
+    return;
+  }
+
+  const { error } = await supabase.rpc('crear_resena_web', {
+    p_producto_id: null,
+    p_producto_nombre: null,
+    p_cliente_nombre: nombre,
+    p_calificacion: calificacion,
+    p_comentario: comentario
+  });
+
+  mensajeResena.style.display = 'block';
+  if (error) {
+    mensajeResena.style.background = '#fdecea';
+    mensajeResena.style.color = '#c62828';
+    mensajeResena.textContent = 'No se pudo enviar la reseña: ' + error.message;
+  } else {
+    mensajeResena.style.background = '#e6f4ea';
+    mensajeResena.style.color = '#2e7d32';
+    mensajeResena.textContent = '¡Gracias! Tu reseña quedó enviada y se publicará luego de revisarla.';
+    formResena.reset();
+    estrellas.forEach(e => e.classList.remove('activa'));
+    inputCalificacion.value = '0';
+  }
+});
 </script>
 </body>
 </html>
