@@ -1136,8 +1136,15 @@ a { color: var(--rosa-principal); }
 .producto-estado.bajo-pedido { color: var(--tinta-suave); }
 .boton-pedir { margin-top: auto; text-align: center; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
 .boton-pedir:hover { background: #b40167; }
-.boton-ver-mas { display: block; margin: 20px auto 0; background: var(--blanco); border: 1.5px solid var(--rosa-principal); color: var(--rosa-principal); padding: 10px 26px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; cursor: pointer; }
-.boton-ver-mas:hover { background: var(--rosa-suave); }
+.boton-ver-mas {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; margin: 24px 0 8px;
+  background: var(--rosa-suave); border: 2px dashed var(--rosa-principal);
+  color: var(--rosa-principal); padding: 16px; border-radius: 16px;
+  font-weight: 700; font-size: 1rem; cursor: pointer;
+}
+.boton-ver-mas:hover { background: var(--rosa-principal); color: var(--blanco); border-style: solid; }
+.boton-ver-mas::after { content: '↓'; font-size: 1.1rem; }
 .aviso-personalizado { background: var(--rosa-suave); border-radius: var(--radio-suave); padding: 28px 32px; margin: 20px 0 40px; max-width: 780px; }
 .aviso-personalizado a.boton-primario { display: inline-block; margin-top: 10px; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
