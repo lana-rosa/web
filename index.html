@@ -76,7 +76,7 @@
   --rosa-medio: #FF8FD4;
   --rosa-suave: #F9DDF4;
   --azul-acero: #93C7F9;
-  --blanco-hueso: #FFF8F0;
+  --blanco-hueso: #FFFCF7;
   --tinta: #3A2A2E;
   --tinta-suave: #6b5a5d;
   --blanco: #FFFFFF;
@@ -97,7 +97,7 @@ a { color: var(--rosa-principal); }
 img { max-width: 100%; display: block; }
 .contenedor { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--azul-acero); outline-offset: 3px; }
-.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 248, 240, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 252, 247, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
 .logo-img { height: 34px; width: auto; display: block; }
@@ -195,6 +195,16 @@ section { padding: 72px 0; }
 .banner-promo::before, .banner-promo::after {
   content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08);
 }
+
+.carrusel-banners-seccion { padding: 24px 0 0; }
+.carrusel-banners { position: relative; max-width: 1160px; margin: 0 auto; aspect-ratio: 21/8; border-radius: var(--radio-suave); overflow: hidden; box-shadow: var(--sombra-suave); background: var(--rosa-suave); }
+.slide-banner { position: absolute; inset: 0; opacity: 0; transition: opacity 0.7s ease; display: block; }
+.slide-banner.activo { opacity: 1; }
+.slide-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.puntos-carrusel { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
+.puntos-carrusel span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.55); }
+.puntos-carrusel span.activo { background: #fff; }
+@media (max-width: 700px) { .carrusel-banners { aspect-ratio: 4/5; } }
 .banner-promo::before { width: 220px; height: 220px; top: -80px; right: -60px; }
 .banner-promo::after { width: 140px; height: 140px; bottom: -60px; left: 6%; }
 .banner-promo-contenido { position: relative; z-index: 1; text-align: center; max-width: 680px; margin: 0 auto; }
@@ -231,6 +241,17 @@ section { padding: 72px 0; }
 .nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
 @media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
 .rosina-mini { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-left: 10px; box-shadow: 0 2px 8px rgba(58,42,46,0.15); vertical-align: middle; }
+.boton-subir {
+  position: fixed; bottom: 24px; right: 92px; z-index: 998;
+  width: 48px; height: 48px; background: var(--rosa-principal); border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.boton-subir.visible { opacity: 1; visibility: visible; }
+.boton-subir svg { width: 22px; height: 22px; fill: #fff; }
+.boton-subir:hover { background: #b40167; }
+@media (max-width: 600px) { .boton-subir { width: 42px; height: 42px; right: 74px; bottom: 16px; } }
 </style>
 <link rel="icon" type="image/png" href="img/favicon-256.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -326,6 +347,22 @@ section { padding: 72px 0; }
   </section>
 
   <div class="puntada" role="presentation"></div>
+
+  <!-- ============ CARRUSEL DE BANNERS ============ -->
+  <section class="carrusel-banners-seccion">
+    <div class="carrusel-banners" id="carrusel-banners">
+      <a href="tienda.html" class="slide-banner activo">
+        <img src="img/banners/banner1.jpg" alt="Amigurumis Lana Rosa Crochet" onerror="this.parentElement.style.display='none'">
+      </a>
+      <a href="tienda.html" class="slide-banner">
+        <img src="img/banners/banner2.jpg" alt="Amigurumis Lana Rosa Crochet" onerror="this.parentElement.style.display='none'">
+      </a>
+      <a href="personaliza.html" class="slide-banner">
+        <img src="img/banners/banner3.jpg" alt="Amigurumis personalizados Lana Rosa Crochet" onerror="this.parentElement.style.display='none'">
+      </a>
+      <div class="puntos-carrusel" id="puntos-carrusel"></div>
+    </div>
+  </section>
 
   <!-- ============ BANNER PROMOCIONAL — PERSONALIZADOS ============ -->
   <section class="banner-promo">
@@ -449,6 +486,7 @@ section { padding: 72px 0; }
     </div>
   </div>
   <div class="contenedor pie-legal">
+    <a href="politicas.html#envios">Política de envíos</a>
     <a href="politicas.html#cambios">Política de cambios</a>
     <a href="politicas.html#datos">Tratamiento de datos</a>
   </div>
@@ -469,6 +507,62 @@ section { padding: 72px 0; }
       boton.textContent = abierto ? '✕' : '☰';
     });
   }
+})();
+</script>
+<button class="boton-subir" id="boton-subir" aria-label="Subir al inicio de la página">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+<script>
+(function() {
+  var boton = document.getElementById('boton-subir');
+  if (!boton) return;
+  window.addEventListener('scroll', function() {
+    boton.classList.toggle('visible', window.scrollY > 400);
+  });
+  boton.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var contenedor = document.getElementById('carrusel-banners');
+  var puntosContenedor = document.getElementById('puntos-carrusel');
+  if (!contenedor) return;
+
+  function slidesVisibles() {
+    return Array.prototype.slice.call(contenedor.querySelectorAll('.slide-banner'))
+      .filter(function(s) { return s.style.display !== 'none'; });
+  }
+
+  var indice = 0;
+
+  function construirPuntos() {
+    puntosContenedor.innerHTML = '';
+    slidesVisibles().forEach(function(_, i) {
+      var punto = document.createElement('span');
+      if (i === 0) punto.classList.add('activo');
+      puntosContenedor.appendChild(punto);
+    });
+  }
+
+  function mostrarSlide(nuevoIndice) {
+    var slides = slidesVisibles();
+    if (slides.length === 0) return;
+    slides.forEach(function(s) { s.classList.remove('activo'); });
+    indice = (nuevoIndice + slides.length) % slides.length;
+    slides[indice].classList.add('activo');
+    var puntos = puntosContenedor.querySelectorAll('span');
+    puntos.forEach(function(p, i) { p.classList.toggle('activo', i === indice); });
+  }
+
+  // Esperar un instante a que las imágenes rotas se oculten (onerror) antes de armar los puntos
+  setTimeout(function() {
+    construirPuntos();
+    if (slidesVisibles().length <= 1) return;
+    setInterval(function() { mostrarSlide(indice + 1); }, 4500);
+  }, 300);
 })();
 </script>
 </body>

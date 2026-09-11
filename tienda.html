@@ -1095,7 +1095,7 @@
 <style>
 :root {
   --rosa-principal: #D8017C; --rosa-medio: #FF8FD4; --rosa-suave: #F9DDF4;
-  --azul-acero: #93C7F9; --blanco-hueso: #FFF8F0; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
+  --azul-acero: #93C7F9; --blanco-hueso: #FFFCF7; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
   --fuente-titulo: 'Mango AC', 'Fraunces', Georgia, serif;
   --fuente-cuerpo: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --radio-suave: 20px; --sombra-suave: 0 12px 32px rgba(58, 42, 46, 0.10);
@@ -1110,7 +1110,7 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .logo-img { height: 34px; width: auto; display: block; }
 .contenedor { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 a { color: var(--rosa-principal); }
-.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 248, 240, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 252, 247, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
@@ -1136,6 +1136,53 @@ a { color: var(--rosa-principal); }
 .producto-estado.bajo-pedido { color: var(--tinta-suave); }
 .boton-pedir { margin-top: auto; text-align: center; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
 .boton-pedir:hover { background: #b40167; }
+.boton-agregar-carrito {
+  margin-top: 8px; text-align: center; background: var(--blanco); color: var(--rosa-principal);
+  border: 1.5px solid var(--rosa-principal); padding: 9px; border-radius: 999px; font-size: 0.85rem;
+  font-weight: 600; cursor: pointer; width: 100%;
+}
+.boton-agregar-carrito:hover { background: var(--rosa-suave); }
+.boton-agregar-carrito.agregado { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+
+.boton-carrito-flotante {
+  position: fixed; bottom: 24px; left: 24px; z-index: 998;
+  width: 56px; height: 56px; background: var(--rosa-principal); border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.boton-carrito-flotante:hover { background: #b40167; }
+.contador-carrito {
+  position: absolute; top: -4px; right: -4px; background: var(--tinta); color: #fff;
+  font-size: 0.72rem; font-weight: 700; width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (max-width: 600px) { .boton-carrito-flotante { width: 48px; height: 48px; left: 16px; bottom: 16px; font-size: 1.3rem; } }
+
+.overlay-carrito {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
+  display: none;
+}
+.overlay-carrito.abierto { display: block; }
+.panel-carrito {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%;
+  background: var(--blanco-hueso); z-index: 1000; box-shadow: -6px 0 24px rgba(0,0,0,0.2);
+  transition: right 0.3s ease; display: flex; flex-direction: column;
+}
+.panel-carrito.abierto { right: 0; }
+.panel-carrito-contenido { padding: 24px; display: flex; flex-direction: column; height: 100%; }
+.panel-carrito-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.panel-carrito-header h2 { margin: 0; }
+.panel-carrito-header button { background: none; border: none; font-size: 1.8rem; line-height: 1; cursor: pointer; color: var(--tinta); }
+#items-carrito { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+.item-carrito { display: flex; gap: 12px; background: var(--blanco); border-radius: 14px; padding: 12px; align-items: center; }
+.item-carrito .info-item-carrito { flex-grow: 1; }
+.item-carrito h4 { margin: 0 0 4px; font-size: 0.92rem; }
+.item-carrito .precio-item-carrito { color: var(--rosa-principal); font-weight: 600; font-size: 0.88rem; margin: 0; }
+.controles-cantidad { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.controles-cantidad button { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--rosa-suave); background: var(--blanco); cursor: pointer; font-weight: 700; }
+.boton-eliminar-item { background: none; border: none; color: var(--tinta-suave); font-size: 1.2rem; cursor: pointer; align-self: flex-start; }
+.carrito-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; padding: 16px 0; border-top: 1px solid rgba(58,42,46,0.12); margin-top: 12px; }
+.carrito-total span:last-child { color: var(--rosa-principal); }
 .boton-ver-mas {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; margin: 24px 0 8px;
@@ -1194,6 +1241,17 @@ a { color: var(--rosa-principal); }
 .nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
 @media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
 .rosina-mini { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-left: 10px; box-shadow: 0 2px 8px rgba(58,42,46,0.15); vertical-align: middle; }
+.boton-subir {
+  position: fixed; bottom: 24px; right: 92px; z-index: 998;
+  width: 48px; height: 48px; background: var(--rosa-principal); border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.boton-subir.visible { opacity: 1; visibility: visible; }
+.boton-subir svg { width: 22px; height: 22px; fill: #fff; }
+.boton-subir:hover { background: #b40167; }
+@media (max-width: 600px) { .boton-subir { width: 42px; height: 42px; right: 74px; bottom: 16px; } }
 </style>
 </head>
 <body>
@@ -1278,6 +1336,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$40.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20gatita%20blanca%20con%20moño%2010cm%20%28$40.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de osito amarillo con corazón 10cm" data-precio="55000">
           <div class="producto-foto">
@@ -1290,6 +1349,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$55.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20osito%20amarillo%20con%20corazón%2010cm%20%28$55.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco ratón clásico con orejas redondas 15cm" data-precio="75000">
           <div class="producto-foto">
@@ -1302,6 +1362,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20ratón%20clásico%20con%20orejas%20redondas%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca ratoncita con moño y lazo 15cm" data-precio="75000">
           <div class="producto-foto">
@@ -1314,6 +1375,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20ratoncita%20con%20moño%20y%20lazo%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de pato con traje de marinero 15cm" data-precio="75000">
           <div class="producto-foto">
@@ -1326,6 +1388,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20pato%20con%20traje%20de%20marinero%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de mago joven con lentes redondos 14cm" data-precio="85000">
           <div class="producto-foto">
@@ -1338,6 +1401,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20joven%20con%20lentes%20redondos%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca de bruja con cabello rizado 14cm" data-precio="85000">
           <div class="producto-foto">
@@ -1350,6 +1414,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20bruja%20con%20cabello%20rizado%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca de ovejita enfermera de peluches 15cm" data-precio="85000">
           <div class="producto-foto">
@@ -1362,6 +1427,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20ovejita%20enfermera%20de%20peluches%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca navegante pelirroja 15cm" data-precio="85000">
           <div class="producto-foto">
@@ -1374,6 +1440,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20navegante%20pelirroja%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco pirata de cabello negro con pecas 15cm" data-precio="85000">
           <div class="producto-foto">
@@ -1386,6 +1453,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20de%20cabello%20negro%20con%20pecas%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca de princesa de cabello largo dorado 15cm" data-precio="85000">
           <div class="producto-foto">
@@ -1398,6 +1466,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20princesa%20de%20cabello%20largo%20dorado%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de mago pelirrojo 14cm" data-precio="85000">
           <div class="producto-foto">
@@ -1410,6 +1479,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20pelirrojo%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco espadachín con bandana verde 15cm" data-precio="85000">
           <div class="producto-foto">
@@ -1422,6 +1492,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20espadachín%20con%20bandana%20verde%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco cocinero pirata con traje elegante" data-precio="85000">
           <div class="producto-foto">
@@ -1434,6 +1505,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20cocinero%20pirata%20con%20traje%20elegante%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco pirata francotirador con nariz larga" data-precio="85000">
           <div class="producto-foto">
@@ -1446,6 +1518,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20francotirador%20con%20nariz%20larga%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca de niña con botones en los ojos 19cm" data-precio="95000">
           <div class="producto-foto">
@@ -1458,6 +1531,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20niña%20con%20botones%20en%20los%20ojos%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco guerrero de cabello puntiagudo 20cm" data-precio="95000">
           <div class="producto-foto">
@@ -1470,6 +1544,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20de%20cabello%20puntiagudo%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco futbolista con camiseta albiceleste 20cm" data-precio="95000">
           <div class="producto-foto">
@@ -1482,6 +1557,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20futbolista%20con%20camiseta%20albiceleste%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de cantante con guante blanco 19cm" data-precio="95000">
           <div class="producto-foto">
@@ -1494,6 +1570,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20cantante%20con%20guante%20blanco%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco guerrero orgulloso de cabello negro 20cm" data-precio="95000">
           <div class="producto-foto">
@@ -1506,6 +1583,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20orgulloso%20de%20cabello%20negro%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Amigurumi de criatura verde tipo planta 14cm*15cm" data-precio="120000">
           <div class="producto-foto">
@@ -1518,6 +1596,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Amigurumi%20de%20criatura%20verde%20tipo%20planta%2014cm*15cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeco de niño explorador con gorra 22cm" data-precio="120000">
           <div class="producto-foto">
@@ -1530,6 +1609,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20niño%20explorador%20con%20gorra%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Ingeniero Civil 22cm" data-precio="120000">
           <div class="producto-foto">
@@ -1542,6 +1622,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ingeniero%20Civil%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Oveja con Vestido 23cm" data-precio="127000">
           <div class="producto-foto">
@@ -1554,6 +1635,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$127.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Oveja%20con%20Vestido%2023cm%20%28$127.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca con temática de fresa y sombrero 25cm" data-precio="130000">
           <div class="producto-foto">
@@ -1566,6 +1648,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$130.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20con%20temática%20de%20fresa%20y%20sombrero%2025cm%20%28$130.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Ratón Peréz 28cm" data-precio="157000">
           <div class="producto-foto">
@@ -1578,6 +1661,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$157.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ratón%20Peréz%2028cm%20%28$157.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca fashionista rubia 29cm" data-precio="187000">
           <div class="producto-foto">
@@ -1590,6 +1674,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$187.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20fashionista%20rubia%2029cm%20%28$187.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca Lydia 30cm" data-precio="197000">
           <div class="producto-foto">
@@ -1602,6 +1687,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$197.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Lydia%2030cm%20%28$197.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Muñeca Hazel 31cm" data-precio="217000">
           <div class="producto-foto">
@@ -1614,6 +1700,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$217.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Hazel%2031cm%20%28$217.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -1632,6 +1719,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Dinosaurio%2014cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Gato (Huevo) 11cm" data-precio="35000">
           <div class="producto-foto">
@@ -1644,6 +1732,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Gato%20%28Huevo%29%2011cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Pollito (Huevo) 12cm" data-precio="35000">
           <div class="producto-foto">
@@ -1656,6 +1745,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pollito%20%28Huevo%29%2012cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Elefante 14cm" data-precio="38000">
           <div class="producto-foto">
@@ -1668,6 +1758,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$38.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Elefante%2014cm%20%28$38.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Pingüino 14cm" data-precio="42000">
           <div class="producto-foto">
@@ -1680,6 +1771,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pingüino%2014cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Sin Rostro 15cm" data-precio="42000">
           <div class="producto-foto">
@@ -1692,6 +1784,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Sin%20Rostro%2015cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Castor con Fresa 15cm" data-precio="52000">
           <div class="producto-foto">
@@ -1704,6 +1797,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$52.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Castor%20con%20Fresa%2015cm%20%28$52.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Cerdo 21cm" data-precio="65000">
           <div class="producto-foto">
@@ -1716,6 +1810,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Cerdo%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Conejo (Sin ropa) 22cm" data-precio="65000">
           <div class="producto-foto">
@@ -1728,6 +1823,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Conejo%20%28Sin%20ropa%29%2022cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche gato 21cm" data-precio="65000">
           <div class="producto-foto">
@@ -1740,6 +1836,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20gato%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche Oso 21cm" data-precio="65000">
           <div class="producto-foto">
@@ -1752,6 +1849,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Oso%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche de superhéroe arácnido 22cm" data-precio="70000">
           <div class="producto-foto">
@@ -1764,6 +1862,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$70.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20superhéroe%20arácnido%2022cm%20%28$70.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Peluche de perrito blanco clásico 32cm" data-precio="110000">
           <div class="producto-foto">
@@ -1776,6 +1875,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$110.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20perrito%20blanco%20clásico%2032cm%20%28$110.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -1794,6 +1894,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Ballena 5cm" data-precio="12000">
           <div class="producto-foto">
@@ -1806,6 +1907,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Ballena%205cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero de Pulpo 4cm" data-precio="12000">
           <div class="producto-foto">
@@ -1818,6 +1920,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20Pulpo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Estrella 6cm" data-precio="12000">
           <div class="producto-foto">
@@ -1830,6 +1933,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Estrella%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Medusa" data-precio="12000">
           <div class="producto-foto">
@@ -1842,6 +1946,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Medusa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Pollo 4cm" data-precio="12000">
           <div class="producto-foto">
@@ -1854,6 +1959,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Rosa" data-precio="12000">
           <div class="producto-foto">
@@ -1866,6 +1972,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Rosa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Fresa 5cm" data-precio="13000">
           <div class="producto-foto">
@@ -1878,6 +1985,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%205cm%20%28$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Abeja con Gafas 6cm" data-precio="14000">
           <div class="producto-foto">
@@ -1890,6 +1998,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%20con%20Gafas%206cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Pollo con Gafas 4cm" data-precio="14000">
           <div class="producto-foto">
@@ -1902,6 +2011,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%20con%20Gafas%204cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Pulpo con Gafas" data-precio="14000">
           <div class="producto-foto">
@@ -1914,6 +2024,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pulpo%20con%20Gafas%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Balón Colombia" data-precio="15000">
           <div class="producto-foto">
@@ -1926,6 +2037,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$15.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Balón%20Colombia%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Corazón 5cm" data-precio="18000">
           <div class="producto-foto">
@@ -1938,6 +2050,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$18.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Corazón%205cm%20%28$18.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Fresa Peluche 8cm" data-precio="20000">
           <div class="producto-foto">
@@ -1950,6 +2063,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$20.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20Peluche%208cm%20%28$20.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Capibara con Disfraz 7cm" data-precio="22000">
           <div class="producto-foto">
@@ -1962,6 +2076,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$22.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Capibara%20con%20Disfraz%207cm%20%28$22.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Frailejón Ernesto Pérez 11cm" data-precio="25000">
           <div class="producto-foto">
@@ -1974,6 +2089,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Frailejón%20Ernesto%20Pérez%2011cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Fresa con sombrero de Pollo 6cm" data-precio="25000">
           <div class="producto-foto">
@@ -1986,6 +2102,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20con%20sombrero%20de%20Pollo%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Pollito con Sombrero de Fresa 6cm" data-precio="25000">
           <div class="producto-foto">
@@ -1998,6 +2115,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollito%20con%20Sombrero%20de%20Fresa%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero Tortuga 8cm" data-precio="25000">
           <div class="producto-foto">
@@ -2010,6 +2128,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Tortuga%208cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero de criatura de orejas puntiagudas 10cm" data-precio="35000">
           <div class="producto-foto">
@@ -2022,6 +2141,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20criatura%20de%20orejas%20puntiagudas%2010cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Llavero de pirata con sombrero de paja" data-precio="35000">
           <div class="producto-foto">
@@ -2034,6 +2154,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20pirata%20con%20sombrero%20de%20paja%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -2052,6 +2173,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$45.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20Margarita%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Maceta Tulipán" data-precio="45000">
           <div class="producto-foto">
@@ -2064,6 +2186,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$45.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20Tulipán%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Maceta de Zorro 12cm*12cm" data-precio="90000">
           <div class="producto-foto">
@@ -2076,6 +2199,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$90.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20de%20Zorro%2012cm*12cm%20%28$90.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Set Cactus &quot;LOVE&quot; 10cm" data-precio="120000">
           <div class="producto-foto">
@@ -2087,7 +2211,8 @@ a { color: var(--rosa-principal); }
             <h3>Set Cactus "LOVE" 10cm</h3>
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Set%20Cactus%20"LOVE"%2010cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Set%20Cactus%20&quot;LOVE&quot;%2010cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -2106,6 +2231,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$15.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Rosa%20Individual%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article><article class="producto-card" data-nombre="Regadera 8cm*14cm" data-precio="42000">
           <div class="producto-foto">
@@ -2118,6 +2244,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Regadera%208cm*14cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -2136,6 +2263,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$8.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Gato%20Separador%20de%20Libros%20%28$8.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -2154,6 +2282,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pato%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -2221,6 +2350,7 @@ a { color: var(--rosa-principal); }
     </div>
   </div>
   <div class="contenedor pie-legal">
+    <a href="politicas.html#envios">Política de envíos</a>
     <a href="politicas.html#cambios">Política de cambios</a>
     <a href="politicas.html#datos">Tratamiento de datos</a>
   </div>
@@ -2332,6 +2462,188 @@ function manejarErrorFoto(img) {
   [inputTexto, inputMin, inputMax].forEach(function(el) {
     el.addEventListener('input', aplicarFiltro);
   });
+})();
+</script>
+<button class="boton-subir" id="boton-subir" aria-label="Subir al inicio de la página">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+<script>
+(function() {
+  var boton = document.getElementById('boton-subir');
+  if (!boton) return;
+  window.addEventListener('scroll', function() {
+    boton.classList.toggle('visible', window.scrollY > 400);
+  });
+  boton.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+<button class="boton-carrito-flotante" id="boton-carrito" aria-label="Ver carrito de compras">
+  🛒<span class="contador-carrito" id="contador-carrito">0</span>
+</button>
+
+<div class="overlay-carrito" id="overlay-carrito"></div>
+<div class="panel-carrito" id="panel-carrito">
+  <div class="panel-carrito-contenido">
+    <div class="panel-carrito-header">
+      <h2>Tu carrito</h2>
+      <button id="cerrar-carrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div id="items-carrito"></div>
+    <p id="carrito-vacio" style="display:none; color:var(--tinta-suave); text-align:center; padding:30px 0;">Tu carrito está vacío.</p>
+    <div class="carrito-total">
+      <span>Total</span>
+      <span id="total-carrito">$0</span>
+    </div>
+    <a id="boton-checkout-whatsapp" class="boton-primario" style="text-align:center;" href="#" target="_blank" rel="noopener">Finalizar pedido por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var CLAVE_CARRITO = 'carritoLanaRosa';
+
+  function cargarCarrito() {
+    try {
+      return JSON.parse(localStorage.getItem(CLAVE_CARRITO)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function guardarCarrito(carrito) {
+    localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+  }
+
+  function formatoCOP(valor) {
+    return '$' + valor.toLocaleString('es-CO');
+  }
+
+  var botonCarrito = document.getElementById('boton-carrito');
+  var contadorCarrito = document.getElementById('contador-carrito');
+  var panelCarrito = document.getElementById('panel-carrito');
+  var overlayCarrito = document.getElementById('overlay-carrito');
+  var cerrarCarrito = document.getElementById('cerrar-carrito');
+  var itemsCarrito = document.getElementById('items-carrito');
+  var carritoVacio = document.getElementById('carrito-vacio');
+  var totalCarritoEl = document.getElementById('total-carrito');
+  var botonCheckout = document.getElementById('boton-checkout-whatsapp');
+
+  function actualizarContador() {
+    var carrito = cargarCarrito();
+    var totalItems = carrito.reduce(function(s, i) { return s + i.cantidad; }, 0);
+    contadorCarrito.textContent = totalItems;
+  }
+
+  function renderizarCarrito() {
+    var carrito = cargarCarrito();
+    itemsCarrito.innerHTML = '';
+
+    if (carrito.length === 0) {
+      carritoVacio.style.display = 'block';
+      botonCheckout.style.pointerEvents = 'none';
+      botonCheckout.style.opacity = '0.5';
+    } else {
+      carritoVacio.style.display = 'none';
+      botonCheckout.style.pointerEvents = '';
+      botonCheckout.style.opacity = '';
+    }
+
+    var total = 0;
+    carrito.forEach(function(item, indice) {
+      total += item.precio * item.cantidad;
+      var div = document.createElement('div');
+      div.className = 'item-carrito';
+      div.innerHTML =
+        '<div class="info-item-carrito">' +
+          '<h4>' + item.nombre + '</h4>' +
+          '<p class="precio-item-carrito">' + formatoCOP(item.precio) + ' c/u</p>' +
+          '<div class="controles-cantidad">' +
+            '<button type="button" data-accion="restar" data-indice="' + indice + '">−</button>' +
+            '<span>' + item.cantidad + '</span>' +
+            '<button type="button" data-accion="sumar" data-indice="' + indice + '">+</button>' +
+          '</div>' +
+        '</div>' +
+        '<button type="button" class="boton-eliminar-item" data-accion="eliminar" data-indice="' + indice + '" aria-label="Eliminar">&times;</button>';
+      itemsCarrito.appendChild(div);
+    });
+
+    totalCarritoEl.textContent = formatoCOP(total);
+
+    var mensaje = 'Hola! Quiero pedir:%0A' + carrito.map(function(item) {
+      return '- ' + item.cantidad + 'x ' + item.nombre + ' (' + formatoCOP(item.precio) + ' c/u)';
+    }).join('%0A').replace(/#/g, '') + '%0A%0ATotal: ' + formatoCOP(total);
+    botonCheckout.href = 'https://wa.me/573205072801?text=' + encodeURIComponent(
+      'Hola! Quiero pedir:\n' + carrito.map(function(item) {
+        return '- ' + item.cantidad + 'x ' + item.nombre + ' (' + formatoCOP(item.precio) + ' c/u)';
+      }).join('\n') + '\n\nTotal: ' + formatoCOP(total)
+    );
+
+    actualizarContador();
+  }
+
+  function abrirCarrito() {
+    panelCarrito.classList.add('abierto');
+    overlayCarrito.classList.add('abierto');
+    renderizarCarrito();
+  }
+
+  function cerrarPanelCarrito() {
+    panelCarrito.classList.remove('abierto');
+    overlayCarrito.classList.remove('abierto');
+  }
+
+  botonCarrito.addEventListener('click', abrirCarrito);
+  cerrarCarrito.addEventListener('click', cerrarPanelCarrito);
+  overlayCarrito.addEventListener('click', cerrarPanelCarrito);
+
+  itemsCarrito.addEventListener('click', function(evento) {
+    var boton = evento.target.closest('button');
+    if (!boton) return;
+    var indice = parseInt(boton.dataset.indice, 10);
+    var carrito = cargarCarrito();
+    var accion = boton.dataset.accion;
+
+    if (accion === 'sumar') carrito[indice].cantidad++;
+    if (accion === 'restar') {
+      carrito[indice].cantidad--;
+      if (carrito[indice].cantidad <= 0) carrito.splice(indice, 1);
+    }
+    if (accion === 'eliminar') carrito.splice(indice, 1);
+
+    guardarCarrito(carrito);
+    renderizarCarrito();
+  });
+
+  document.querySelectorAll('.boton-agregar-carrito').forEach(function(boton) {
+    boton.addEventListener('click', function() {
+      var tarjeta = boton.closest('.producto-card');
+      var id = tarjeta.querySelector('img').dataset.id;
+      var nombre = tarjeta.dataset.nombre;
+      var precio = parseInt(tarjeta.dataset.precio, 10);
+
+      var carrito = cargarCarrito();
+      var existente = carrito.find(function(i) { return i.id === id; });
+      if (existente) {
+        existente.cantidad++;
+      } else {
+        carrito.push({ id: id, nombre: nombre, precio: precio, cantidad: 1 });
+      }
+      guardarCarrito(carrito);
+      actualizarContador();
+
+      boton.textContent = '✓ Agregado';
+      boton.classList.add('agregado');
+      setTimeout(function() {
+        boton.textContent = '🛒 Agregar al carrito';
+        boton.classList.remove('agregado');
+      }, 1200);
+    });
+  });
+
+  actualizarContador();
 })();
 </script>
 </body>

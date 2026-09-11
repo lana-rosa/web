@@ -64,7 +64,7 @@
 <style>
 :root {
   --rosa-principal: #D8017C; --rosa-medio: #FF8FD4; --rosa-suave: #F9DDF4;
-  --azul-acero: #93C7F9; --blanco-hueso: #FFF8F0; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
+  --azul-acero: #93C7F9; --blanco-hueso: #FFFCF7; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
   --fuente-titulo: 'Mango AC', 'Fraunces', Georgia, serif;
   --fuente-cuerpo: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --radio-suave: 28px; --sombra-suave: 0 12px 32px rgba(58, 42, 46, 0.10);
@@ -76,7 +76,7 @@ h1, h2 { font-family: var(--fuente-titulo); font-weight: 600; margin: 0 0 0.5em;
 h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); }
 .contenedor { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 a { color: var(--rosa-principal); }
-.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 248, 240, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 252, 247, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
 .logo-img { height: 34px; width: auto; display: block; }
@@ -138,6 +138,17 @@ a { color: var(--rosa-principal); }
 .nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
 @media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
 .rosina-mini { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-left: 10px; box-shadow: 0 2px 8px rgba(58,42,46,0.15); vertical-align: middle; }
+.boton-subir {
+  position: fixed; bottom: 24px; right: 92px; z-index: 998;
+  width: 48px; height: 48px; background: var(--rosa-principal); border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.boton-subir.visible { opacity: 1; visibility: visible; }
+.boton-subir svg { width: 22px; height: 22px; fill: #fff; }
+.boton-subir:hover { background: #b40167; }
+@media (max-width: 600px) { .boton-subir { width: 42px; height: 42px; right: 74px; bottom: 16px; } }
 </style>
 <link rel="icon" type="image/png" href="img/favicon-256.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -260,6 +271,7 @@ a { color: var(--rosa-principal); }
     </div>
   </div>
   <div class="contenedor pie-legal">
+    <a href="politicas.html#envios">Política de envíos</a>
     <a href="politicas.html#cambios">Política de cambios</a>
     <a href="politicas.html#datos">Tratamiento de datos</a>
   </div>
@@ -280,6 +292,21 @@ a { color: var(--rosa-principal); }
       boton.textContent = abierto ? '✕' : '☰';
     });
   }
+})();
+</script>
+<button class="boton-subir" id="boton-subir" aria-label="Subir al inicio de la página">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+<script>
+(function() {
+  var boton = document.getElementById('boton-subir');
+  if (!boton) return;
+  window.addEventListener('scroll', function() {
+    boton.classList.toggle('visible', window.scrollY > 400);
+  });
+  boton.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>
 </body>
