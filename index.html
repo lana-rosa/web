@@ -187,6 +187,25 @@ section { padding: 72px 0; }
 @media (prefers-reduced-motion: reduce) {
   .franja-anuncios .cinta { animation: none; padding-left: 24px; }
 }
+
+.banner-promo {
+  background: linear-gradient(135deg, var(--rosa-principal), #b40167);
+  padding: 64px 0; position: relative; overflow: hidden;
+}
+.banner-promo::before, .banner-promo::after {
+  content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08);
+}
+.banner-promo::before { width: 220px; height: 220px; top: -80px; right: -60px; }
+.banner-promo::after { width: 140px; height: 140px; bottom: -60px; left: 6%; }
+.banner-promo-contenido { position: relative; z-index: 1; text-align: center; max-width: 680px; margin: 0 auto; }
+.banner-promo-eslogan { color: var(--rosa-suave); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.82rem; margin-bottom: 10px; }
+.banner-promo h2 { color: var(--blanco); margin-bottom: 14px; }
+.banner-promo p { color: rgba(255,255,255,0.92); font-size: 1.05rem; margin: 0 auto 26px; max-width: 56ch; }
+.boton-banner-promo {
+  display: inline-block; background: var(--blanco); color: var(--rosa-principal) !important;
+  text-decoration: none; padding: 15px 34px; border-radius: 999px; font-weight: 700; font-size: 1.02rem;
+}
+.boton-banner-promo:hover { background: var(--rosa-suave); }
 .whatsapp-flotante {
   position: fixed; bottom: 24px; right: 24px; z-index: 999;
   width: 58px; height: 58px; background: #25D366; border-radius: 50%;
@@ -304,6 +323,18 @@ section { padding: 72px 0; }
         <li><span class="marca">✦</span><div><h3>Experiencia completa</h3><p>Empaque a la medida y tarjeta con mensaje personalizado para quien lo recibe.</p></div></li>
         <li><span class="marca">✦</span><div><h3>Acompañamiento cercano</h3><p>Atención personalizada desde el primer mensaje hasta la entrega en tus manos.</p></div></li>
       </ul>
+    </div>
+  </section>
+
+  <div class="puntada" role="presentation"></div>
+
+  <!-- ============ BANNER PROMOCIONAL — PERSONALIZADOS ============ -->
+  <section class="banner-promo">
+    <div class="contenedor banner-promo-contenido">
+      <p class="banner-promo-eslogan">Tu producto estrella</p>
+      <h2>Convierte cualquier foto en un recuerdo tejido a mano</h2>
+      <p>Envíanos una imagen de esa persona, mascota o momento especial — nosotras lo transformamos en un amigurumi único, hecho puntada a puntada, para regalar algo que de verdad no se olvida.</p>
+      <a href="personaliza.html" class="boton-banner-promo">Personaliza el tuyo →</a>
     </div>
   </section>
 
