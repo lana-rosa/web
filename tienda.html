@@ -1173,6 +1173,12 @@ a { color: var(--rosa-principal); }
   .whatsapp-flotante { width: 52px; height: 52px; bottom: 16px; right: 16px; }
   .whatsapp-flotante svg { width: 26px; height: 26px; }
 }
+.menu-movil { display: none; background: none; border: none; font-size: 1.7rem; cursor: pointer; color: var(--tinta); padding: 4px 6px; line-height: 1; }
+.nav-movil-panel { display: none; flex-direction: column; background: var(--blanco); border-top: 1px solid rgba(58,42,46,0.08); }
+.nav-movil-panel.abierto { display: flex; }
+.nav-movil-panel a { padding: 15px 24px; text-decoration: none; color: var(--tinta); border-bottom: 1px solid rgba(58,42,46,0.06); font-weight: 500; font-size: 0.98rem; }
+.nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
+@media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
 </style>
 </head>
 <body>
@@ -1190,9 +1196,20 @@ a { color: var(--rosa-principal); }
         <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
       </ul>
     </nav>
+    <button class="menu-movil" id="boton-menu-movil" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
+  <nav class="nav-movil-panel" id="nav-movil-panel" aria-label="Navegación móvil">
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="personaliza.html">Personaliza el tuyo</a>
+    <a href="aprende.html">Aprende</a>
+    <a href="rosina.html">Rosina</a>
+    <a href="revista.html">Revista</a>
+    <a href="sobre-nosotras.html">Sobre nosotras</a>
+    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+  </nav>
 
 <main class="contenedor">
   <div class="encabezado-pagina">
@@ -2246,6 +2263,19 @@ function manejarErrorFoto(img) {
     img.nextElementSibling.style.display = 'flex';
   }
 }
+</script>
+<script>
+(function() {
+  var boton = document.getElementById('boton-menu-movil');
+  var panel = document.getElementById('nav-movil-panel');
+  if (boton && panel) {
+    boton.addEventListener('click', function() {
+      var abierto = panel.classList.toggle('abierto');
+      boton.setAttribute('aria-expanded', abierto);
+      boton.textContent = abierto ? '✕' : '☰';
+    });
+  }
+})();
 </script>
 </body>
 </html>
