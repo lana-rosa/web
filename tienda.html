@@ -1095,7 +1095,7 @@
 <style>
 :root {
   --rosa-principal: #D8017C; --rosa-medio: #FF8FD4; --rosa-suave: #F9DDF4;
-  --azul-acero: #93C7F9; --blanco-hueso: #EFEBEB; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
+  --azul-acero: #93C7F9; --blanco-hueso: #FFF8F0; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
   --fuente-titulo: 'Mango AC', 'Fraunces', Georgia, serif;
   --fuente-cuerpo: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   --radio-suave: 20px; --sombra-suave: 0 12px 32px rgba(58, 42, 46, 0.10);
@@ -1110,7 +1110,7 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .logo-img { height: 34px; width: auto; display: block; }
 .contenedor { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 a { color: var(--rosa-principal); }
-.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(239, 235, 235, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 248, 240, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
@@ -1140,6 +1140,39 @@ a { color: var(--rosa-principal); }
 .aviso-personalizado a.boton-primario { display: inline-block; margin-top: 10px; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
+.pie-rico { background: var(--tinta); color: var(--blanco-hueso); padding: 50px 0 24px; font-size: 0.88rem; }
+.pie-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.2fr; gap: 30px; margin-bottom: 34px; }
+@media (max-width: 900px) { .pie-grid { grid-template-columns: 1fr 1fr; } }
+.pie-logo-wrap { background: #fff; display: inline-block; padding: 8px 14px; border-radius: 12px; margin-bottom: 14px; }
+.pie-logo-wrap img { height: 26px; display: block; }
+.pie-rico p { opacity: 0.85; margin: 0 0 6px; }
+.pie-rico h3 { color: var(--rosa-medio); font-size: 0.88rem; margin: 0 0 12px; font-family: var(--fuente-titulo); font-weight: 600; }
+.pie-rico ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.pie-rico a { color: var(--blanco-hueso); opacity: 0.85; text-decoration: none; }
+.pie-rico a:hover { opacity: 1; color: var(--rosa-medio); }
+.pie-pagos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.pie-pagos span { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 999px; font-size: 0.76rem; }
+.pie-legal { display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-bottom: 16px; font-size: 0.82rem; }
+.pie-legal a { opacity: 0.85; }
+.derechos { text-align: center; font-size: 0.78rem; opacity: 0.6; margin: 0; }
+.whatsapp-flotante {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  animation: whatsapp-pulso 2.4s infinite;
+}
+.whatsapp-flotante svg { width: 30px; height: 30px; fill: #fff; }
+.whatsapp-flotante:hover { background: #1ebe5a; }
+@keyframes whatsapp-pulso {
+  0% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 0 rgba(37,211,102,0.5); }
+  70% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width: 600px) {
+  .whatsapp-flotante { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+  .whatsapp-flotante svg { width: 26px; height: 26px; }
+}
 </style>
 </head>
 <body>
@@ -1157,7 +1190,7 @@ a { color: var(--rosa-principal); }
         <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
       </ul>
     </nav>
-    <a class="boton-whatsapp" href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
 
@@ -1189,379 +1222,379 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339252.jpg" alt="Muñeca fashionista rubia 29cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339252.jpg" alt="Muñeca fashionista rubia 29cm" loading="lazy" data-id="7709274339252" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca fashionista rubia 29cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca fashionista rubia 29cm</h3>
             <p class="producto-precio">$187.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20fashionista%20rubia%2029cm%20%28$187.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20fashionista%20rubia%2029cm%20%28$187.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095031.jpg" alt="Amigurumi de criatura verde tipo planta 14cm*15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095031.jpg" alt="Amigurumi de criatura verde tipo planta 14cm*15cm" loading="lazy" data-id="7709575095031" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Amigurumi de criatura verde tipo planta 14cm*15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Amigurumi de criatura verde tipo planta 14cm*15cm</h3>
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Amigurumi%20de%20criatura%20verde%20tipo%20planta%2014cm*15cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Amigurumi%20de%20criatura%20verde%20tipo%20planta%2014cm*15cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339276.jpg" alt="Muñeca de niña con botones en los ojos 19cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339276.jpg" alt="Muñeca de niña con botones en los ojos 19cm" loading="lazy" data-id="7709274339276" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de niña con botones en los ojos 19cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca de niña con botones en los ojos 19cm</h3>
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20niña%20con%20botones%20en%20los%20ojos%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20niña%20con%20botones%20en%20los%20ojos%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095062.jpg" alt="Muñeco de niño explorador con gorra 22cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095062.jpg" alt="Muñeco de niño explorador con gorra 22cm" loading="lazy" data-id="7709575095062" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de niño explorador con gorra 22cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de niño explorador con gorra 22cm</h3>
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20niño%20explorador%20con%20gorra%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20niño%20explorador%20con%20gorra%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/muneco-guerrero-de-cabello-puntiagudo-20cm.jpg" alt="Muñeco guerrero de cabello puntiagudo 20cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/muneco-guerrero-de-cabello-puntiagudo-20cm.jpg" alt="Muñeco guerrero de cabello puntiagudo 20cm" loading="lazy" data-id="muneco-guerrero-de-cabello-puntiagudo-20cm" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero de cabello puntiagudo 20cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco guerrero de cabello puntiagudo 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20de%20cabello%20puntiagudo%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20de%20cabello%20puntiagudo%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783550.jpg" alt="Muñeco de mago joven con lentes redondos 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783550.jpg" alt="Muñeco de mago joven con lentes redondos 14cm" loading="lazy" data-id="7709847783550" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de mago joven con lentes redondos 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de mago joven con lentes redondos 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20joven%20con%20lentes%20redondos%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20joven%20con%20lentes%20redondos%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339283.jpg" alt="Muñeca de gatita blanca con moño 10cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339283.jpg" alt="Muñeca de gatita blanca con moño 10cm" loading="lazy" data-id="7709274339283" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de gatita blanca con moño 10cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca de gatita blanca con moño 10cm</h3>
             <p class="producto-precio">$40.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20gatita%20blanca%20con%20moño%2010cm%20%28$40.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20gatita%20blanca%20con%20moño%2010cm%20%28$40.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783505.jpg" alt="Muñeca de bruja con cabello rizado 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783505.jpg" alt="Muñeca de bruja con cabello rizado 14cm" loading="lazy" data-id="7709847783505" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de bruja con cabello rizado 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca de bruja con cabello rizado 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20bruja%20con%20cabello%20rizado%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20bruja%20con%20cabello%20rizado%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095086.jpg" alt="Ingeniero Civil 22cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095086.jpg" alt="Ingeniero Civil 22cm" loading="lazy" data-id="7709575095086" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Ingeniero Civil 22cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Ingeniero Civil 22cm</h3>
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Ingeniero%20Civil%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ingeniero%20Civil%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783598.jpg" alt="Muñeca de ovejita enfermera de peluches 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783598.jpg" alt="Muñeca de ovejita enfermera de peluches 15cm" loading="lazy" data-id="7709847783598" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de ovejita enfermera de peluches 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca de ovejita enfermera de peluches 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20ovejita%20enfermera%20de%20peluches%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20ovejita%20enfermera%20de%20peluches%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095093.jpg" alt="Muñeco futbolista con camiseta albiceleste 20cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095093.jpg" alt="Muñeco futbolista con camiseta albiceleste 20cm" loading="lazy" data-id="7709575095093" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco futbolista con camiseta albiceleste 20cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco futbolista con camiseta albiceleste 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20futbolista%20con%20camiseta%20albiceleste%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20futbolista%20con%20camiseta%20albiceleste%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095017.jpg" alt="Muñeco de cantante con guante blanco 19cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095017.jpg" alt="Muñeco de cantante con guante blanco 19cm" loading="lazy" data-id="7709575095017" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de cantante con guante blanco 19cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de cantante con guante blanco 19cm</h3>
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20cantante%20con%20guante%20blanco%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20cantante%20con%20guante%20blanco%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339269.jpg" alt="Muñeco ratón clásico con orejas redondas 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339269.jpg" alt="Muñeco ratón clásico con orejas redondas 15cm" loading="lazy" data-id="7709274339269" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco ratón clásico con orejas redondas 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco ratón clásico con orejas redondas 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20ratón%20clásico%20con%20orejas%20redondas%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20ratón%20clásico%20con%20orejas%20redondas%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339290.jpg" alt="Muñeca ratoncita con moño y lazo 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339290.jpg" alt="Muñeca ratoncita con moño y lazo 15cm" loading="lazy" data-id="7709274339290" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca ratoncita con moño y lazo 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca ratoncita con moño y lazo 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20ratoncita%20con%20moño%20y%20lazo%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20ratoncita%20con%20moño%20y%20lazo%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339245.jpg" alt="Muñeca Hazel 31cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339245.jpg" alt="Muñeca Hazel 31cm" loading="lazy" data-id="7709274339245" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Hazel 31cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca Hazel 31cm</h3>
             <p class="producto-precio">$217.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20Hazel%2031cm%20%28$217.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Hazel%2031cm%20%28$217.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339238.jpg" alt="Muñeca Lydia 30cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339238.jpg" alt="Muñeca Lydia 30cm" loading="lazy" data-id="7709274339238" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Lydia 30cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca Lydia 30cm</h3>
             <p class="producto-precio">$197.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20Lydia%2030cm%20%28$197.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Lydia%2030cm%20%28$197.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783512.jpg" alt="Muñeca navegante pelirroja 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783512.jpg" alt="Muñeca navegante pelirroja 15cm" loading="lazy" data-id="7709847783512" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca navegante pelirroja 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca navegante pelirroja 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20navegante%20pelirroja%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20navegante%20pelirroja%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095048.jpg" alt="Oveja con Vestido 23cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095048.jpg" alt="Oveja con Vestido 23cm" loading="lazy" data-id="7709575095048" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Oveja con Vestido 23cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Oveja con Vestido 23cm</h3>
             <p class="producto-precio">$127.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Oveja%20con%20Vestido%2023cm%20%28$127.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Oveja%20con%20Vestido%2023cm%20%28$127.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095079.jpg" alt="Muñeco de pato con traje de marinero 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095079.jpg" alt="Muñeco de pato con traje de marinero 15cm" loading="lazy" data-id="7709575095079" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de pato con traje de marinero 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de pato con traje de marinero 15cm</h3>
             <p class="producto-precio">$75.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20pato%20con%20traje%20de%20marinero%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20pato%20con%20traje%20de%20marinero%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783536.jpg" alt="Muñeco pirata de cabello negro con pecas 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783536.jpg" alt="Muñeco pirata de cabello negro con pecas 15cm" loading="lazy" data-id="7709847783536" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata de cabello negro con pecas 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco pirata de cabello negro con pecas 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20de%20cabello%20negro%20con%20pecas%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20de%20cabello%20negro%20con%20pecas%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095055.jpg" alt="Muñeca de princesa de cabello largo dorado 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095055.jpg" alt="Muñeca de princesa de cabello largo dorado 15cm" loading="lazy" data-id="7709575095055" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de princesa de cabello largo dorado 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca de princesa de cabello largo dorado 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20princesa%20de%20cabello%20largo%20dorado%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20princesa%20de%20cabello%20largo%20dorado%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339214.jpg" alt="Ratón Peréz 28cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339214.jpg" alt="Ratón Peréz 28cm" loading="lazy" data-id="7709274339214" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Ratón Peréz 28cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Ratón Peréz 28cm</h3>
             <p class="producto-precio">$157.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Ratón%20Peréz%2028cm%20%28$157.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ratón%20Peréz%2028cm%20%28$157.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783567.jpg" alt="Muñeco de mago pelirrojo 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783567.jpg" alt="Muñeco de mago pelirrojo 14cm" loading="lazy" data-id="7709847783567" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de mago pelirrojo 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de mago pelirrojo 14cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20pelirrojo%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20pelirrojo%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783574.jpg" alt="Muñeco espadachín con bandana verde 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783574.jpg" alt="Muñeco espadachín con bandana verde 15cm" loading="lazy" data-id="7709847783574" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco espadachín con bandana verde 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco espadachín con bandana verde 15cm</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20espadachín%20con%20bandana%20verde%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20espadachín%20con%20bandana%20verde%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339207.jpg" alt="Muñeca con temática de fresa y sombrero 25cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339207.jpg" alt="Muñeca con temática de fresa y sombrero 25cm" loading="lazy" data-id="7709274339207" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeca con temática de fresa y sombrero 25cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeca con temática de fresa y sombrero 25cm</h3>
             <p class="producto-precio">$130.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeca%20con%20temática%20de%20fresa%20y%20sombrero%2025cm%20%28$130.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20con%20temática%20de%20fresa%20y%20sombrero%2025cm%20%28$130.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783581.jpg" alt="Muñeco cocinero pirata con traje elegante" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783581.jpg" alt="Muñeco cocinero pirata con traje elegante" loading="lazy" data-id="7709847783581" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco cocinero pirata con traje elegante ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco cocinero pirata con traje elegante</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20cocinero%20pirata%20con%20traje%20elegante%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20cocinero%20pirata%20con%20traje%20elegante%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709847783529.jpg" alt="Muñeco pirata francotirador con nariz larga" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709847783529.jpg" alt="Muñeco pirata francotirador con nariz larga" loading="lazy" data-id="7709847783529" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata francotirador con nariz larga ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco pirata francotirador con nariz larga</h3>
             <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20francotirador%20con%20nariz%20larga%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20francotirador%20con%20nariz%20larga%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/muneco-guerrero-orgulloso-de-cabello-negro-20cm.jpg" alt="Muñeco guerrero orgulloso de cabello negro 20cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/muneco-guerrero-orgulloso-de-cabello-negro-20cm.jpg" alt="Muñeco guerrero orgulloso de cabello negro 20cm" loading="lazy" data-id="muneco-guerrero-orgulloso-de-cabello-negro-20cm" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero orgulloso de cabello negro 20cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco guerrero orgulloso de cabello negro 20cm</h3>
             <p class="producto-precio">$95.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20orgulloso%20de%20cabello%20negro%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20orgulloso%20de%20cabello%20negro%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709575095000.jpg" alt="Muñeco de osito amarillo con corazón 10cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709575095000.jpg" alt="Muñeco de osito amarillo con corazón 10cm" loading="lazy" data-id="7709575095000" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de osito amarillo con corazón 10cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Muñeco de osito amarillo con corazón 10cm</h3>
             <p class="producto-precio">$55.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20osito%20amarillo%20con%20corazón%2010cm%20%28$55.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20osito%20amarillo%20con%20corazón%2010cm%20%28$55.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -1572,171 +1605,171 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264981.jpg" alt="Peluche Castor con Fresa 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264981.jpg" alt="Peluche Castor con Fresa 15cm" loading="lazy" data-id="7709298264981" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Castor con Fresa 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Castor con Fresa 15cm</h3>
             <p class="producto-precio">$52.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Castor%20con%20Fresa%2015cm%20%28$52.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Castor%20con%20Fresa%2015cm%20%28$52.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264974.jpg" alt="Peluche Cerdo 21cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264974.jpg" alt="Peluche Cerdo 21cm" loading="lazy" data-id="7709298264974" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Cerdo 21cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Cerdo 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Cerdo%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Cerdo%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264912.jpg" alt="Peluche Conejo (Sin ropa) 22cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264912.jpg" alt="Peluche Conejo (Sin ropa) 22cm" loading="lazy" data-id="7709298264912" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Conejo (Sin ropa) 22cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Conejo (Sin ropa) 22cm</h3>
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Conejo%20%28Sin%20ropa%29%2022cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Conejo%20%28Sin%20ropa%29%2022cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293769.jpg" alt="Peluche Dinosaurio 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293769.jpg" alt="Peluche Dinosaurio 14cm" loading="lazy" data-id="7709724293769" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Dinosaurio 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Dinosaurio 14cm</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Dinosaurio%2014cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Dinosaurio%2014cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293752.jpg" alt="Peluche Elefante 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293752.jpg" alt="Peluche Elefante 14cm" loading="lazy" data-id="7709724293752" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Elefante 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Elefante 14cm</h3>
             <p class="producto-precio">$38.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Elefante%2014cm%20%28$38.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Elefante%2014cm%20%28$38.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293714.jpg" alt="Peluche Gato (Huevo) 11cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293714.jpg" alt="Peluche Gato (Huevo) 11cm" loading="lazy" data-id="7709724293714" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Gato (Huevo) 11cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Gato (Huevo) 11cm</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Gato%20%28Huevo%29%2011cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Gato%20%28Huevo%29%2011cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264967.jpg" alt="Peluche gato 21cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264967.jpg" alt="Peluche gato 21cm" loading="lazy" data-id="7709298264967" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche gato 21cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche gato 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20gato%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20gato%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264929.jpg" alt="Peluche Oso 21cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264929.jpg" alt="Peluche Oso 21cm" loading="lazy" data-id="7709298264929" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Oso 21cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Oso 21cm</h3>
             <p class="producto-precio">$65.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Oso%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Oso%2021cm%20%28$65.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293790.jpg" alt="Peluche Pingüino 14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293790.jpg" alt="Peluche Pingüino 14cm" loading="lazy" data-id="7709724293790" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pingüino 14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Pingüino 14cm</h3>
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Pingüino%2014cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pingüino%2014cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/peluche-pollito-huevo-12cm.jpg" alt="Peluche Pollito (Huevo) 12cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/peluche-pollito-huevo-12cm.jpg" alt="Peluche Pollito (Huevo) 12cm" loading="lazy" data-id="peluche-pollito-huevo-12cm" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pollito (Huevo) 12cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Pollito (Huevo) 12cm</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Pollito%20%28Huevo%29%2012cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pollito%20%28Huevo%29%2012cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264905.jpg" alt="Peluche Sin Rostro 15cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264905.jpg" alt="Peluche Sin Rostro 15cm" loading="lazy" data-id="7709298264905" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Sin Rostro 15cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Sin Rostro 15cm</h3>
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Sin%20Rostro%2015cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Sin%20Rostro%2015cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264943.jpg" alt="Peluche de perrito blanco clásico 32cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264943.jpg" alt="Peluche de perrito blanco clásico 32cm" loading="lazy" data-id="7709298264943" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche de perrito blanco clásico 32cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche de perrito blanco clásico 32cm</h3>
             <p class="producto-precio">$110.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20perrito%20blanco%20clásico%2032cm%20%28$110.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20perrito%20blanco%20clásico%2032cm%20%28$110.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293721.jpg" alt="Peluche de superhéroe arácnido 22cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293721.jpg" alt="Peluche de superhéroe arácnido 22cm" loading="lazy" data-id="7709724293721" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche de superhéroe arácnido 22cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche de superhéroe arácnido 22cm</h3>
             <p class="producto-precio">$70.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20superhéroe%20arácnido%2022cm%20%28$70.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20de%20superhéroe%20arácnido%2022cm%20%28$70.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -1747,275 +1780,275 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246243.jpg" alt="Llavero Abeja 6cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246243.jpg" alt="Llavero Abeja 6cm" loading="lazy" data-id="7709253246243" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Abeja 6cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Abeja 6cm</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246205.jpg" alt="Llavero Abeja con Gafas 6cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246205.jpg" alt="Llavero Abeja con Gafas 6cm" loading="lazy" data-id="7709253246205" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Abeja con Gafas 6cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Abeja con Gafas 6cm</h3>
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%20con%20Gafas%206cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Abeja%20con%20Gafas%206cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293745.jpg" alt="Llavero Ballena 5cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293745.jpg" alt="Llavero Ballena 5cm" loading="lazy" data-id="7709724293745" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Ballena 5cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Ballena 5cm</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Ballena%205cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Ballena%205cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/llavero-balon-colombia.jpg" alt="Llavero Balón Colombia" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/llavero-balon-colombia.jpg" alt="Llavero Balón Colombia" loading="lazy" data-id="llavero-balon-colombia" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Balón Colombia ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Balón Colombia</h3>
             <p class="producto-precio">$15.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Balón%20Colombia%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Balón%20Colombia%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293783.jpg" alt="Llavero Capibara con Disfraz 7cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293783.jpg" alt="Llavero Capibara con Disfraz 7cm" loading="lazy" data-id="7709724293783" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Capibara con Disfraz 7cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Capibara con Disfraz 7cm</h3>
             <p class="producto-precio">$22.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Capibara%20con%20Disfraz%207cm%20%28$22.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Capibara%20con%20Disfraz%207cm%20%28$22.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246212.jpg" alt="Llavero Corazón 5cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246212.jpg" alt="Llavero Corazón 5cm" loading="lazy" data-id="7709253246212" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Corazón 5cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Corazón 5cm</h3>
             <p class="producto-precio">$18.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Corazón%205cm%20%28$18.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Corazón%205cm%20%28$18.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246281.jpg" alt="Llavero de Pulpo 4cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246281.jpg" alt="Llavero de Pulpo 4cm" loading="lazy" data-id="7709253246281" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero de Pulpo 4cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero de Pulpo 4cm</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20Pulpo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20Pulpo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709164727718.jpg" alt="Llavero Estrella 6cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709164727718.jpg" alt="Llavero Estrella 6cm" loading="lazy" data-id="7709164727718" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Estrella 6cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Estrella 6cm</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Estrella%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Estrella%206cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293776.jpg" alt="Llavero Frailejón Ernesto Pérez 11cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293776.jpg" alt="Llavero Frailejón Ernesto Pérez 11cm" loading="lazy" data-id="7709724293776" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Frailejón Ernesto Pérez 11cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Frailejón Ernesto Pérez 11cm</h3>
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Frailejón%20Ernesto%20Pérez%2011cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Frailejón%20Ernesto%20Pérez%2011cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246298.jpg" alt="Llavero Fresa 5cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246298.jpg" alt="Llavero Fresa 5cm" loading="lazy" data-id="7709253246298" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa 5cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Fresa 5cm</h3>
             <p class="producto-precio">$13.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%205cm%20%28$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%205cm%20%28$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709164727732.jpg" alt="Llavero Fresa con sombrero de Pollo 6cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709164727732.jpg" alt="Llavero Fresa con sombrero de Pollo 6cm" loading="lazy" data-id="7709164727732" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa con sombrero de Pollo 6cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Fresa con sombrero de Pollo 6cm</h3>
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20con%20sombrero%20de%20Pollo%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20con%20sombrero%20de%20Pollo%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709724293738.jpg" alt="Llavero Fresa Peluche 8cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709724293738.jpg" alt="Llavero Fresa Peluche 8cm" loading="lazy" data-id="7709724293738" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Fresa Peluche 8cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Fresa Peluche 8cm</h3>
             <p class="producto-precio">$20.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20Peluche%208cm%20%28$20.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Fresa%20Peluche%208cm%20%28$20.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709274339221.jpg" alt="Llavero de criatura de orejas puntiagudas 10cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709274339221.jpg" alt="Llavero de criatura de orejas puntiagudas 10cm" loading="lazy" data-id="7709274339221" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero de criatura de orejas puntiagudas 10cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero de criatura de orejas puntiagudas 10cm</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20criatura%20de%20orejas%20puntiagudas%2010cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20criatura%20de%20orejas%20puntiagudas%2010cm%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/llavero-de-pirata-con-sombrero-de-paja.jpg" alt="Llavero de pirata con sombrero de paja" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/llavero-de-pirata-con-sombrero-de-paja.jpg" alt="Llavero de pirata con sombrero de paja" loading="lazy" data-id="llavero-de-pirata-con-sombrero-de-paja" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero de pirata con sombrero de paja ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero de pirata con sombrero de paja</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20pirata%20con%20sombrero%20de%20paja%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20de%20pirata%20con%20sombrero%20de%20paja%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/llavero-medusa.jpg" alt="Llavero Medusa" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/llavero-medusa.jpg" alt="Llavero Medusa" loading="lazy" data-id="llavero-medusa" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Medusa ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Medusa</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Medusa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Medusa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709164727763.jpg" alt="Llavero Pollito con Sombrero de Fresa 6cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709164727763.jpg" alt="Llavero Pollito con Sombrero de Fresa 6cm" loading="lazy" data-id="7709164727763" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollito con Sombrero de Fresa 6cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Pollito con Sombrero de Fresa 6cm</h3>
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollito%20con%20Sombrero%20de%20Fresa%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollito%20con%20Sombrero%20de%20Fresa%206cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246229.jpg" alt="Llavero Pollo 4cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246229.jpg" alt="Llavero Pollo 4cm" loading="lazy" data-id="7709253246229" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollo 4cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Pollo 4cm</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%204cm%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246267.jpg" alt="Llavero Pollo con Gafas 4cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246267.jpg" alt="Llavero Pollo con Gafas 4cm" loading="lazy" data-id="7709253246267" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pollo con Gafas 4cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Pollo con Gafas 4cm</h3>
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado bajo-pedido">Bajo pedido</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%20con%20Gafas%204cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pollo%20con%20Gafas%204cm%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246236.jpg" alt="Llavero Pulpo con Gafas" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246236.jpg" alt="Llavero Pulpo con Gafas" loading="lazy" data-id="7709253246236" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Pulpo con Gafas ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Pulpo con Gafas</h3>
             <p class="producto-precio">$14.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Pulpo%20con%20Gafas%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Pulpo%20con%20Gafas%20%28$14.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246250.jpg" alt="Llavero Rosa" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246250.jpg" alt="Llavero Rosa" loading="lazy" data-id="7709253246250" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Rosa ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Rosa</h3>
             <p class="producto-precio">$12.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Rosa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Rosa%20%28$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709253246274.jpg" alt="Llavero Tortuga 8cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709253246274.jpg" alt="Llavero Tortuga 8cm" loading="lazy" data-id="7709253246274" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Llavero Tortuga 8cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Llavero Tortuga 8cm</h3>
             <p class="producto-precio">$25.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Llavero%20Tortuga%208cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Llavero%20Tortuga%208cm%20%28$25.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -2026,54 +2059,54 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264998.jpg" alt="Maceta de Zorro 12cm*12cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264998.jpg" alt="Maceta de Zorro 12cm*12cm" loading="lazy" data-id="7709298264998" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Maceta de Zorro 12cm*12cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Maceta de Zorro 12cm*12cm</h3>
             <p class="producto-precio">$90.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Maceta%20de%20Zorro%2012cm*12cm%20%28$90.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20de%20Zorro%2012cm*12cm%20%28$90.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/maceta-margarita.jpg" alt="Maceta Margarita" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/maceta-margarita.jpg" alt="Maceta Margarita" loading="lazy" data-id="maceta-margarita" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Maceta Margarita ]</span>
           </div>
           <div class="producto-info">
             <h3>Maceta Margarita</h3>
             <p class="producto-precio">$45.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Maceta%20Margarita%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20Margarita%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/maceta-tulipan.jpg" alt="Maceta Tulipán" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/maceta-tulipan.jpg" alt="Maceta Tulipán" loading="lazy" data-id="maceta-tulipan" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Maceta Tulipán ]</span>
           </div>
           <div class="producto-info">
             <h3>Maceta Tulipán</h3>
             <p class="producto-precio">$45.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Maceta%20Tulipán%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Maceta%20Tulipán%20%28$45.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264950.jpg" alt="Set Cactus "LOVE" 10cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264950.jpg" alt="Set Cactus &quot;LOVE&quot; 10cm" loading="lazy" data-id="7709298264950" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Set Cactus "LOVE" 10cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Set Cactus "LOVE" 10cm</h3>
             <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Set%20Cactus%20"LOVE"%2010cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Set%20Cactus%20"LOVE"%2010cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -2084,28 +2117,28 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709298264936.jpg" alt="Regadera 8cm*14cm" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709298264936.jpg" alt="Regadera 8cm*14cm" loading="lazy" data-id="7709298264936" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Regadera 8cm*14cm ]</span>
           </div>
           <div class="producto-info">
             <h3>Regadera 8cm*14cm</h3>
             <p class="producto-precio">$42.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Regadera%208cm*14cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Regadera%208cm*14cm%20%28$42.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/7709164727770.jpg" alt="Rosa Individual" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/7709164727770.jpg" alt="Rosa Individual" loading="lazy" data-id="7709164727770" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Rosa Individual ]</span>
           </div>
           <div class="producto-info">
             <h3>Rosa Individual</h3>
             <p class="producto-precio">$15.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Rosa%20Individual%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Rosa%20Individual%20%28$15.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -2116,15 +2149,15 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/gato-separador-de-libros.jpg" alt="Gato Separador de Libros" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/gato-separador-de-libros.jpg" alt="Gato Separador de Libros" loading="lazy" data-id="gato-separador-de-libros" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Gato Separador de Libros ]</span>
           </div>
           <div class="producto-info">
             <h3>Gato Separador de Libros</h3>
             <p class="producto-precio">$8.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Gato%20Separador%20de%20Libros%20%28$8.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Gato%20Separador%20de%20Libros%20%28$8.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -2135,15 +2168,15 @@ a { color: var(--rosa-principal); }
       <div class="grid-productos">
         <article class="producto-card">
           <div class="producto-foto">
-            <img src="img/productos/peluche-pato.jpg" alt="Peluche Pato" loading="lazy"
-                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="img/productos/peluche-pato.jpg" alt="Peluche Pato" loading="lazy" data-id="peluche-pato" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
             <span class="foto-marcador" style="display:none;">[ Foto de Peluche Pato ]</span>
           </div>
           <div class="producto-info">
             <h3>Peluche Pato</h3>
             <p class="producto-precio">$35.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/57XXXXXXXXXX?text=Hola!%20Me%20interesa%3A%20Peluche%20Pato%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Peluche%20Pato%20%28$35.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
           </div>
         </article>
       </div>
@@ -2151,9 +2184,66 @@ a { color: var(--rosa-principal); }
 
 </main>
 
-<footer class="pie">
-  <p>© 2026 Lana Rosa Crochet · <a href="index.html">Volver al inicio</a></p>
+<footer class="pie-rico">
+  <div class="contenedor pie-grid">
+    <div>
+      <div class="pie-logo-wrap"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet"></div>
+      <p>Amigurumis y accesorios tejidos a mano en Manizales / Villamaría, Colombia.</p>
+    </div>
+    <div>
+      <h3>Nosotros</h3>
+      <ul>
+        <li><a href="sobre-nosotras.html">Quiénes somos</a></li>
+        <li><a href="rosina.html">Rosina</a></li>
+        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">Contáctanos</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tienda</h3>
+      <ul>
+        <li><a href="tienda.html">Ver catálogo</a></li>
+        <li><a href="personaliza.html">Personalizados</a></li>
+        <li><a href="aprende.html">Talleres</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Síguenos</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/lanarosacrochet" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/lanarosacrochet" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Medios de pago</h3>
+      <div class="pie-pagos">
+        <span>Efectivo</span><span>Nequi</span><span>Daviplata</span><span>Tarjeta débito/crédito</span>
+      </div>
+      <p>
+        <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a><br>
+        <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a>
+      </p>
+    </div>
+  </div>
+  <div class="contenedor pie-legal">
+    <a href="politicas.html#cambios">Política de cambios</a>
+    <a href="politicas.html#datos">Tratamiento de datos</a>
+  </div>
+  <p class="derechos contenedor">© 2026 Lana Rosa Crochet. Todos los derechos reservados.</p>
 </footer>
 
+<a href="https://wa.me/573205072801" class="whatsapp-flotante" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.484 2 2.004 6.48 2.004 12c0 1.85.51 3.63 1.44 5.19L2 22l4.94-1.42A9.94 9.94 0 0012.004 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.18a8.14 8.14 0 01-4.36-1.26l-.31-.18-3.05.87.87-3-.2-.32A8.17 8.17 0 013.82 12c0-4.51 3.67-8.18 8.18-8.18 4.51 0 8.18 3.67 8.18 8.18 0 4.51-3.67 8.18-8.18 8.18z"/></svg>
+</a>
+<script>
+function manejarErrorFoto(img) {
+  if (img.dataset.intento === "0") {
+    img.dataset.intento = "1";
+    img.src = "img/productos/" + img.dataset.id + ".jpg.png";
+  } else {
+    img.style.display = "none";
+    img.nextElementSibling.style.display = "flex";
+  }
+}
+</script>
 </body>
 </html>
