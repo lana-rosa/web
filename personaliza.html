@@ -208,6 +208,7 @@ form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); pad
           <option value="Neira">Neira</option>
           <option value="Otro (nacional)">Otra ciudad de Colombia</option>
         </select>
+        <p class="ayuda" style="font-weight:600; color:var(--rosa-principal);">📦 El domicilio se paga contraentrega, directamente a quien te lo lleve.</p>
       </div>
     </div>
 
@@ -244,6 +245,25 @@ form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); pad
     <button type="submit" class="boton-enviar" id="boton-enviar">Enviar mi solicitud</button>
     <div id="mensaje-estado"></div>
   </form>
+
+  <div class="tarjeta" style="background:var(--rosa-suave); box-shadow:none;">
+    <h2 style="font-size:1.15rem;">¿Cómo se paga?</h2>
+    <p style="margin-bottom:16px;">Apenas te confirmemos el precio, puedes pagar por cualquiera de estos medios y enviarnos el comprobante por WhatsApp. El domicilio se paga aparte, contraentrega:</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
+      <div style="background:var(--blanco); border-radius:14px; padding:16px;">
+        <p style="font-weight:600; margin:0 0 4px; color:var(--rosa-principal);">Nequi</p>
+        <p style="margin:0;">320 507 2801</p>
+      </div>
+      <div style="background:var(--blanco); border-radius:14px; padding:16px;">
+        <p style="font-weight:600; margin:0 0 4px; color:var(--rosa-principal);">Daviplata</p>
+        <p style="margin:0;">320 507 2801</p>
+      </div>
+      <div style="background:var(--blanco); border-radius:14px; padding:16px;">
+        <p style="font-weight:600; margin:0 0 4px; color:var(--rosa-principal);">Bre-B</p>
+        <p style="margin:0;">Llave: 320 507 2801</p>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="pie-rico">
@@ -281,7 +301,7 @@ form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); pad
     <div>
       <h3>Medios de pago</h3>
       <div class="pie-pagos">
-        <span>Efectivo</span><span>Nequi</span><span>Daviplata</span><span>Tarjeta débito/crédito</span>
+        <span>Efectivo</span><span>Nequi</span><span>Daviplata</span><span>Bre-B</span><span>Tarjeta débito/crédito</span>
       </div>
       <p>
         <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a><br>
