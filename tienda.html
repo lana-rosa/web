@@ -1136,6 +1136,8 @@ a { color: var(--rosa-principal); }
 .producto-estado.bajo-pedido { color: var(--tinta-suave); }
 .boton-pedir { margin-top: auto; text-align: center; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
 .boton-pedir:hover { background: #b40167; }
+.boton-ver-mas { display: block; margin: 20px auto 0; background: var(--blanco); border: 1.5px solid var(--rosa-principal); color: var(--rosa-principal); padding: 10px 26px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; cursor: pointer; }
+.boton-ver-mas:hover { background: var(--rosa-suave); }
 .aviso-personalizado { background: var(--rosa-suave); border-radius: var(--radio-suave); padding: 28px 32px; margin: 20px 0 40px; max-width: 780px; }
 .aviso-personalizado a.boton-primario { display: inline-block; margin-top: 10px; background: var(--rosa-principal); color: var(--blanco) !important; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
@@ -2298,6 +2300,30 @@ function manejarErrorFoto(img) {
       boton.textContent = abierto ? '✕' : '☰';
     });
   }
+})();
+</script>
+<script>
+(function() {
+  var LIMITE_INICIAL = 8;
+  document.querySelectorAll('.categoria-seccion').forEach(function(seccion) {
+    var grid = seccion.querySelector('.grid-productos');
+    if (!grid) return;
+    var tarjetas = Array.prototype.slice.call(grid.querySelectorAll('.producto-card'));
+    if (tarjetas.length <= LIMITE_INICIAL) return;
+
+    var ocultas = tarjetas.slice(LIMITE_INICIAL);
+    ocultas.forEach(function(t) { t.style.display = 'none'; });
+
+    var boton = document.createElement('button');
+    boton.type = 'button';
+    boton.className = 'boton-ver-mas';
+    boton.textContent = 'Ver ' + ocultas.length + ' más en ' + seccion.querySelector('h2').textContent;
+    boton.addEventListener('click', function() {
+      ocultas.forEach(function(t) { t.style.display = ''; });
+      boton.remove();
+    });
+    grid.insertAdjacentElement('afterend', boton);
+  });
 })();
 </script>
 </body>
