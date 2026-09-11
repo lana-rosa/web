@@ -68,7 +68,8 @@ form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); pad
 .zona-foto input[type="file"] { display: none; }
 .zona-foto .texto-zona { color: var(--rosa-principal); font-weight: 600; }
 .zona-foto .subtexto { font-size: 0.82rem; color: var(--tinta-suave); margin-top: 6px; }
-#previsualizacion { margin-top: 14px; max-width: 220px; border-radius: 12px; display: none; }
+.previsualizacion-grid { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+.previsualizacion-grid img { width: 90px; height: 90px; object-fit: cover; border-radius: 12px; box-shadow: var(--sombra-suave); }
 .boton-enviar {
   width: 100%; background: var(--rosa-principal); color: var(--blanco); border: none;
   padding: 16px; border-radius: 999px; font-weight: 600; font-size: 1.02rem; cursor: pointer;
@@ -171,13 +172,13 @@ form.tarjeta { background: var(--blanco); border-radius: var(--radio-suave); pad
 
   <form class="tarjeta" id="form-personalizado">
     <div class="campo">
-      <label for="foto">Foto de referencia</label>
+      <label for="foto">Fotos de referencia</label>
       <label class="zona-foto" for="foto">
-        <span class="texto-zona">Toca aquí para subir una foto</span>
-        <div class="subtexto">JPG, PNG o WEBP — hasta 8 MB</div>
-        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/webp,image/heic">
+        <span class="texto-zona">Toca aquí para subir tus fotos</span>
+        <div class="subtexto">Hasta 6 fotos — JPG, PNG o WEBP, cada una hasta 8 MB</div>
+        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/webp,image/heic" multiple>
       </label>
-      <img id="previsualizacion" alt="Vista previa de la foto subida">
+      <div id="previsualizacion" class="previsualizacion-grid"></div>
       <div class="ayuda">Si no tienes foto a la mano, puedes dejarlo en blanco y enviarla luego por WhatsApp.</div>
     </div>
 
@@ -323,11 +324,14 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const inputFoto = document.getElementById('foto');
 const previsualizacion = document.getElementById('previsualizacion');
 inputFoto.addEventListener('change', () => {
-  const archivo = inputFoto.files[0];
-  if (archivo) {
-    previsualizacion.src = URL.createObjectURL(archivo);
-    previsualizacion.style.display = 'block';
-  }
+  previsualizacion.innerHTML = '';
+  const archivos = Array.from(inputFoto.files).slice(0, 6);
+  archivos.forEach(archivo => {
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(archivo);
+    img.alt = 'Vista previa de foto subida';
+    previsualizacion.appendChild(img);
+  });
 });
 
 // Tamaños disponibles según el tipo de producto
@@ -386,25 +390,26 @@ form.addEventListener('submit', async (evento) => {
   boton.textContent = 'Enviando...';
 
   try {
-    let fotoUrl = null;
-    const archivo = inputFoto.files[0];
+    const archivos = Array.from(inputFoto.files).slice(0, 6);
+    const fotosUrls = [];
 
-    if (archivo) {
+    for (let i = 0; i < archivos.length; i++) {
+      const archivo = archivos[i];
       const extension = archivo.name.split('.').pop();
-      const nombreArchivo = `${Date.now()}-${Math.random().toString(36).slice(2)}.${extension}`;
+      const nombreArchivo = `${Date.now()}-${i}-${Math.random().toString(36).slice(2)}.${extension}`;
       const { error: errorSubida } = await supabase
         .storage
         .from('solicitudes-personalizadas')
         .upload(nombreArchivo, archivo);
 
-      if (errorSubida) throw new Error('No se pudo subir la foto: ' + errorSubida.message);
+      if (errorSubida) throw new Error('No se pudo subir una de las fotos: ' + errorSubida.message);
 
       const { data: urlPublica } = supabase
         .storage
         .from('solicitudes-personalizadas')
         .getPublicUrl(nombreArchivo);
 
-      fotoUrl = urlPublica.publicUrl;
+      fotosUrls.push(urlPublica.publicUrl);
     }
 
     const tipoProducto = document.getElementById('tipo-producto').value;
@@ -420,7 +425,7 @@ form.addEventListener('submit', async (evento) => {
       p_correo: document.getElementById('correo').value || null,
       p_descripcion: descripcionCompleta,
       p_ciudad: document.getElementById('ciudad').value || null,
-      p_foto_url: fotoUrl,
+      p_fotos_urls: fotosUrls.length > 0 ? fotosUrls : null,
       p_mensaje: document.getElementById('mensaje').value || null
     });
 
@@ -430,7 +435,7 @@ form.addEventListener('submit', async (evento) => {
     mensajeEstado.style.display = 'block';
     mensajeEstado.textContent = `¡Listo! Tu solicitud quedó registrada con el radicado ${data}. Te vamos a escribir por WhatsApp o correo con la cotización muy pronto.`;
     form.reset();
-    previsualizacion.style.display = 'none';
+    previsualizacion.innerHTML = '';
     boton.textContent = 'Enviar mi solicitud';
     boton.disabled = false;
 
