@@ -6,18 +6,38 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lanarosacrochet.com/tienda.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lanarosacrochet.com/personaliza.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lanarosacrochet.com/aprende.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.lanarosacrochet.com/preguntas-frecuentes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.lanarosacrochet.com/tienda.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.lanarosacrochet.com/sobre-nosotras.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  <!--
-    Agregar aquí cada página nueva a medida que se construya:
-    tienda.html, personaliza.html, aprende.html, rosina.html,
-    revista.html, sobre-nosotras.html, y cada ficha de producto.
-  -->
+  <url>
+    <loc>https://www.lanarosacrochet.com/revista.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lanarosacrochet.com/politicas.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
