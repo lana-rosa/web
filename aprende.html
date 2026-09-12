@@ -2,7 +2,7 @@
 <html lang="es-CO">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Aprende crochet — Lana Rosa Academy</title>
 <meta name="description" content="Tejer para aprender, crear y conectar contigo. Talleres presenciales de crochet en Manizales, dictados con paciencia y calidez, sin tecnicismos.">
 <link rel="canonical" href="https://www.lanarosacrochet.com/aprende.html">
@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://www.lanarosacrochet.com/aprende.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -42,10 +42,12 @@
 
 <style>
 :root {
-  --rosa-principal: #D8017C; --rosa-medio: #FF8FD4; --rosa-suave: #F9DDF4;
-  --azul-acero: #93C7F9; --blanco-hueso: #FFFCF7; --tinta: #3A2A2E; --tinta-suave: #6b5a5d; --blanco: #FFFFFF;
-  --fuente-titulo: 'Mango AC', 'Fraunces', Georgia, serif;
-  --fuente-cuerpo: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --rosa-principal: #E74E96; --rosa-medio: #F28FC0; --rosa-suave: #FBE4EF;
+  --lila: #9EA2F9;
+  --lila-suave: #F0F1FE;
+  --azul-acero: #93C7F9; --blanco-hueso: #FCF8F1; --tinta: #45454A; --tinta-suave: #6E6E73; --blanco: #FFFFFF;
+  --fuente-titulo: 'DynaPuff', sans-serif;
+  --fuente-cuerpo: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --radio-suave: 20px; --sombra-suave: 0 12px 32px rgba(58, 42, 46, 0.10);
 }
 * { box-sizing: border-box; }
@@ -57,10 +59,10 @@ h2 { font-size: 1.6rem; }
 h3 { font-size: 1.1rem; }
 .contenedor { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 a { color: var(--rosa-principal); }
-.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(255, 252, 247, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(58,42,46,0.08); }
+.encabezado { position: sticky; top: 0; z-index: 20; background: rgba(252, 248, 241, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(69,69,74,0.08); }
 .encabezado .barra { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
-.logo-img { height: 34px; width: auto; display: block; }
+.logo-img { height: 52px; width: auto; display: block; border-radius: 12px; }
 .nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
 .nav-principal a:hover { color: var(--rosa-principal); }
@@ -91,7 +93,7 @@ section { padding: 20px 0 60px; }
   display: inline-block; background: var(--rosa-principal); color: var(--blanco) !important;
   text-decoration: none; padding: 13px 28px; border-radius: 999px; font-weight: 600;
 }
-.boton-primario:hover { background: #b40167; }
+.boton-primario:hover { background: #B83E78; }
 .filosofia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 30px; }
 @media (max-width: 800px) { .filosofia { grid-template-columns: 1fr; } }
 .filosofia-item { background: var(--blanco); border-radius: var(--radio-suave); padding: 24px; box-shadow: var(--sombra-suave); }
@@ -118,7 +120,7 @@ section { padding: 20px 0 60px; }
 .pie-legal a { opacity: 0.85; }
 .derechos { text-align: center; font-size: 0.78rem; opacity: 0.6; margin: 0; }
 .whatsapp-flotante {
-  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  position: fixed; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); right: calc(24px + env(safe-area-inset-right, 0px)); z-index: 999;
   width: 58px; height: 58px; background: #25D366; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
@@ -132,18 +134,18 @@ section { padding: 20px 0 60px; }
   100% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 0 rgba(37,211,102,0); }
 }
 @media (max-width: 600px) {
-  .whatsapp-flotante { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+  .whatsapp-flotante { width: 52px; height: 52px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: calc(16px + env(safe-area-inset-right, 0px)); }
   .whatsapp-flotante svg { width: 26px; height: 26px; }
 }
 .menu-movil { display: none; background: none; border: none; font-size: 1.7rem; cursor: pointer; color: var(--tinta); padding: 4px 6px; line-height: 1; }
-.nav-movil-panel { display: none; flex-direction: column; background: var(--blanco); border-top: 1px solid rgba(58,42,46,0.08); }
+.nav-movil-panel { display: none; flex-direction: column; background: var(--blanco); border-top: 1px solid rgba(69,69,74,0.08); }
 .nav-movil-panel.abierto { display: flex; }
-.nav-movil-panel a { padding: 15px 24px; text-decoration: none; color: var(--tinta); border-bottom: 1px solid rgba(58,42,46,0.06); font-weight: 500; font-size: 0.98rem; }
+.nav-movil-panel a { padding: 15px 24px; text-decoration: none; color: var(--tinta); border-bottom: 1px solid rgba(69,69,74,0.06); font-weight: 500; font-size: 0.98rem; }
 .nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
 @media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
-.rosina-mini { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-left: 10px; box-shadow: 0 2px 8px rgba(58,42,46,0.15); vertical-align: middle; }
+.rosina-mini { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-left: 10px; box-shadow: 0 2px 8px rgba(69,69,74,0.15); vertical-align: middle; }
 .boton-subir {
-  position: fixed; bottom: 24px; right: 92px; z-index: 998;
+  position: fixed; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); right: calc(92px + env(safe-area-inset-right, 0px)); z-index: 998;
   width: 48px; height: 48px; background: var(--rosa-principal); border: none; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; cursor: pointer;
   box-shadow: 0 6px 18px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
@@ -151,8 +153,8 @@ section { padding: 20px 0 60px; }
 }
 .boton-subir.visible { opacity: 1; visibility: visible; }
 .boton-subir svg { width: 22px; height: 22px; fill: #fff; }
-.boton-subir:hover { background: #b40167; }
-@media (max-width: 600px) { .boton-subir { width: 42px; height: 42px; right: 74px; bottom: 16px; } }
+.boton-subir:hover { background: #B83E78; }
+@media (max-width: 600px) { .boton-subir { width: 42px; height: 42px; right: calc(74px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); } }
 </style>
 <link rel="icon" type="image/png" href="img/favicon-256.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -161,7 +163,7 @@ section { padding: 20px 0 60px; }
 
 <header class="encabezado">
   <div class="contenedor barra">
-    <a href="index.html" class="logo"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet" class="logo-img"></a><img src="img/rosina-mini.jpg" alt="Rosina" class="rosina-mini">
+    <a href="index.html" class="logo"><img src="img/logo-lana-rosa.jpg" alt="Lana Rosa Crochet" class="logo-img"></a>
     <nav aria-label="Navegación principal">
       <ul class="nav-principal">
         <li><a href="tienda.html">Tienda</a></li>
@@ -256,7 +258,7 @@ section { padding: 20px 0 60px; }
 <footer class="pie-rico">
   <div class="contenedor pie-grid">
     <div>
-      <div class="pie-logo-wrap"><img src="img/logo-lana-rosa.png" alt="Lana Rosa Crochet"></div>
+      <div class="pie-logo-wrap"><img src="img/logo-lana-rosa.jpg" alt="Lana Rosa Crochet"></div>
       <p>Amigurumis y accesorios tejidos a mano en Manizales / Villamaría, Colombia.</p>
     </div>
     <div>
