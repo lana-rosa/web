@@ -1125,14 +1125,35 @@ a { color: var(--rosa-principal); }
 @media (max-width: 900px) { .nav-principal { display: none; } }
 .encabezado-pagina { padding: 48px 0 8px; max-width: 700px; }
 .encabezado-pagina p { color: var(--tinta-suave); font-size: 1.05rem; }
-.selector-categorias { position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; padding: 14px 0; }
+.selector-categorias { padding: 0; }
 .selector-categorias label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: 4px; }
 .selector-categorias select {
-  width: 100%; max-width: 340px; padding: 11px 14px; border-radius: 999px;
+  width: 100%; padding: 11px 14px; border-radius: 999px;
   border: 1.5px solid var(--rosa-suave); background: var(--blanco); font-family: var(--fuente-cuerpo);
   font-size: 0.92rem; color: var(--tinta); font-weight: 600;
 }
 .selector-categorias select:focus { outline: none; border-color: var(--rosa-principal); }
+
+.barra-controles-tienda {
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px;
+  position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; padding: 14px 0;
+}
+.barra-controles-tienda .selector-categorias { flex: 1 1 220px; min-width: 200px; }
+.filtros-desplegables { flex: 0 0 auto; position: relative; }
+.filtros-desplegables summary {
+  list-style: none; cursor: pointer; padding: 11px 20px; border-radius: 999px;
+  border: 1.5px solid var(--rosa-suave); background: var(--blanco); font-weight: 600;
+  font-size: 0.92rem; color: var(--tinta); white-space: nowrap; margin-top: 20px;
+}
+.filtros-desplegables summary::-webkit-details-marker { display: none; }
+.filtros-desplegables[open] summary { border-color: var(--rosa-principal); color: var(--rosa-principal); }
+.filtros-desplegables .buscador-productos {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 20;
+  background: var(--blanco); border-radius: 16px; box-shadow: var(--sombra-suave);
+  padding: 18px; width: 320px; max-width: 90vw;
+  display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0;
+}
+@media (max-width: 600px) { .filtros-desplegables .buscador-productos { right: auto; left: 0; } }
 .chip-categoria:hover { border-color: var(--rosa-principal); color: var(--rosa-principal); }
 .separador-nav-categorias { display: flex; align-items: center; font-weight: 700; color: var(--lila); font-size: 0.85rem; padding: 8px 6px 8px 14px; margin-left: 4px; border-left: 2px solid var(--lila-suave); }
 .chip-merceria { border-color: var(--lila-suave); }
@@ -1346,48 +1367,53 @@ a { color: var(--rosa-principal); }
     <a class="boton-primario" href="personaliza.html">Personaliza el tuyo</a>
   </div>
 
-  <div class="buscador-productos">
-    <div class="campo-buscador">
-      <label for="buscador-nombre">Buscar por nombre</label>
-      <input type="text" id="buscador-nombre" placeholder="Ej: llavero, peluche, muñeca...">
+  <div class="barra-controles-tienda">
+    <div class="selector-categorias">
+      <label for="selector-categoria">Ir a categoría</label>
+      <select id="selector-categoria">
+        <option value="">Todas las categorías</option>
+        <optgroup label="Muñecos y accesorios">
+          <option value="#mundo-encantado">Mundo Encantado</option>
+          <option value="#mundo-animal">Mundo Animal</option>
+          <option value="#mundo-anime-y-peliculas">Mundo Anime y Películas</option>
+          <option value="#otros-amigurumis">Otros Amigurumis</option>
+          <option value="#peluches">Peluches</option>
+          <option value="#bolsos">Bolsos</option>
+          <option value="#charms">Charms</option>
+          <option value="#macetas">Macetas</option>
+          <option value="#flores">Flores</option>
+          <option value="#separadores-de-libros">Separadores de libros</option>
+        </optgroup>
+        <optgroup label="🧶 Mercería">
+          <option value="#lanas-merceria">Lanas</option>
+          <option value="#hilos-merceria">Hilos</option>
+          <option value="#agujas-merceria">Agujas</option>
+          <option value="#herrajes-merceria">Herrajes</option>
+          <option value="#accesorios-merceria">Accesorios</option>
+          <option value="#relleno-merceria">Relleno</option>
+        </optgroup>
+      </select>
     </div>
-    <div class="campo-buscador">
-      <label for="buscador-precio-min">Precio mínimo</label>
-      <input type="number" id="buscador-precio-min" placeholder="$0" min="0" step="1000">
-    </div>
-    <div class="campo-buscador">
-      <label for="buscador-precio-max">Precio máximo</label>
-      <input type="number" id="buscador-precio-max" placeholder="Sin límite" min="0" step="1000">
-    </div>
+
+    <details class="filtros-desplegables">
+      <summary>🔍 Filtros de búsqueda</summary>
+      <div class="buscador-productos">
+        <div class="campo-buscador">
+          <label for="buscador-nombre">Buscar por nombre</label>
+          <input type="text" id="buscador-nombre" placeholder="Ej: llavero, peluche, muñeca...">
+        </div>
+        <div class="campo-buscador">
+          <label for="buscador-precio-min">Precio mínimo</label>
+          <input type="number" id="buscador-precio-min" placeholder="$0" min="0" step="1000">
+        </div>
+        <div class="campo-buscador">
+          <label for="buscador-precio-max">Precio máximo</label>
+          <input type="number" id="buscador-precio-max" placeholder="Sin límite" min="0" step="1000">
+        </div>
+      </div>
+    </details>
   </div>
   <p id="sin-resultados" style="display:none; text-align:center; color:var(--tinta-suave); padding:20px;">No encontramos productos con esos filtros — prueba con otro nombre o rango de precio.</p>
-
-  <div class="selector-categorias">
-    <label for="selector-categoria">Ir a categoría</label>
-    <select id="selector-categoria">
-      <option value="">Todas las categorías</option>
-      <optgroup label="Muñecos y accesorios">
-        <option value="#mundo-encantado">Mundo Encantado</option>
-        <option value="#mundo-animal">Mundo Animal</option>
-        <option value="#mundo-anime-y-peliculas">Mundo Anime y Películas</option>
-        <option value="#otros-amigurumis">Otros Amigurumis</option>
-        <option value="#peluches">Peluches</option>
-        <option value="#bolsos">Bolsos</option>
-        <option value="#charms">Charms</option>
-        <option value="#macetas">Macetas</option>
-        <option value="#flores">Flores</option>
-        <option value="#separadores-de-libros">Separadores de libros</option>
-      </optgroup>
-      <optgroup label="🧶 Mercería">
-        <option value="#lanas-merceria">Lanas</option>
-        <option value="#hilos-merceria">Hilos</option>
-        <option value="#agujas-merceria">Agujas</option>
-        <option value="#herrajes-merceria">Herrajes</option>
-        <option value="#accesorios-merceria">Accesorios</option>
-        <option value="#relleno-merceria">Relleno</option>
-      </optgroup>
-    </select>
-  </div>
 
 
         <section class="categoria-seccion" id="mundo-encantado">
