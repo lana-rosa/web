@@ -1122,8 +1122,14 @@ a { color: var(--rosa-principal); }
 @media (max-width: 900px) { .nav-principal { display: none; } }
 .encabezado-pagina { padding: 48px 0 8px; max-width: 700px; }
 .encabezado-pagina p { color: var(--tinta-suave); font-size: 1.05rem; }
-.nav-categorias { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 0 40px; position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; }
-.chip-categoria { background: var(--blanco); border: 1.5px solid var(--rosa-suave); color: var(--tinta); text-decoration: none; padding: 8px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 500; }
+.selector-categorias { position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; padding: 14px 0; }
+.selector-categorias label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: 4px; }
+.selector-categorias select {
+  width: 100%; max-width: 340px; padding: 11px 14px; border-radius: 999px;
+  border: 1.5px solid var(--rosa-suave); background: var(--blanco); font-family: var(--fuente-cuerpo);
+  font-size: 0.92rem; color: var(--tinta); font-weight: 600;
+}
+.selector-categorias select:focus { outline: none; border-color: var(--rosa-principal); }
 .chip-categoria:hover { border-color: var(--rosa-principal); color: var(--rosa-principal); }
 .separador-nav-categorias { display: flex; align-items: center; font-weight: 700; color: var(--lila); font-size: 0.85rem; padding: 8px 6px 8px 14px; margin-left: 4px; border-left: 2px solid var(--lila-suave); }
 .chip-merceria { border-color: var(--lila-suave); }
@@ -1355,25 +1361,32 @@ a { color: var(--rosa-principal); }
   </div>
   <p id="sin-resultados" style="display:none; text-align:center; color:var(--tinta-suave); padding:20px;">No encontramos productos con esos filtros — prueba con otro nombre o rango de precio.</p>
 
-  <nav class="nav-categorias" aria-label="Categorías de productos">
-<a href="#mundo-encantado" class="chip-categoria">Mundo Encantado</a>
-<a href="#mundo-animal" class="chip-categoria">Mundo Animal</a>
-<a href="#mundo-anime-y-peliculas" class="chip-categoria">Mundo Anime y Películas</a>
-<a href="#otros-amigurumis" class="chip-categoria">Otros Amigurumis</a>
-<a href="#peluches" class="chip-categoria">Peluches</a>
-<a href="#bolsos" class="chip-categoria">Bolsos</a>
-<a href="#charms" class="chip-categoria">Charms</a>
-<a href="#macetas" class="chip-categoria">Macetas</a>
-<a href="#flores" class="chip-categoria">Flores</a>
-<a href="#separadores-de-libros" class="chip-categoria">Separadores de libros</a>
-<span class="separador-nav-categorias">🧶 Mercería</span>
-<a href="#lanas-merceria" class="chip-categoria chip-merceria">Lanas</a>
-<a href="#hilos-merceria" class="chip-categoria chip-merceria">Hilos</a>
-<a href="#agujas-merceria" class="chip-categoria chip-merceria">Agujas</a>
-<a href="#herrajes-merceria" class="chip-categoria chip-merceria">Herrajes</a>
-<a href="#accesorios-merceria" class="chip-categoria chip-merceria">Accesorios</a>
-<a href="#relleno-merceria" class="chip-categoria chip-merceria">Relleno</a>
-  </nav>
+  <div class="selector-categorias">
+    <label for="selector-categoria">Ir a categoría</label>
+    <select id="selector-categoria">
+      <option value="">Todas las categorías</option>
+      <optgroup label="Muñecos y accesorios">
+        <option value="#mundo-encantado">Mundo Encantado</option>
+        <option value="#mundo-animal">Mundo Animal</option>
+        <option value="#mundo-anime-y-peliculas">Mundo Anime y Películas</option>
+        <option value="#otros-amigurumis">Otros Amigurumis</option>
+        <option value="#peluches">Peluches</option>
+        <option value="#bolsos">Bolsos</option>
+        <option value="#charms">Charms</option>
+        <option value="#macetas">Macetas</option>
+        <option value="#flores">Flores</option>
+        <option value="#separadores-de-libros">Separadores de libros</option>
+      </optgroup>
+      <optgroup label="🧶 Mercería">
+        <option value="#lanas-merceria">Lanas</option>
+        <option value="#hilos-merceria">Hilos</option>
+        <option value="#agujas-merceria">Agujas</option>
+        <option value="#herrajes-merceria">Herrajes</option>
+        <option value="#accesorios-merceria">Accesorios</option>
+        <option value="#relleno-merceria">Relleno</option>
+      </optgroup>
+    </select>
+  </div>
 
 
         <section class="categoria-seccion" id="mundo-encantado">
@@ -3086,6 +3099,15 @@ function manejarErrorFoto(img) {
   [inputTexto, inputMin, inputMax].forEach(function(el) {
     el.addEventListener('input', aplicarFiltro);
   });
+
+  var selectorCategoria = document.getElementById('selector-categoria');
+  if (selectorCategoria) {
+    selectorCategoria.addEventListener('change', function() {
+      if (!selectorCategoria.value) return;
+      var destino = document.querySelector(selectorCategoria.value);
+      if (destino) destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 })();
 </script>
 <button class="boton-subir" id="boton-subir" aria-label="Subir al inicio de la página">

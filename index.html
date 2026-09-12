@@ -193,13 +193,13 @@ section { padding: 72px 0; }
   white-space: nowrap; padding: 9px 0; font-size: 0.85rem; font-weight: 500;
 }
 .franja-anuncios .cinta {
-  display: inline-block; padding-left: 100%;
-  animation: desplazar-anuncios 32s linear infinite;
+  display: flex; width: max-content;
+  animation: desplazar-anuncios 24s linear infinite;
 }
-.franja-anuncios .cinta span { margin: 0 36px; }
+.franja-anuncios .cinta span { margin: 0 36px; white-space: nowrap; }
 @keyframes desplazar-anuncios {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-100%, 0); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .franja-anuncios .cinta { animation: none; padding-left: 24px; }
