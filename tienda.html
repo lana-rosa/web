@@ -1125,6 +1125,12 @@ a { color: var(--rosa-principal); }
 .nav-categorias { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 0 40px; position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; }
 .chip-categoria { background: var(--blanco); border: 1.5px solid var(--rosa-suave); color: var(--tinta); text-decoration: none; padding: 8px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 500; }
 .chip-categoria:hover { border-color: var(--rosa-principal); color: var(--rosa-principal); }
+.separador-nav-categorias { display: flex; align-items: center; font-weight: 700; color: var(--lila); font-size: 0.85rem; padding: 8px 6px 8px 14px; margin-left: 4px; border-left: 2px solid var(--lila-suave); }
+.chip-merceria { border-color: var(--lila-suave); }
+.chip-merceria:hover { border-color: var(--lila); color: var(--lila); }
+.nota-presentacion { font-weight: 400; color: var(--tinta-suave); font-size: 0.78rem; }
+.ficha-merceria { font-size: 0.78rem; color: var(--tinta-suave); margin: 2px 0 8px; }
+.proximamente-merceria { background: var(--lila-suave); border-radius: 14px; padding: 20px; color: var(--tinta-suave); max-width: 480px; }
 .categoria-seccion { padding: 20px 0 48px; scroll-margin-top: 130px; }
 .grid-productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; }
 .producto-card { background: var(--blanco); border-radius: var(--radio-suave); overflow: hidden; box-shadow: var(--sombra-suave); display: flex; flex-direction: column; }
@@ -1350,146 +1356,29 @@ a { color: var(--rosa-principal); }
   <p id="sin-resultados" style="display:none; text-align:center; color:var(--tinta-suave); padding:20px;">No encontramos productos con esos filtros — prueba con otro nombre o rango de precio.</p>
 
   <nav class="nav-categorias" aria-label="Categorías de productos">
-<a href="#amigurumis" class="chip-categoria">Amigurumis</a>
+<a href="#mundo-encantado" class="chip-categoria">Mundo Encantado</a>
+<a href="#mundo-animal" class="chip-categoria">Mundo Animal</a>
+<a href="#mundo-anime-y-peliculas" class="chip-categoria">Mundo Anime y Películas</a>
+<a href="#otros-amigurumis" class="chip-categoria">Otros Amigurumis</a>
 <a href="#peluches" class="chip-categoria">Peluches</a>
 <a href="#bolsos" class="chip-categoria">Bolsos</a>
 <a href="#charms" class="chip-categoria">Charms</a>
 <a href="#macetas" class="chip-categoria">Macetas</a>
 <a href="#flores" class="chip-categoria">Flores</a>
 <a href="#separadores-de-libros" class="chip-categoria">Separadores de libros</a>
+<span class="separador-nav-categorias">🧶 Mercería</span>
+<a href="#lanas-merceria" class="chip-categoria chip-merceria">Lanas</a>
+<a href="#hilos-merceria" class="chip-categoria chip-merceria">Hilos</a>
+<a href="#agujas-merceria" class="chip-categoria chip-merceria">Agujas</a>
+<a href="#herrajes-merceria" class="chip-categoria chip-merceria">Herrajes</a>
+<a href="#accesorios-merceria" class="chip-categoria chip-merceria">Accesorios</a>
+<a href="#relleno-merceria" class="chip-categoria chip-merceria">Relleno</a>
   </nav>
 
 
-    <section class="categoria-seccion" id="amigurumis">
-      <h2>Amigurumis</h2>
-      <div class="grid-productos">
-        <article class="producto-card" data-nombre="Muñeca de gatita blanca con moño 10cm" data-precio="40000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339283.jpg" alt="Muñeca de gatita blanca con moño 10cm" loading="lazy" data-id="7709274339283" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de gatita blanca con moño 10cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca de gatita blanca con moño 10cm</h3>
-            <p class="producto-precio">$40.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20gatita%20blanca%20con%20moño%2010cm%20%28$40.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de osito amarillo con corazón 10cm" data-precio="55000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095000.jpg" alt="Muñeco de osito amarillo con corazón 10cm" loading="lazy" data-id="7709575095000" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de osito amarillo con corazón 10cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco de osito amarillo con corazón 10cm</h3>
-            <p class="producto-precio">$55.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20osito%20amarillo%20con%20corazón%2010cm%20%28$55.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de pato con traje de marinero 15cm" data-precio="75000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095079.jpg" alt="Muñeco de pato con traje de marinero 15cm" loading="lazy" data-id="7709575095079" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de pato con traje de marinero 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco de pato con traje de marinero 15cm</h3>
-            <p class="producto-precio">$75.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20pato%20con%20traje%20de%20marinero%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca ratoncita con moño y lazo 15cm" data-precio="75000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339290.jpg" alt="Muñeca ratoncita con moño y lazo 15cm" loading="lazy" data-id="7709274339290" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca ratoncita con moño y lazo 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca ratoncita con moño y lazo 15cm</h3>
-            <p class="producto-precio">$75.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20ratoncita%20con%20moño%20y%20lazo%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco ratón clásico con orejas redondas 15cm" data-precio="75000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339269.jpg" alt="Muñeco ratón clásico con orejas redondas 15cm" loading="lazy" data-id="7709274339269" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco ratón clásico con orejas redondas 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco ratón clásico con orejas redondas 15cm</h3>
-            <p class="producto-precio">$75.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20ratón%20clásico%20con%20orejas%20redondas%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco cocinero pirata con traje elegante" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783581.jpg" alt="Muñeco cocinero pirata con traje elegante" loading="lazy" data-id="7709847783581" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco cocinero pirata con traje elegante ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco cocinero pirata con traje elegante</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20cocinero%20pirata%20con%20traje%20elegante%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco pirata francotirador con nariz larga" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783529.jpg" alt="Muñeco pirata francotirador con nariz larga" loading="lazy" data-id="7709847783529" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata francotirador con nariz larga ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco pirata francotirador con nariz larga</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20francotirador%20con%20nariz%20larga%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca navegante pelirroja 15cm" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783512.jpg" alt="Muñeca navegante pelirroja 15cm" loading="lazy" data-id="7709847783512" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca navegante pelirroja 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca navegante pelirroja 15cm</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20navegante%20pelirroja%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco pirata de cabello negro con pecas 15cm" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783536.jpg" alt="Muñeco pirata de cabello negro con pecas 15cm" loading="lazy" data-id="7709847783536" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata de cabello negro con pecas 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco pirata de cabello negro con pecas 15cm</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20de%20cabello%20negro%20con%20pecas%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de mago joven con lentes redondos 14cm" data-precio="85000">
+        <section class="categoria-seccion" id="mundo-encantado">
+      <h2>Mundo Encantado</h2>
+      <div class="grid-productos"><article class="producto-card" data-nombre="Muñeco de mago joven con lentes redondos 14cm" data-precio="85000">
           <div class="producto-foto">
             <img src="img/productos/7709847783550.jpg" alt="Muñeco de mago joven con lentes redondos 14cm" loading="lazy" data-id="7709847783550" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1502,8 +1391,7 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20joven%20con%20lentes%20redondos%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de mago pelirrojo 14cm" data-precio="85000">
+        </article><article class="producto-card" data-nombre="Muñeco de mago pelirrojo 14cm" data-precio="85000">
           <div class="producto-foto">
             <img src="img/productos/7709847783567.jpg" alt="Muñeco de mago pelirrojo 14cm" loading="lazy" data-id="7709847783567" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1516,8 +1404,7 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20mago%20pelirrojo%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca de bruja con cabello rizado 14cm" data-precio="85000">
+        </article><article class="producto-card" data-nombre="Muñeca de bruja con cabello rizado 14cm" data-precio="85000">
           <div class="producto-foto">
             <img src="img/productos/7709847783505.jpg" alt="Muñeca de bruja con cabello rizado 14cm" loading="lazy" data-id="7709847783505" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1530,8 +1417,7 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20bruja%20con%20cabello%20rizado%2014cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca de princesa de cabello largo dorado 15cm" data-precio="85000">
+        </article><article class="producto-card" data-nombre="Muñeca de princesa de cabello largo dorado 15cm" data-precio="85000">
           <div class="producto-foto">
             <img src="img/productos/7709575095055.jpg" alt="Muñeca de princesa de cabello largo dorado 15cm" loading="lazy" data-id="7709575095055" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1544,64 +1430,7 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20princesa%20de%20cabello%20largo%20dorado%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco espadachín con bandana verde 15cm" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783574.jpg" alt="Muñeco espadachín con bandana verde 15cm" loading="lazy" data-id="7709847783574" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco espadachín con bandana verde 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco espadachín con bandana verde 15cm</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20espadachín%20con%20bandana%20verde%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca de ovejita enfermera de peluches 15cm" data-precio="85000">
-          <div class="producto-foto">
-            <img src="img/productos/7709847783598.jpg" alt="Muñeca de ovejita enfermera de peluches 15cm" loading="lazy" data-id="7709847783598" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de ovejita enfermera de peluches 15cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca de ovejita enfermera de peluches 15cm</h3>
-            <p class="producto-precio">$85.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20ovejita%20enfermera%20de%20peluches%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de cantante con guante blanco 19cm" data-precio="95000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095017.jpg" alt="Muñeco de cantante con guante blanco 19cm" loading="lazy" data-id="7709575095017" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de cantante con guante blanco 19cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco de cantante con guante blanco 19cm</h3>
-            <p class="producto-precio">$95.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20cantante%20con%20guante%20blanco%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco futbolista con camiseta albiceleste 20cm" data-precio="95000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095093.jpg" alt="Muñeco futbolista con camiseta albiceleste 20cm" loading="lazy" data-id="7709575095093" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco futbolista con camiseta albiceleste 20cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco futbolista con camiseta albiceleste 20cm</h3>
-            <p class="producto-precio">$95.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20futbolista%20con%20camiseta%20albiceleste%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca de niña con botones en los ojos 19cm" data-precio="95000">
+        </article><article class="producto-card" data-nombre="Muñeca de niña con botones en los ojos 19cm" data-precio="95000">
           <div class="producto-foto">
             <img src="img/productos/7709274339276.jpg" alt="Muñeca de niña con botones en los ojos 19cm" loading="lazy" data-id="7709274339276" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1614,36 +1443,155 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20niña%20con%20botones%20en%20los%20ojos%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco guerrero de cabello puntiagudo 20cm" data-precio="95000">
+        </article><article class="producto-card" data-nombre="Muñeca con temática de fresa y sombrero 25cm" data-precio="130000">
           <div class="producto-foto">
-            <img src="img/productos/muneco-guerrero-de-cabello-puntiagudo-20cm.jpg" alt="Muñeco guerrero de cabello puntiagudo 20cm" loading="lazy" data-id="muneco-guerrero-de-cabello-puntiagudo-20cm" data-intento="0"
+            <img src="img/productos/7709274339207.jpg" alt="Muñeca con temática de fresa y sombrero 25cm" loading="lazy" data-id="7709274339207" data-intento="0"
                  onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero de cabello puntiagudo 20cm ]</span>
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca con temática de fresa y sombrero 25cm ]</span>
           </div>
           <div class="producto-info">
-            <h3>Muñeco guerrero de cabello puntiagudo 20cm</h3>
-            <p class="producto-precio">$95.000 COP</p>
+            <h3>Muñeca con temática de fresa y sombrero 25cm</h3>
+            <p class="producto-precio">$130.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20de%20cabello%20puntiagudo%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20con%20temática%20de%20fresa%20y%20sombrero%2025cm%20%28$130.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Ratón Peréz 28cm" data-precio="157000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339214.jpg" alt="Ratón Peréz 28cm" loading="lazy" data-id="7709274339214" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Ratón Peréz 28cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Ratón Peréz 28cm</h3>
+            <p class="producto-precio">$157.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ratón%20Peréz%2028cm%20%28$157.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca fashionista rubia 29cm" data-precio="187000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339252.jpg" alt="Muñeca fashionista rubia 29cm" loading="lazy" data-id="7709274339252" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca fashionista rubia 29cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca fashionista rubia 29cm</h3>
+            <p class="producto-precio">$187.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20fashionista%20rubia%2029cm%20%28$187.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca Lydia 30cm" data-precio="197000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339238.jpg" alt="Muñeca Lydia 30cm" loading="lazy" data-id="7709274339238" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Lydia 30cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca Lydia 30cm</h3>
+            <p class="producto-precio">$197.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Lydia%2030cm%20%28$197.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca Hazel 31cm" data-precio="217000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339245.jpg" alt="Muñeca Hazel 31cm" loading="lazy" data-id="7709274339245" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Hazel 31cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca Hazel 31cm</h3>
+            <p class="producto-precio">$217.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Hazel%2031cm%20%28$217.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
-        <article class="producto-card" data-nombre="Muñeco guerrero orgulloso de cabello negro 20cm" data-precio="95000">
+      </div>
+    </section>
+    <section class="categoria-seccion" id="mundo-animal">
+      <h2>Mundo Animal</h2>
+      <div class="grid-productos"><article class="producto-card" data-nombre="Muñeca de gatita blanca con moño 10cm" data-precio="40000">
           <div class="producto-foto">
-            <img src="img/productos/muneco-guerrero-orgulloso-de-cabello-negro-20cm.jpg" alt="Muñeco guerrero orgulloso de cabello negro 20cm" loading="lazy" data-id="muneco-guerrero-orgulloso-de-cabello-negro-20cm" data-intento="0"
+            <img src="img/productos/7709274339283.jpg" alt="Muñeca de gatita blanca con moño 10cm" loading="lazy" data-id="7709274339283" data-intento="0"
                  onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero orgulloso de cabello negro 20cm ]</span>
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de gatita blanca con moño 10cm ]</span>
           </div>
           <div class="producto-info">
-            <h3>Muñeco guerrero orgulloso de cabello negro 20cm</h3>
-            <p class="producto-precio">$95.000 COP</p>
+            <h3>Muñeca de gatita blanca con moño 10cm</h3>
+            <p class="producto-precio">$40.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20orgulloso%20de%20cabello%20negro%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20gatita%20blanca%20con%20moño%2010cm%20%28$40.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Amigurumi de criatura verde tipo planta 14cm*15cm" data-precio="120000">
+        </article><article class="producto-card" data-nombre="Muñeco de osito amarillo con corazón 10cm" data-precio="55000">
+          <div class="producto-foto">
+            <img src="img/productos/7709575095000.jpg" alt="Muñeco de osito amarillo con corazón 10cm" loading="lazy" data-id="7709575095000" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de osito amarillo con corazón 10cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco de osito amarillo con corazón 10cm</h3>
+            <p class="producto-precio">$55.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20osito%20amarillo%20con%20corazón%2010cm%20%28$55.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco de pato con traje de marinero 15cm" data-precio="75000">
+          <div class="producto-foto">
+            <img src="img/productos/7709575095079.jpg" alt="Muñeco de pato con traje de marinero 15cm" loading="lazy" data-id="7709575095079" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de pato con traje de marinero 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco de pato con traje de marinero 15cm</h3>
+            <p class="producto-precio">$75.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20pato%20con%20traje%20de%20marinero%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca ratoncita con moño y lazo 15cm" data-precio="75000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339290.jpg" alt="Muñeca ratoncita con moño y lazo 15cm" loading="lazy" data-id="7709274339290" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca ratoncita con moño y lazo 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca ratoncita con moño y lazo 15cm</h3>
+            <p class="producto-precio">$75.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20ratoncita%20con%20moño%20y%20lazo%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco ratón clásico con orejas redondas 15cm" data-precio="75000">
+          <div class="producto-foto">
+            <img src="img/productos/7709274339269.jpg" alt="Muñeco ratón clásico con orejas redondas 15cm" loading="lazy" data-id="7709274339269" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco ratón clásico con orejas redondas 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco ratón clásico con orejas redondas 15cm</h3>
+            <p class="producto-precio">$75.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20ratón%20clásico%20con%20orejas%20redondas%2015cm%20%28$75.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca de ovejita enfermera de peluches 15cm" data-precio="85000">
+          <div class="producto-foto">
+            <img src="img/productos/7709847783598.jpg" alt="Muñeca de ovejita enfermera de peluches 15cm" loading="lazy" data-id="7709847783598" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca de ovejita enfermera de peluches 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca de ovejita enfermera de peluches 15cm</h3>
+            <p class="producto-precio">$85.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20de%20ovejita%20enfermera%20de%20peluches%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Amigurumi de criatura verde tipo planta 14cm*15cm" data-precio="120000">
           <div class="producto-foto">
             <img src="img/productos/7709575095031.jpg" alt="Amigurumi de criatura verde tipo planta 14cm*15cm" loading="lazy" data-id="7709575095031" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1656,36 +1604,7 @@ a { color: var(--rosa-principal); }
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Amigurumi%20de%20criatura%20verde%20tipo%20planta%2014cm*15cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
-        </article>
-        <article class="producto-card" data-nombre="Ingeniero Civil 22cm" data-precio="120000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095086.jpg" alt="Ingeniero Civil 22cm" loading="lazy" data-id="7709575095086" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Ingeniero Civil 22cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Ingeniero Civil 22cm</h3>
-            <p class="producto-precio">$120.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ingeniero%20Civil%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeco de niño explorador con gorra 22cm" data-precio="120000">
-          <div class="producto-foto">
-            <img src="img/productos/7709575095062.jpg" alt="Muñeco de niño explorador con gorra 22cm" loading="lazy" data-id="7709575095062" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de niño explorador con gorra 22cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeco de niño explorador con gorra 22cm</h3>
-            <p class="producto-precio">$120.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20niño%20explorador%20con%20gorra%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Oveja con Vestido 23cm" data-precio="127000">
+        </article><article class="producto-card" data-nombre="Oveja con Vestido 23cm" data-precio="127000">
           <div class="producto-foto">
             <img src="img/productos/7709575095048.jpg" alt="Oveja con Vestido 23cm" loading="lazy" data-id="7709575095048" data-intento="0"
                  onerror="manejarErrorFoto(this)">
@@ -1699,73 +1618,156 @@ a { color: var(--rosa-principal); }
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
-        <article class="producto-card" data-nombre="Muñeca con temática de fresa y sombrero 25cm" data-precio="130000">
+      </div>
+    </section>
+    <section class="categoria-seccion" id="mundo-anime-y-peliculas">
+      <h2>Mundo Anime y Películas</h2>
+      <div class="grid-productos"><article class="producto-card" data-nombre="Muñeco cocinero pirata con traje elegante" data-precio="85000">
           <div class="producto-foto">
-            <img src="img/productos/7709274339207.jpg" alt="Muñeca con temática de fresa y sombrero 25cm" loading="lazy" data-id="7709274339207" data-intento="0"
+            <img src="img/productos/7709847783581.jpg" alt="Muñeco cocinero pirata con traje elegante" loading="lazy" data-id="7709847783581" data-intento="0"
                  onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca con temática de fresa y sombrero 25cm ]</span>
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco cocinero pirata con traje elegante ]</span>
           </div>
           <div class="producto-info">
-            <h3>Muñeca con temática de fresa y sombrero 25cm</h3>
-            <p class="producto-precio">$130.000 COP</p>
+            <h3>Muñeco cocinero pirata con traje elegante</h3>
+            <p class="producto-precio">$85.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20con%20temática%20de%20fresa%20y%20sombrero%2025cm%20%28$130.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20cocinero%20pirata%20con%20traje%20elegante%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco pirata francotirador con nariz larga" data-precio="85000">
+          <div class="producto-foto">
+            <img src="img/productos/7709847783529.jpg" alt="Muñeco pirata francotirador con nariz larga" loading="lazy" data-id="7709847783529" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata francotirador con nariz larga ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco pirata francotirador con nariz larga</h3>
+            <p class="producto-precio">$85.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20francotirador%20con%20nariz%20larga%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeca navegante pelirroja 15cm" data-precio="85000">
+          <div class="producto-foto">
+            <img src="img/productos/7709847783512.jpg" alt="Muñeca navegante pelirroja 15cm" loading="lazy" data-id="7709847783512" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca navegante pelirroja 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeca navegante pelirroja 15cm</h3>
+            <p class="producto-precio">$85.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20navegante%20pelirroja%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco pirata de cabello negro con pecas 15cm" data-precio="85000">
+          <div class="producto-foto">
+            <img src="img/productos/7709847783536.jpg" alt="Muñeco pirata de cabello negro con pecas 15cm" loading="lazy" data-id="7709847783536" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco pirata de cabello negro con pecas 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco pirata de cabello negro con pecas 15cm</h3>
+            <p class="producto-precio">$85.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20pirata%20de%20cabello%20negro%20con%20pecas%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco espadachín con bandana verde 15cm" data-precio="85000">
+          <div class="producto-foto">
+            <img src="img/productos/7709847783574.jpg" alt="Muñeco espadachín con bandana verde 15cm" loading="lazy" data-id="7709847783574" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco espadachín con bandana verde 15cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco espadachín con bandana verde 15cm</h3>
+            <p class="producto-precio">$85.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20espadachín%20con%20bandana%20verde%2015cm%20%28$85.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco de cantante con guante blanco 19cm" data-precio="95000">
+          <div class="producto-foto">
+            <img src="img/productos/7709575095017.jpg" alt="Muñeco de cantante con guante blanco 19cm" loading="lazy" data-id="7709575095017" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de cantante con guante blanco 19cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco de cantante con guante blanco 19cm</h3>
+            <p class="producto-precio">$95.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20cantante%20con%20guante%20blanco%2019cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco futbolista con camiseta albiceleste 20cm" data-precio="95000">
+          <div class="producto-foto">
+            <img src="img/productos/7709575095093.jpg" alt="Muñeco futbolista con camiseta albiceleste 20cm" loading="lazy" data-id="7709575095093" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco futbolista con camiseta albiceleste 20cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco futbolista con camiseta albiceleste 20cm</h3>
+            <p class="producto-precio">$95.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20futbolista%20con%20camiseta%20albiceleste%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco guerrero de cabello puntiagudo 20cm" data-precio="95000">
+          <div class="producto-foto">
+            <img src="img/productos/muneco-guerrero-de-cabello-puntiagudo-20cm.jpg" alt="Muñeco guerrero de cabello puntiagudo 20cm" loading="lazy" data-id="muneco-guerrero-de-cabello-puntiagudo-20cm" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero de cabello puntiagudo 20cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco guerrero de cabello puntiagudo 20cm</h3>
+            <p class="producto-precio">$95.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20de%20cabello%20puntiagudo%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco guerrero orgulloso de cabello negro 20cm" data-precio="95000">
+          <div class="producto-foto">
+            <img src="img/productos/muneco-guerrero-orgulloso-de-cabello-negro-20cm.jpg" alt="Muñeco guerrero orgulloso de cabello negro 20cm" loading="lazy" data-id="muneco-guerrero-orgulloso-de-cabello-negro-20cm" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco guerrero orgulloso de cabello negro 20cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco guerrero orgulloso de cabello negro 20cm</h3>
+            <p class="producto-precio">$95.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20guerrero%20orgulloso%20de%20cabello%20negro%2020cm%20%28$95.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
+          </div>
+        </article><article class="producto-card" data-nombre="Muñeco de niño explorador con gorra 22cm" data-precio="120000">
+          <div class="producto-foto">
+            <img src="img/productos/7709575095062.jpg" alt="Muñeco de niño explorador con gorra 22cm" loading="lazy" data-id="7709575095062" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Muñeco de niño explorador con gorra 22cm ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Muñeco de niño explorador con gorra 22cm</h3>
+            <p class="producto-precio">$120.000 COP</p>
+            <p class="producto-estado disponible">Disponible</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeco%20de%20niño%20explorador%20con%20gorra%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
-        <article class="producto-card" data-nombre="Ratón Peréz 28cm" data-precio="157000">
+      </div>
+    </section>
+    <section class="categoria-seccion" id="otros-amigurumis">
+      <h2>Otros Amigurumis</h2>
+      <div class="grid-productos"><article class="producto-card" data-nombre="Ingeniero Civil 22cm" data-precio="120000">
           <div class="producto-foto">
-            <img src="img/productos/7709274339214.jpg" alt="Ratón Peréz 28cm" loading="lazy" data-id="7709274339214" data-intento="0"
+            <img src="img/productos/7709575095086.jpg" alt="Ingeniero Civil 22cm" loading="lazy" data-id="7709575095086" data-intento="0"
                  onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Ratón Peréz 28cm ]</span>
+            <span class="foto-marcador" style="display:none;">[ Foto de Ingeniero Civil 22cm ]</span>
           </div>
           <div class="producto-info">
-            <h3>Ratón Peréz 28cm</h3>
-            <p class="producto-precio">$157.000 COP</p>
+            <h3>Ingeniero Civil 22cm</h3>
+            <p class="producto-precio">$120.000 COP</p>
             <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ratón%20Peréz%2028cm%20%28$157.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca fashionista rubia 29cm" data-precio="187000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339252.jpg" alt="Muñeca fashionista rubia 29cm" loading="lazy" data-id="7709274339252" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca fashionista rubia 29cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca fashionista rubia 29cm</h3>
-            <p class="producto-precio">$187.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20fashionista%20rubia%2029cm%20%28$187.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca Lydia 30cm" data-precio="197000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339238.jpg" alt="Muñeca Lydia 30cm" loading="lazy" data-id="7709274339238" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Lydia 30cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca Lydia 30cm</h3>
-            <p class="producto-precio">$197.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Lydia%2030cm%20%28$197.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
-          </div>
-        </article>
-        <article class="producto-card" data-nombre="Muñeca Hazel 31cm" data-precio="217000">
-          <div class="producto-foto">
-            <img src="img/productos/7709274339245.jpg" alt="Muñeca Hazel 31cm" loading="lazy" data-id="7709274339245" data-intento="0"
-                 onerror="manejarErrorFoto(this)">
-            <span class="foto-marcador" style="display:none;">[ Foto de Muñeca Hazel 31cm ]</span>
-          </div>
-          <div class="producto-info">
-            <h3>Muñeca Hazel 31cm</h3>
-            <p class="producto-precio">$217.000 COP</p>
-            <p class="producto-estado disponible">Disponible</p>
-            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Muñeca%20Hazel%2031cm%20%28$217.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Ingeniero%20Civil%2022cm%20%28$120.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
             <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
@@ -2408,6 +2410,475 @@ a { color: var(--rosa-principal); }
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="categoria-seccion" id="lanas-merceria">
+      <h2>Lanas</h2>
+      <div class="grid-productos">
+        <article class="producto-card" data-nombre="Lana Chelin — Almendra" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-almendra.jpg" alt="Lana Chelin — Almendra" loading="lazy" data-id="lana-chelin-kusi-kusi-almendra" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Almendra ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Almendra</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Almendra%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Amarillo" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-amarillo.jpg" alt="Lana Chelin — Amarillo" loading="lazy" data-id="lana-chelin-kusi-kusi-amarillo" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Amarillo ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Amarillo</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Amarillo%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Azul Rey" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-azul-rey.jpg" alt="Lana Chelin — Azul Rey" loading="lazy" data-id="lana-chelin-kusi-kusi-azul-rey" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Azul Rey ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Azul Rey</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Azul%20Rey%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Blanco" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-blanco.jpg" alt="Lana Chelin — Blanco" loading="lazy" data-id="lana-chelin-kusi-kusi-blanco" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Blanco ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Blanco</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Blanco%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Crema" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-crema.jpg" alt="Lana Chelin — Crema" loading="lazy" data-id="lana-chelin-kusi-kusi-crema" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Crema ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Crema</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Crema%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Gris Claro T18" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-gris-claro-t18.jpg" alt="Lana Chelin — Gris Claro T18" loading="lazy" data-id="lana-chelin-kusi-kusi-gris-claro-t18" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Gris Claro T18 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Gris Claro T18</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Gris%20Claro%20T18%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Gris Oscuro" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-gris-oscuro.jpg" alt="Lana Chelin — Gris Oscuro" loading="lazy" data-id="lana-chelin-kusi-kusi-gris-oscuro" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Gris Oscuro ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Gris Oscuro</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Gris%20Oscuro%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Manzana" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-manzana.jpg" alt="Lana Chelin — Manzana" loading="lazy" data-id="lana-chelin-kusi-kusi-manzana" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Manzana ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Manzana</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Manzana%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Naranja T17" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-naranja-t17.jpg" alt="Lana Chelin — Naranja T17" loading="lazy" data-id="lana-chelin-kusi-kusi-naranja-t17" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Naranja T17 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Naranja T17</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Naranja%20T17%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Piel" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-piel.jpg" alt="Lana Chelin — Piel" loading="lazy" data-id="lana-chelin-kusi-kusi-piel" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Piel ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Piel</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Piel%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Rosado Claro" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-rosado-claro.jpg" alt="Lana Chelin — Rosado Claro" loading="lazy" data-id="lana-chelin-kusi-kusi-rosado-claro" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Rosado Claro ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Rosado Claro</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Rosado%20Claro%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Chelin — Vinotinto T134" data-precio="17600">
+          <div class="producto-foto">
+            <img src="img/productos/lana-chelin-kusi-kusi-vinotinto-t134.jpg" alt="Lana Chelin — Vinotinto T134" loading="lazy" data-id="lana-chelin-kusi-kusi-vinotinto-t134" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Chelin — Vinotinto T134 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Chelin — Vinotinto T134</h3>
+            <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
+            <p class="ficha-merceria">Poliester · 125 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Vinotinto%20T134%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Ecological Cotton — 204" data-precio="12000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-ecological-cotton-papatya-204.jpg" alt="Lana Ecological Cotton — 204" loading="lazy" data-id="lana-ecological-cotton-papatya-204" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Ecological Cotton — 204 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Ecological Cotton — 204</h3>
+            <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Algodón · 300 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20204%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Ecological Cotton — Gris Claro 106" data-precio="12000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-ecological-cotton-papatya-gris-claro-106.jpg" alt="Lana Ecological Cotton — Gris Claro 106" loading="lazy" data-id="lana-ecological-cotton-papatya-gris-claro-106" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Ecological Cotton — Gris Claro 106 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Ecological Cotton — Gris Claro 106</h3>
+            <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Algodón · 300 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Gris%20Claro%20106%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Ecological Cotton — Lila 505" data-precio="12000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-ecological-cotton-papatya-lila-505.jpg" alt="Lana Ecological Cotton — Lila 505" loading="lazy" data-id="lana-ecological-cotton-papatya-lila-505" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Ecological Cotton — Lila 505 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Ecological Cotton — Lila 505</h3>
+            <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Algodón · 300 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Lila%20505%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Ecological Cotton — Magenta 503" data-precio="12000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-ecological-cotton-papatya-magenta-503.jpg" alt="Lana Ecological Cotton — Magenta 503" loading="lazy" data-id="lana-ecological-cotton-papatya-magenta-503" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Ecological Cotton — Magenta 503 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Ecological Cotton — Magenta 503</h3>
+            <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Algodón · 300 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Magenta%20503%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Amarillo" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-amarillo.jpg" alt="Lana Happy Chenille — Amarillo" loading="lazy" data-id="lana-happy-chenille-dmc-amarillo" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Amarillo ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Amarillo</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Amarillo%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Azul Claro" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-azul-claro.jpg" alt="Lana Happy Chenille — Azul Claro" loading="lazy" data-id="lana-happy-chenille-dmc-azul-claro" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Azul Claro ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Azul Claro</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Azul%20Claro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Azul" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-azul.jpg" alt="Lana Happy Chenille — Azul" loading="lazy" data-id="lana-happy-chenille-dmc-azul" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Azul ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Azul</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Azul%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Blanco" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-blanco.jpg" alt="Lana Happy Chenille — Blanco" loading="lazy" data-id="lana-happy-chenille-dmc-blanco" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Blanco ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Blanco</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Blanco%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Fucsia" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-fucsia.jpg" alt="Lana Happy Chenille — Fucsia" loading="lazy" data-id="lana-happy-chenille-dmc-fucsia" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Fucsia ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Fucsia</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Fucsia%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Magenta" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-magenta.jpg" alt="Lana Happy Chenille — Magenta" loading="lazy" data-id="lana-happy-chenille-dmc-magenta" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Magenta ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Magenta</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Magenta%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Morado" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-morado.jpg" alt="Lana Happy Chenille — Morado" loading="lazy" data-id="lana-happy-chenille-dmc-morado" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Morado ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Morado</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Morado%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Negro" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-negro.jpg" alt="Lana Happy Chenille — Negro" loading="lazy" data-id="lana-happy-chenille-dmc-negro" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Negro ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Negro</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Negro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Rosado" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-rosado.jpg" alt="Lana Happy Chenille — Rosado" loading="lazy" data-id="lana-happy-chenille-dmc-rosado" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Rosado ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Rosado</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Rosado%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Turquesa" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-turquesa.jpg" alt="Lana Happy Chenille — Turquesa" loading="lazy" data-id="lana-happy-chenille-dmc-turquesa" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Turquesa ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Turquesa</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Turquesa%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Verde claro" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-verde-claro.jpg" alt="Lana Happy Chenille — Verde claro" loading="lazy" data-id="lana-happy-chenille-dmc-verde-claro" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Verde claro ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Verde claro</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20claro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Verde Gris" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-verde-gris.jpg" alt="Lana Happy Chenille — Verde Gris" loading="lazy" data-id="lana-happy-chenille-dmc-verde-gris" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Verde Gris ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Verde Gris</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20Gris%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Papatya Love — Morado 4550" data-precio="13000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-papatya-love-papatya-morado-4550.jpg" alt="Lana Papatya Love — Morado 4550" loading="lazy" data-id="lana-papatya-love-papatya-morado-4550" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Papatya Love — Morado 4550 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Papatya Love — Morado 4550</h3>
+            <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Acrilico · 360 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Morado%204550%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Papatya Love — Rosado Claro 4020" data-precio="13000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-papatya-love-papatya-rosado-claro-4020.jpg" alt="Lana Papatya Love — Rosado Claro 4020" loading="lazy" data-id="lana-papatya-love-papatya-rosado-claro-4020" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Papatya Love — Rosado Claro 4020 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Papatya Love — Rosado Claro 4020</h3>
+            <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Acrilico · 360 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Rosado%20Claro%204020%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Papatya Love — Verde Esmeralda 6550" data-precio="13000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-papatya-love-papatya-verde-esmeralda-6550.jpg" alt="Lana Papatya Love — Verde Esmeralda 6550" loading="lazy" data-id="lana-papatya-love-papatya-verde-esmeralda-6550" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Papatya Love — Verde Esmeralda 6550 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Papatya Love — Verde Esmeralda 6550</h3>
+            <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Acrilico · 360 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Verde%20Esmeralda%206550%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Polar — Blanco 03" data-precio="13000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-polar-kusi-kusi-blanco-03.jpg" alt="Lana Polar — Blanco 03" loading="lazy" data-id="lana-polar-kusi-kusi-blanco-03" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Polar — Blanco 03 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Polar — Blanco 03</h3>
+            <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Poliester · 55 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Polar%20-%20Blanco%2003%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+        <article class="producto-card" data-nombre="Lana Papatya Love — Azul Claro 5050" data-precio="13000">
+          <div class="producto-foto">
+            <img src="img/productos/lana-papatya-love-papatya-azul-claro-5050.jpg" alt="Lana Papatya Love — Azul Claro 5050" loading="lazy" data-id="lana-papatya-love-papatya-azul-claro-5050" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Papatya Love — Azul Claro 5050 ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Papatya Love — Azul Claro 5050</h3>
+            <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
+            <p class="ficha-merceria">Acrilico · 360 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Azul%20Claro%205050%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="categoria-seccion" id="hilos-merceria">
+      <h2>Hilos</h2>
+      <div class="grid-productos">
+        <article class="producto-card" data-nombre="Lana Happy Chenille — Verde Limón" data-precio="4500">
+          <div class="producto-foto">
+            <img src="img/productos/lana-happy-chenille-dmc-verde-limon.jpg" alt="Lana Happy Chenille — Verde Limón" loading="lazy" data-id="lana-happy-chenille-dmc-verde-limon" data-intento="0"
+                 onerror="manejarErrorFoto(this)">
+            <span class="foto-marcador" style="display:none;">[ Foto de Lana Happy Chenille — Verde Limón ]</span>
+          </div>
+          <div class="producto-info">
+            <h3>Lana Happy Chenille — Verde Limón</h3>
+            <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
+            <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
+            <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20Limón%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="categoria-seccion" id="agujas-merceria">
+      <h2>Agujas</h2>
+      <p class="proximamente-merceria">🧵 Muy pronto vamos a tener agujas disponibles aquí. Mientras tanto, escríbenos por WhatsApp si buscas algo puntual.</p>
+    </section>
+    <section class="categoria-seccion" id="herrajes-merceria">
+      <h2>Herrajes</h2>
+      <p class="proximamente-merceria">🧵 Muy pronto vamos a tener herrajes disponibles aquí. Mientras tanto, escríbenos por WhatsApp si buscas algo puntual.</p>
+    </section>
+    <section class="categoria-seccion" id="accesorios-merceria">
+      <h2>Accesorios</h2>
+      <p class="proximamente-merceria">🧵 Muy pronto vamos a tener accesorios disponibles aquí. Mientras tanto, escríbenos por WhatsApp si buscas algo puntual.</p>
+    </section>
+    <section class="categoria-seccion" id="relleno-merceria">
+      <h2>Relleno</h2>
+      <p class="proximamente-merceria">🧵 Muy pronto vamos a tener relleno disponibles aquí. Mientras tanto, escríbenos por WhatsApp si buscas algo puntual.</p>
     </section>
 
   <div class="aviso-personalizado" style="background:var(--blanco); box-shadow:var(--sombra-suave);">
