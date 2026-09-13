@@ -58,6 +58,7 @@ h1 { font-size: clamp(2.2rem, 4.4vw, 3.1rem); }
 h2 { font-size: 1.6rem; }
 h3 { font-size: 1.1rem; }
 .contenedor { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+main { padding-bottom: 60px; }
 a { color: var(--rosa-principal); }
 .encabezado { position: sticky; top: 0; z-index: 20; background: rgba(252, 248, 241, 0.94); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(69,69,74,0.08); }
 .encabezado .barra { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
@@ -250,8 +251,8 @@ section { padding: 20px 0 60px; }
 
   <section class="contenedor" id="rosina" style="padding-bottom:20px;">
     <div class="rosina-resumen" style="display:grid; grid-template-columns:220px 1fr; gap:32px; align-items:center;">
-      <div class="marco-foto" style="width:220px; aspect-ratio:1; border-radius:var(--radio-suave); overflow:hidden; box-shadow:var(--sombra-suave);">
-        <img src="img/rosina.jpg" alt="Rosina, la ovejita embajadora de Lana Rosa Crochet" style="width:100%;height:100%;object-fit:cover;">
+      <div class="marco-foto" style="width:220px; aspect-ratio:0.75; border-radius:var(--radio-suave); overflow:hidden; box-shadow:var(--sombra-suave); background:var(--rosa-suave);">
+        <img src="img/rosina.jpg" alt="Rosina, la ovejita embajadora de Lana Rosa Crochet" style="width:100%;height:100%;object-fit:contain;">
       </div>
       <div>
         <p class="eslogan" style="color:var(--rosa-principal); font-weight:600; margin-bottom:6px;">Nuestra embajadora</p>
@@ -262,7 +263,7 @@ section { padding: 20px 0 60px; }
     </div>
   </section>
 
-  <section class="contenedor" style="padding-top:28px;">
+  <section class="contenedor" style="padding-top:28px; padding-bottom:60px;">
     <h2>Próximamente</h2>
     <div class="aviso-proximamente">
       <h3 style="font-size:1.05rem;">Curso gratuito de crochet para principiantes en YouTube</h3>
