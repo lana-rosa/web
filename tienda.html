@@ -1124,9 +1124,8 @@ a { color: var(--rosa-principal); }
 .boton-whatsapp { background: var(--rosa-principal); color: var(--blanco) !important; padding: 10px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
 @media (max-width: 900px) { .nav-principal { display: none; } }
 .encabezado-pagina { padding: 48px 0 8px; max-width: 700px; }
-.encabezado-tienda-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: start; }
-.encabezado-tienda-grid .aviso-personalizado { margin-top: 68px; }
-@media (max-width: 800px) { .encabezado-tienda-grid { grid-template-columns: 1fr; } .encabezado-tienda-grid .aviso-personalizado { margin-top: 0; } }
+.encabezado-tienda-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: center; }
+@media (max-width: 800px) { .encabezado-tienda-grid { grid-template-columns: 1fr; } }
 .encabezado-pagina p { color: var(--tinta-suave); font-size: 1.05rem; }
 .selector-categorias { padding: 0; }
 .selector-categorias label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: 4px; }
@@ -1138,6 +1137,7 @@ a { color: var(--rosa-principal); }
 .selector-categorias select:focus { outline: none; border-color: var(--rosa-principal); }
 
 .barra-controles-tienda {
+  margin-top: 20px;
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px;
   position: sticky; top: 66px; background: var(--blanco-hueso); z-index: 10; padding: 14px 0;
 }
@@ -1186,19 +1186,17 @@ a { color: var(--rosa-principal); }
 .boton-agregar-carrito:hover { background: var(--rosa-suave); }
 .boton-agregar-carrito.agregado { background: #2e7d32; border-color: #2e7d32; color: #fff; }
 
-.boton-carrito-flotante {
-  position: fixed; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); left: calc(24px + env(safe-area-inset-left, 0px)); z-index: 998;
-  width: 56px; height: 56px; background: var(--rosa-principal); border: none; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+.boton-carrito-header {
+  position: relative; background: var(--blanco); border: 1.5px solid var(--rosa-suave); border-radius: 50%;
+  width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.15rem; color: var(--tinta); flex-shrink: 0;
 }
-.boton-carrito-flotante:hover { background: #B83E78; }
+.boton-carrito-header:hover { border-color: var(--rosa-principal); }
 .contador-carrito {
-  position: absolute; top: -4px; right: -4px; background: var(--tinta); color: #fff;
-  font-size: 0.72rem; font-weight: 700; width: 20px; height: 20px; border-radius: 50%;
+  position: absolute; top: -4px; right: -4px; background: var(--rosa-principal); color: #fff;
+  font-size: 0.68rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
-@media (max-width: 600px) { .boton-carrito-flotante { width: 48px; height: 48px; left: calc(16px + env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); font-size: 1.3rem; } }
 
 .overlay-carrito {
   position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
@@ -1279,7 +1277,9 @@ a { color: var(--rosa-principal); }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 40px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
 .pie-rico { background: var(--tinta); color: var(--blanco-hueso); padding: 50px 0 24px; font-size: 0.88rem; }
-.pie-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.2fr; gap: 30px; margin-bottom: 34px; }
+.pie-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.9fr 1fr; gap: 26px; margin-bottom: 34px; }
+.pie-apoyo { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-bottom: 18px; font-size: 0.82rem; opacity: 0.9; }
+.pie-apoyo img { height: 40px; width: auto; background: #fff; border-radius: 8px; padding: 4px 8px; }
 @media (max-width: 900px) { .pie-grid { grid-template-columns: 1fr 1fr; } }
 .pie-logo-wrap { background: #fff; display: inline-block; padding: 8px 14px; border-radius: 12px; margin-bottom: 14px; }
 .pie-logo-wrap img { height: 26px; display: block; }
@@ -1347,6 +1347,9 @@ a { color: var(--rosa-principal); }
       </ul>
     </nav>
     <button class="menu-movil" id="boton-menu-movil" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="boton-carrito-header" id="boton-carrito" aria-label="Ver carrito de compras">
+      🛒<span class="contador-carrito" id="contador-carrito">0</span>
+    </button>
     <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
@@ -2514,7 +2517,6 @@ a { color: var(--rosa-principal); }
       <h3>Nosotros</h3>
       <ul>
         <li><a href="sobre-nosotras.html">Quiénes somos</a></li>
-        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">Contáctanos</a></li>
       </ul>
     </div>
     <div>
@@ -2525,6 +2527,14 @@ a { color: var(--rosa-principal); }
         <li><a href="personaliza.html">Personalizados</a></li>
         <li><a href="aprende.html">Talleres</a></li>
         <li><a href="https://lana-rosa-crochet.cercia.co/" target="_blank" rel="noopener">Comprar en línea</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contáctanos</h3>
+      <ul>
+        <li><a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a></li>
+        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a></li>
+        <li>Calle 10 #5-37 Centro, Villamaría, Caldas</li>
       </ul>
     </div>
     <div>
@@ -2541,16 +2551,19 @@ a { color: var(--rosa-principal); }
       <div class="pie-pagos">
         <span>Efectivo</span><span>Nequi</span><span>Bre-B</span><span>Tarjeta débito/crédito</span>
       </div>
-      <p>
-        <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a><br>
-        <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a>
-      </p>
     </div>
+  </div>
+  <div class="contenedor pie-apoyo">
+    <span>Con el apoyo de:</span>
+    <img src="img/logo-sena.png" alt="SENA" onerror="this.style.display='none'">
+    <img src="img/logo-fondo-emprender.png" alt="Fondo Emprender SENA" onerror="this.style.display='none'">
   </div>
   <div class="contenedor pie-legal">
     <a href="politicas.html#envios">Política de envíos</a>
     <a href="politicas.html#cambios">Política de cambios</a>
     <a href="politicas.html#datos">Tratamiento de datos</a>
+    <a href="politicas.html#uso">Uso del sitio</a>
+    <a href="politicas.html#cookies">Cookies</a>
   </div>
   <p class="derechos contenedor">© 2026 Lana Rosa Crochet. Todos los derechos reservados.</p>
 </footer>
@@ -2699,10 +2712,6 @@ function manejarErrorFoto(img) {
   });
 })();
 </script>
-
-<button class="boton-carrito-flotante" id="boton-carrito" aria-label="Ver carrito de compras">
-  🛒<span class="contador-carrito" id="contador-carrito">0</span>
-</button>
 
 <div class="overlay-carrito" id="overlay-carrito"></div>
 <div class="panel-carrito" id="panel-carrito">

@@ -38,13 +38,25 @@ a { color: var(--rosa-principal); }
 .encabezado .barra { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-family: var(--fuente-titulo); font-size: 1.4rem; color: var(--rosa-principal); text-decoration: none; font-weight: 600; }
 .boton-whatsapp { background: var(--rosa-principal); color: var(--blanco) !important; padding: 10px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+.nav-principal { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-principal a { text-decoration: none; color: var(--tinta); font-weight: 500; font-size: 0.95rem; }
+.nav-principal a:hover { color: var(--rosa-principal); }
+@media (max-width: 900px) { .nav-principal { display: none; } }
+.menu-movil { display: none; background: none; border: none; font-size: 1.7rem; cursor: pointer; color: var(--tinta); padding: 4px 6px; line-height: 1; }
+.nav-movil-panel { display: none; flex-direction: column; background: var(--blanco); border-top: 1px solid rgba(69,69,74,0.08); }
+.nav-movil-panel.abierto { display: flex; }
+.nav-movil-panel a { padding: 15px 24px; text-decoration: none; color: var(--tinta); border-bottom: 1px solid rgba(69,69,74,0.06); font-weight: 500; font-size: 0.98rem; }
+.nav-movil-panel a:hover { background: var(--rosa-suave); color: var(--rosa-principal); }
+@media (max-width: 900px) { .menu-movil { display: inline-flex; align-items: center; } }
 main { padding: 50px 0 70px; }
 section.politica { background: var(--blanco); border-radius: var(--radio-suave); padding: 32px; box-shadow: var(--sombra-suave); margin-bottom: 30px; scroll-margin-top: 90px; }
 section.politica p { white-space: pre-line; margin-bottom: 14px; }
 .pie { background: var(--tinta); color: var(--blanco-hueso); padding: 30px 0; text-align: center; font-size: 0.85rem; }
 .pie a { color: var(--rosa-medio); }
 .pie-rico { background: var(--tinta); color: var(--blanco-hueso); padding: 50px 0 24px; font-size: 0.88rem; }
-.pie-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.2fr; gap: 30px; margin-bottom: 34px; }
+.pie-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.9fr 1fr; gap: 26px; margin-bottom: 34px; }
+.pie-apoyo { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-bottom: 18px; font-size: 0.82rem; opacity: 0.9; }
+.pie-apoyo img { height: 40px; width: auto; background: #fff; border-radius: 8px; padding: 4px 8px; }
 @media (max-width: 900px) { .pie-grid { grid-template-columns: 1fr 1fr; } }
 .pie-logo-wrap { background: #fff; display: inline-block; padding: 8px 14px; border-radius: 12px; margin-bottom: 14px; }
 .pie-logo-wrap img { height: 26px; display: block; }
@@ -95,46 +107,326 @@ section.politica p { white-space: pre-line; margin-bottom: 14px; }
 <header class="encabezado">
   <div class="barra">
     <a href="index.html" class="logo"><img src="img/logo-lana-rosa.jpg" alt="Lana Rosa Crochet" class="logo-img"><span class="texto-logo">Inicio</span></a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-principal">
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="merceria.html">Mercería</a></li>
+        <li><a href="personaliza.html">Personaliza el tuyo</a></li>
+        <li><a href="aprende.html">Aprende</a></li>
+        <li><a href="revista.html">Revista</a></li>
+        <li><a href="sobre-nosotras.html">Sobre nosotras</a></li>
+      </ul>
+    </nav>
+    <button class="menu-movil" id="boton-menu-movil" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
+  <nav class="nav-movil-panel" id="nav-movil-panel" aria-label="Navegación móvil">
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="merceria.html">Mercería</a>
+    <a href="personaliza.html">Personaliza el tuyo</a>
+    <a href="aprende.html">Aprende</a>
+    <a href="revista.html">Revista</a>
+    <a href="sobre-nosotras.html">Sobre nosotras</a>
+    <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+  </nav>
 
 <main class="contenedor">
   <h1>Políticas</h1>
 
   <section class="politica" id="envios">
     <h2>Política de envíos</h2>
-    <p style="white-space:normal;">Hacemos envíos a nivel nacional desde nuestro taller en Villamaría, Caldas.</p>
+    <p style="white-space:normal;">En Lana Rosa queremos que su pedido llegue en las mejores condiciones y de forma segura. Realizamos envíos a todo Colombia.</p>
+
+    <h3 style="margin-bottom:8px;">Tiempos de preparación</h3>
     <ul style="margin:0 0 14px; padding-left:20px;">
-      <li>El pedido se despacha 1 semana después de confirmado el pago, o de forma inmediata según disponibilidad.</li>
-      <li>El valor del producto no incluye el envío — el domicilio se paga aparte, contraentrega, directamente a quien lo lleve.</li>
-      <li>Una vez despachado, te compartimos los datos de la guía para que puedas hacerle seguimiento.</li>
+      <li>Los productos disponibles en nuestro catálogo se despachan una vez confirmado el pago.</li>
+      <li>Los productos personalizados o elaborados bajo pedido requieren un tiempo adicional de elaboración. El tiempo estimado de elaboración será informado al momento de realizar la compra, de acuerdo con el tipo de producto y la cantidad solicitada.</li>
     </ul>
+
+    <h3 style="margin-bottom:8px;">Tiempo de entrega</h3>
+    <p style="white-space:normal;">Una vez despachado el pedido, el tiempo de entrega depende de la transportadora, la ciudad de destino y las condiciones de la ruta. El tiempo estimado de transporte será informado al momento del envío.</p>
+    <p style="white-space:normal;">Los tiempos indicados son estimados y pueden variar por situaciones externas como condiciones climáticas, novedades en las vías, alta demanda de las transportadoras o dificultades de acceso a determinadas zonas.</p>
+
+    <h3 style="margin-bottom:8px;">Costo del envío</h3>
+    <p style="white-space:normal;">El valor del envío se calcula de acuerdo con la ciudad o zona de destino, el tamaño y peso del paquete y la transportadora utilizada. Este valor será informado antes de finalizar la compra.</p>
+
+    <h3 style="margin-bottom:8px;">Seguimiento</h3>
+    <p style="white-space:normal;">Una vez entregado el pedido a la transportadora, compartiremos el número de guía para que pueda consultar el estado de su envío.</p>
+
+    <h3 style="margin-bottom:8px;">Recepción del pedido</h3>
+    <p style="white-space:normal;">Al recibir su pedido, recomendamos verificar que el empaque se encuentre en buenas condiciones. Si presenta daños visibles o alguna novedad relacionada con el pedido, comuníquese con nosotros lo antes posible y envíenos fotografías o evidencia del estado en que fue recibido.</p>
+
+    <h3 style="margin-bottom:8px;">Importante</h3>
+    <p style="white-space:normal;">Lana Rosa se encarga de preparar y entregar correctamente cada pedido a la transportadora. Una vez despachado, los tiempos y condiciones de transporte dependen de la empresa encargada de la entrega.</p>
+    <p style="white-space:normal;">Para pedidos personalizados o de varias unidades, recomendamos realizar la compra con anticipación para contar con el tiempo necesario de elaboración y envío.</p>
+    <p style="font-weight:600; color:var(--rosa-principal);">🚚 Envíos a toda Colombia.</p>
   </section>
 
   <section class="politica" id="cambios">
-    <h2>Política de cambios</h2>
-    <p>Aceptamos cambios hasta 7 días después de la compra, presentando este recibo. El producto debe estar en las mismas condiciones en que fue entregado.</p>
+    <h2>Política de cambios, devoluciones y garantías</h2>
+    <p style="white-space:normal;">En Lana Rosa queremos que cada pedido llegue de acuerdo con lo solicitado y en las condiciones de calidad ofrecidas. Por eso, establecemos las siguientes condiciones para cambios, devoluciones y reclamaciones.</p>
+
+    <h3 style="margin-bottom:8px;">1. Amigurumis del catálogo</h3>
+    <p style="white-space:normal;">Nuestros amigurumis del catálogo son elaborados y revisados antes de ser despachados. Al realizar la compra, el cliente selecciona una referencia que conoce previamente y recibe el producto correspondiente a la descripción y características publicadas.</p>
+    <p style="white-space:normal;">Por tratarse de productos elaborados artesanalmente y destinados a un cliente específico, <strong>no se realizan cambios por gusto, color, tamaño, diseño o cambio de decisión después de efectuado el despacho</strong>, sin perjuicio de los derechos que correspondan al consumidor de acuerdo con la legislación aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">2. Amigurumis personalizados</h3>
+    <p style="white-space:normal;">Los amigurumis personalizados se elaboran de acuerdo con las características, fotografías, referencias y especificaciones aprobadas previamente por el cliente.</p>
+    <p style="white-space:normal;">Antes del despacho, el cliente recibe la información o evidencia correspondiente para verificar el resultado final. Una vez aprobado y despachado el producto, <strong>no se aceptan cambios por modificaciones de gusto o por cambios en las especificaciones que hayan sido previamente aprobadas</strong>.</p>
+    <p style="white-space:normal;">Los productos claramente personalizados están exceptuados del derecho de retracto en los casos previstos por la legislación colombiana.</p>
+    <p style="white-space:normal;">Si el producto presenta un defecto atribuible a Lana Rosa, corresponde la garantía legal aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">3. Productos de mercería</h3>
+    <p style="white-space:normal;">Los productos de mercería adquiridos en promoción <strong>no tienen cambio por gusto, elección equivocada o cambio de decisión</strong>.</p>
+    <p style="white-space:normal;">Sin embargo, si Lana Rosa envía un producto diferente al solicitado, o el producto presenta un defecto cubierto por la garantía legal, el cliente podrá realizar la reclamación correspondiente y se evaluará el caso de acuerdo con la normativa aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">4. Productos enviados por error o con defectos</h3>
+    <p style="white-space:normal;">Si recibe un producto diferente al solicitado, presenta un defecto o llega con un daño que pueda ser atribuible a Lana Rosa, comuníquese con nosotros lo antes posible.</p>
+    <p style="white-space:normal;">Para gestionar la reclamación, solicitaremos <strong>evidencia fotográfica o audiovisual</strong> del producto, su empaque y, cuando sea necesario, de la novedad presentada. Esta información nos permite verificar el caso y determinar la solución correspondiente.</p>
+    <p style="white-space:normal;">Cuando la reclamación sea procedente, Lana Rosa gestionará la solución que corresponda de acuerdo con la naturaleza del caso y la garantía legal aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">5. Plazo para reportar novedades</h3>
+    <p style="white-space:normal;">Para facilitar la revisión de los pedidos, recomendamos reportar cualquier novedad relacionada con el producto <strong>dentro de los siete (7) días calendario siguientes a su entrega</strong>, adjuntando la evidencia correspondiente.</p>
+    <p style="white-space:normal;">Este plazo de reporte <strong>no limita ni sustituye los términos de garantía legal ni los demás derechos reconocidos al consumidor por la legislación colombiana</strong>.</p>
+
+    <h3 style="margin-bottom:8px;">6. Derecho de retracto</h3>
+    <p style="white-space:normal;">Cuando la compra se realice mediante canales de venta a distancia y sea legalmente aplicable, el consumidor podrá ejercer el derecho de retracto dentro de los términos establecidos por la legislación colombiana.</p>
+    <p style="white-space:normal;">El derecho de retracto contempla excepciones, entre ellas los bienes confeccionados conforme a las especificaciones del consumidor o claramente personalizados.</p>
+
+    <h3 style="margin-bottom:8px;">7. Requisitos para presentar una reclamación</h3>
+    <p style="white-space:normal;">Para atender una reclamación, el cliente deberá proporcionar:</p>
+    <ul style="margin:0 0 14px; padding-left:20px;">
+      <li>Número de pedido o comprobante de compra.</li>
+      <li>Nombre de la persona que realizó la compra.</li>
+      <li>Descripción de la novedad presentada.</li>
+      <li>Fotografías o videos que permitan evidenciar el inconveniente.</li>
+      <li>Fotografías del empaque cuando la reclamación esté relacionada con daños durante la entrega.</li>
+      <li>Información adicional que pueda ser necesaria para revisar el caso.</li>
+    </ul>
+    <p style="white-space:normal;">Una vez recibida la reclamación y la información necesaria, Lana Rosa realizará la respectiva revisión y dará respuesta conforme a los términos legales aplicables.</p>
+
+    <h3 style="margin-bottom:8px;">8. Garantía legal</h3>
+    <p style="white-space:normal;">Las condiciones de garantía de nuestros productos se rigen por la legislación colombiana vigente. La garantía legal comprende la calidad, idoneidad, seguridad y buen estado del producto, en los términos establecidos por la Ley 1480 de 2011 y las demás normas aplicables.</p>
+    <p style="white-space:normal;">Las condiciones comerciales de promoción, descuento o rebaja no eliminan los derechos que correspondan al consumidor en materia de garantía legal.</p>
+    <p style="white-space:normal;"><strong>Lana Rosa Crochet se reserva el derecho de revisar cada caso individualmente y determinar la solución correspondiente de acuerdo con las condiciones del pedido, la evidencia aportada y la legislación colombiana aplicable.</strong></p>
   </section>
 
   <section class="politica" id="datos">
     <h2>Política de tratamiento de datos personales</h2>
-    <p>En cumplimiento de la Ley 1581 de 2012, el Decreto 1377 de 2013 y demás normas concordantes, Sara Loaiza Muñoz, con establecimiento de comercio denominado Lana Rosa Crochet en Villamaría, Caldas, informa que es la Responsable del Tratamiento de sus datos personales.</p>
+    <p style="white-space:normal; font-size:0.85rem; color:var(--tinta-suave);">Fecha de actualización: 12/09/2026</p>
+    <p style="white-space:normal;">Lana Rosa Crochet, en cumplimiento de la Ley 1581 de 2012, el Decreto 1074 de 2015 y demás normas colombianas aplicables sobre protección de datos personales, adopta la presente Política de Tratamiento de Datos Personales.</p>
 
-    <h3 style="margin-bottom:8px;">1. Finalidad del tratamiento</h3>
-    <p style="white-space:normal;">Los datos personales recolectados (nombre, cédula/NIT, teléfono, dirección, correo electrónico) serán utilizados para:</p>
+    <h3 style="margin-bottom:8px;">1. Responsable del tratamiento</h3>
+    <p style="white-space:normal; margin-bottom:4px;"><strong>Responsable:</strong> Lana Rosa Crochet</p>
+    <p style="white-space:normal; margin-bottom:4px;"><strong>NIT:</strong> 1055359694</p>
+    <p style="white-space:normal; margin-bottom:4px;"><strong>Domicilio:</strong> Villamaría, Caldas</p>
+    <p style="white-space:normal; margin-bottom:4px;"><strong>Dirección:</strong> Calle 10 #5-37 Centro</p>
+    <p style="white-space:normal; margin-bottom:4px;"><strong>Correo electrónico:</strong> <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a></p>
+    <p style="white-space:normal; margin-bottom:14px;"><strong>Teléfono:</strong> <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a></p>
+    <p style="white-space:normal;">Lana Rosa Crochet será responsable del tratamiento de los datos personales que sean recolectados a través de nuestra página web, redes sociales, canales de atención, procesos de compra y demás medios utilizados para desarrollar nuestras actividades comerciales.</p>
+
+    <h3 style="margin-bottom:8px;">2. Datos personales que podemos recolectar</h3>
+    <p style="white-space:normal;">Dependiendo de la interacción que tenga con nosotros, podemos solicitar los siguientes datos:</p>
     <ul style="margin:0 0 14px; padding-left:20px;">
-      <li>La gestión administrativa, facturación, cobro y despacho de pedidos.</li>
-      <li>El envío de cotizaciones, confirmación de compras y atención de garantías o reclamos.</li>
-      <li>El cumplimiento de obligaciones tributarias y contables ante la DIAN y autoridades locales.</li>
-      <li>Envío de promociones y novedades sobre nuestros productos, previo consentimiento expreso.</li>
+      <li>Nombre y apellidos.</li>
+      <li>Número de teléfono o celular.</li>
+      <li>Correo electrónico.</li>
+      <li>Dirección y ciudad de entrega.</li>
+      <li>Información necesaria para procesar y entregar pedidos.</li>
+      <li>Información relacionada con productos personalizados o solicitudes realizadas por el cliente.</li>
+      <li>Información necesaria para atender preguntas, solicitudes, peticiones, quejas o reclamos.</li>
+    </ul>
+    <p style="white-space:normal;">Lana Rosa Crochet no solicitará datos personales que no sean necesarios para las finalidades descritas en esta política.</p>
+
+    <h3 style="margin-bottom:8px;">3. Finalidades del tratamiento</h3>
+    <p style="white-space:normal;">Los datos personales podrán ser utilizados para:</p>
+    <ul style="margin:0 0 14px; padding-left:20px;">
+      <li>Procesar, confirmar y gestionar pedidos y compras.</li>
+      <li>Coordinar la elaboración y entrega de productos.</li>
+      <li>Realizar envíos y proporcionar información relacionada con el estado del pedido.</li>
+      <li>Contactar al cliente para resolver inquietudes relacionadas con su compra o solicitud.</li>
+      <li>Atender peticiones, quejas, reclamos, solicitudes y consultas.</li>
+      <li>Gestionar productos personalizados y solicitudes realizadas por el cliente.</li>
+      <li>Mantener registros administrativos y contables relacionados con las operaciones comerciales.</li>
+      <li>Mejorar nuestros productos, servicios y experiencia de compra.</li>
+      <li>Enviar información comercial, promociones, novedades, lanzamientos, talleres o actividades de Lana Rosa Crochet, cuando el titular haya autorizado el envío de dichas comunicaciones.</li>
+      <li>Cumplir obligaciones legales, contractuales y administrativas aplicables.</li>
     </ul>
 
-    <h3 style="margin-bottom:8px;">2. Derechos del titular</h3>
-    <p style="white-space:normal;">Como titular de los datos, usted tiene derecho a conocer, actualizar, rectificar y solicitar la supresión de sus datos personales, así como a revocar la autorización otorgada.</p>
+    <h3 style="margin-bottom:8px;">4. Tratamiento de fotografías e información para productos personalizados</h3>
+    <p style="white-space:normal;">Cuando el cliente solicite un producto personalizado y proporcione fotografías, nombres u otra información para utilizar como referencia, estos datos serán utilizados exclusivamente para gestionar la solicitud y elaborar el producto solicitado, de acuerdo con las instrucciones proporcionadas por el cliente.</p>
+    <p style="white-space:normal;">Lana Rosa Crochet no utilizará fotografías o información personal proporcionada para una personalización con fines publicitarios o de publicación en redes sociales sin contar con la autorización correspondiente.</p>
 
-    <h3 style="margin-bottom:8px;">3. Canal de atención</h3>
-    <p style="white-space:normal;">Para ejercer sus derechos, puede comunicarse al correo electrónico <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a> o al teléfono/WhatsApp <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a>.</p>
+    <h3 style="margin-bottom:8px;">5. Autorización del titular</h3>
+    <p style="white-space:normal;">El suministro de datos personales por parte del titular implica su autorización para que Lana Rosa Crochet realice el tratamiento de los mismos de acuerdo con las finalidades establecidas en esta política y dentro de los límites permitidos por la legislación colombiana.</p>
+    <p style="white-space:normal;">Cuando sea necesario, Lana Rosa Crochet solicitará una autorización expresa para tratamientos específicos, especialmente para el envío de comunicaciones comerciales o el uso de fotografías y contenido con fines publicitarios.</p>
+
+    <h3 style="margin-bottom:8px;">6. Derechos de los titulares</h3>
+    <p style="white-space:normal;">De acuerdo con la legislación colombiana, el titular de los datos personales tiene derecho a:</p>
+    <ul style="margin:0 0 14px; padding-left:20px;">
+      <li>Conocer, actualizar y rectificar sus datos personales.</li>
+      <li>Solicitar información sobre el uso que se ha dado a sus datos.</li>
+      <li>Solicitar la supresión de sus datos cuando corresponda.</li>
+      <li>Revocar la autorización otorgada para el tratamiento de sus datos, cuando sea procedente.</li>
+      <li>Presentar consultas, peticiones y reclamos relacionados con el tratamiento de sus datos.</li>
+      <li>Acceder gratuitamente a sus datos personales que hayan sido objeto de tratamiento.</li>
+    </ul>
+    <p style="white-space:normal;">Estos derechos podrán ejercerse de acuerdo con los procedimientos establecidos en esta política.</p>
+
+    <h3 style="margin-bottom:8px;">7. Consultas y reclamos</h3>
+    <p style="white-space:normal;">El titular podrá realizar consultas o presentar solicitudes relacionadas con sus datos personales a través del siguiente correo: <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a></p>
+    <p style="white-space:normal;">La solicitud deberá incluir, como mínimo, el nombre del titular, información de contacto y una descripción clara de la solicitud.</p>
+    <p style="white-space:normal;">Lana Rosa Crochet dará respuesta a las consultas y reclamos dentro de los términos establecidos por la legislación colombiana aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">8. Seguridad de la información</h3>
+    <p style="white-space:normal;">Lana Rosa Crochet implementará medidas razonables de carácter técnico, administrativo y organizacional para proteger los datos personales frente a pérdida, acceso no autorizado, alteración, divulgación o uso indebido.</p>
+    <p style="white-space:normal;">Sin embargo, ningún sistema de almacenamiento o transmisión de información por internet puede garantizar una seguridad absoluta.</p>
+
+    <h3 style="margin-bottom:8px;">9. Encargados y terceros</h3>
+    <p style="white-space:normal;">Para desarrollar sus actividades comerciales, Lana Rosa Crochet podrá compartir determinados datos personales con terceros que presten servicios necesarios para la operación, como empresas transportadoras, plataformas de pago, proveedores tecnológicos, servicios de alojamiento web o herramientas utilizadas para gestionar pedidos y comunicaciones.</p>
+    <p style="white-space:normal;">En estos casos, se procurará que dichos terceros realicen el tratamiento de la información únicamente para las finalidades correspondientes y bajo las medidas de protección aplicables.</p>
+
+    <h3 style="margin-bottom:8px;">10. Vigencia</h3>
+    <p style="white-space:normal;">Los datos personales serán conservados durante el tiempo necesario para cumplir las finalidades para las cuales fueron recolectados y mientras existan obligaciones legales, contractuales o comerciales que justifiquen su conservación.</p>
+    <p style="white-space:normal;">Esta política rige a partir de su fecha de publicación y podrá ser actualizada cuando sea necesario para reflejar cambios legales, administrativos o relacionados con las actividades de Lana Rosa Crochet.</p>
+    <p style="white-space:normal;">Las modificaciones serán publicadas a través de los canales correspondientes.</p>
+    <p style="white-space:normal; font-size:0.85rem; color:var(--tinta-suave);">Última actualización: 12/09/2026</p>
+  </section>
+
+  <section class="politica" id="uso">
+    <h2>Políticas de uso del sitio web</h2>
+    <p style="white-space:normal; font-size:0.85rem; color:var(--tinta-suave);">Fecha de actualización: 12/09/2026</p>
+    <p style="white-space:normal;">Bienvenido(a) al sitio web de Lana Rosa Crochet. Al acceder y utilizar este sitio, usted acepta las presentes Políticas de Uso y se compromete a utilizarlo de manera responsable y conforme a la legislación colombiana aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">1. Uso del sitio web</h3>
+    <p style="white-space:normal;">El sitio web de Lana Rosa tiene como finalidad presentar nuestros productos y servicios, facilitar la realización de pedidos y compras, ofrecer información sobre nuestros productos, talleres y actividades, y permitir la comunicación con nuestros clientes.</p>
+    <p style="white-space:normal;">El usuario se compromete a utilizar el sitio únicamente para fines lícitos y de manera que no afecte su funcionamiento, seguridad o disponibilidad para otros usuarios.</p>
+    <p style="white-space:normal;">Está prohibido:</p>
+    <ul style="margin:0 0 14px; padding-left:20px;">
+      <li>Utilizar el sitio para actividades ilegales o fraudulentas.</li>
+      <li>Intentar acceder sin autorización a sistemas, cuentas o información de Lana Rosa o de otros usuarios.</li>
+      <li>Introducir virus, código malicioso o cualquier elemento que pueda afectar el funcionamiento del sitio.</li>
+      <li>Utilizar herramientas automatizadas para extraer, copiar o recopilar información del sitio sin autorización.</li>
+      <li>Utilizar el contenido de la página con fines comerciales sin autorización previa.</li>
+    </ul>
+
+    <h3 style="margin-bottom:8px;">2. Productos y contenido</h3>
+    <p style="white-space:normal;">En Lana Rosa procuramos que las fotografías, descripciones, medidas, colores, precios y demás información de nuestros productos sean lo más precisas posible.</p>
+    <p style="white-space:normal;">Al tratarse de productos tejidos a mano, pueden existir pequeñas variaciones entre una pieza y otra. Estas variaciones propias de la elaboración artesanal no constituyen necesariamente un defecto del producto.</p>
+    <p style="white-space:normal;">Los precios, disponibilidad y características de los productos pueden cambiar sin previo aviso. Estos cambios no afectarán las compras que ya hayan sido confirmadas, salvo que exista un error manifiesto o una situación que deba corregirse de acuerdo con la legislación aplicable.</p>
+
+    <h3 style="margin-bottom:8px;">3. Carrito y compras</h3>
+    <p style="white-space:normal;">El sitio web puede contar con un carrito de compras que permite seleccionar productos, revisar el pedido y proporcionar la información necesaria para su gestión.</p>
+    <p style="white-space:normal;">Agregar un producto al carrito no constituye por sí mismo una compra confirmada. El pedido se considerará confirmado una vez se hayan completado las condiciones indicadas durante el proceso de compra.</p>
+    <p style="white-space:normal;">Lana Rosa podrá comunicarse con el cliente para confirmar información relacionada con el pedido, disponibilidad, personalización, pago o envío.</p>
+    <p style="white-space:normal;">Las compras estarán sujetas a nuestras <a href="#envios">Políticas de Envíos</a> y <a href="#cambios">Políticas de Cambios, Devoluciones y Garantías</a>.</p>
+
+    <h3 style="margin-bottom:8px;">4. Medios de pago</h3>
+    <p style="white-space:normal;">El sitio puede ofrecer diferentes medios para realizar el pago de los pedidos, incluyendo Bre-B y otros medios que sean habilitados por Lana Rosa.</p>
+    <p style="white-space:normal;">Las instrucciones y condiciones de pago serán informadas durante el proceso de compra o a través de nuestros canales oficiales.</p>
+    <p style="white-space:normal;">Lana Rosa no solicitará contraseñas, códigos de seguridad ni información confidencial de cuentas bancarias por medios diferentes a los establecidos para realizar el pago.</p>
+
+    <h3 style="margin-bottom:8px;">5. WhatsApp y canales de comunicación</h3>
+    <p style="white-space:normal;">Lana Rosa puede utilizar WhatsApp y otros canales de comunicación para atender consultas, confirmar pedidos, coordinar personalizaciones, proporcionar información sobre envíos y brindar servicio al cliente.</p>
+    <p style="white-space:normal;">El uso de estos canales también puede estar sujeto a las políticas y condiciones de las respectivas plataformas.</p>
+
+    <h3 style="margin-bottom:8px;">6. Herramientas de análisis y publicidad</h3>
+    <p style="white-space:normal;">Nuestro sitio web puede utilizar herramientas de terceros, como Google Analytics y Meta Pixel, para analizar el funcionamiento del sitio, conocer de manera estadística cómo interactúan los visitantes con nuestra página y mejorar nuestras comunicaciones y campañas publicitarias.</p>
+    <p style="white-space:normal;">El tratamiento de la información recopilada mediante estas herramientas se realizará de acuerdo con nuestra <a href="#datos">Política de Tratamiento de Datos Personales</a> y, cuando corresponda, mediante los mecanismos de consentimiento y configuración disponibles en el sitio.</p>
+
+    <h3 style="margin-bottom:8px;">7. Comunicaciones comerciales y newsletter</h3>
+    <p style="white-space:normal;">Cuando el usuario autorice el envío de comunicaciones comerciales, Lana Rosa podrá enviar información sobre nuevos productos, promociones, talleres, eventos, lanzamientos y otras novedades de la marca mediante correo electrónico u otros canales autorizados.</p>
+    <p style="white-space:normal;">El usuario podrá solicitar en cualquier momento dejar de recibir este tipo de comunicaciones, de acuerdo con los mecanismos disponibles en cada mensaje o comunicándose con nosotros.</p>
+
+    <h3 style="margin-bottom:8px;">8. Productos personalizados</h3>
+    <p style="white-space:normal;">Para solicitar un producto personalizado, el cliente podrá proporcionar fotografías, referencias, nombres, descripciones u otra información necesaria para elaborar la pieza.</p>
+    <p style="white-space:normal;">El cliente declara que cuenta con la autorización necesaria para proporcionar dicho material cuando corresponda y se compromete a no enviar contenido que infrinja derechos de terceros.</p>
+    <p style="white-space:normal;">En el caso de fotografías de personas, el cliente será responsable de contar con las autorizaciones necesarias para compartirlas con Lana Rosa cuando estas sean requeridas.</p>
+    <p style="white-space:normal;">El tratamiento de los datos personales se realizará de acuerdo con nuestra <a href="#datos">Política de Tratamiento de Datos Personales</a>.</p>
+
+    <h3 style="margin-bottom:8px;">9. Uso de herramientas de inteligencia artificial</h3>
+    <p style="white-space:normal;">Lana Rosa puede utilizar herramientas de inteligencia artificial como apoyo en el desarrollo del sitio web, generación o edición de contenidos, organización de información y otros procesos creativos o técnicos.</p>
+    <p style="white-space:normal;">El uso de estas herramientas no implica la transferencia de la responsabilidad sobre el contenido publicado. Lana Rosa revisa y administra los contenidos que presenta en su sitio web y es responsable de la información que publica a través de sus canales oficiales.</p>
+    <p style="white-space:normal;">Las herramientas de inteligencia artificial pueden ser proporcionadas por terceros y estar sujetas a sus propias condiciones de uso y políticas de privacidad.</p>
+
+    <h3 style="margin-bottom:8px;">10. Propiedad intelectual</h3>
+    <p style="white-space:normal;">Los textos, fotografías, imágenes, logotipos, nombre comercial, elementos gráficos, videos y demás contenidos propios publicados en este sitio pertenecen a Lana Rosa o se utilizan con las autorizaciones correspondientes.</p>
+    <p style="white-space:normal;">Estos contenidos no podrán ser copiados, reproducidos, modificados, distribuidos o utilizados con fines comerciales sin autorización previa, salvo en los casos permitidos por la legislación aplicable.</p>
+    <p style="white-space:normal;">La visualización del contenido del sitio no implica la transferencia de derechos de propiedad intelectual al usuario.</p>
+
+    <h3 style="margin-bottom:8px;">11. Contenido y referencias de terceros</h3>
+    <p style="white-space:normal;">Algunos productos pueden estar inspirados en personajes, temáticas o referencias pertenecientes a terceros. La utilización de una referencia para elaborar un producto no implica que Lana Rosa sea titular de los derechos sobre dichos personajes, marcas u obras.</p>
+    <p style="white-space:normal;">Cuando corresponda, los derechos de propiedad intelectual sobre dichos elementos pertenecen a sus respectivos titulares.</p>
+
+    <h3 style="margin-bottom:8px;">12. Disponibilidad del sitio</h3>
+    <p style="white-space:normal;">Lana Rosa procura mantener el sitio web disponible y funcionando correctamente. Sin embargo, pueden presentarse interrupciones por mantenimiento, actualizaciones, fallas técnicas, problemas de conectividad o circunstancias ajenas a nuestro control.</p>
+    <p style="white-space:normal;">No garantizamos que el sitio esté disponible permanentemente o libre de errores.</p>
+
+    <h3 style="margin-bottom:8px;">13. Enlaces a sitios externos</h3>
+    <p style="white-space:normal;">El sitio web puede contener enlaces a páginas, plataformas o servicios de terceros.</p>
+    <p style="white-space:normal;">Estos enlaces se proporcionan para facilitar determinadas funciones o proporcionar información. Lana Rosa no controla ni se hace responsable por el contenido, disponibilidad, políticas o prácticas de privacidad de sitios externos.</p>
+
+    <h3 style="margin-bottom:8px;">14. Responsabilidad del usuario</h3>
+    <p style="white-space:normal;">El usuario será responsable del uso que haga del sitio y de la información que proporcione a través de sus diferentes canales.</p>
+    <p style="white-space:normal;">Cuando sea necesario para realizar una compra o solicitar un producto personalizado, el usuario deberá proporcionar información verdadera, completa y actualizada.</p>
+
+    <h3 style="margin-bottom:8px;">15. Modificaciones</h3>
+    <p style="white-space:normal;">Lana Rosa podrá actualizar o modificar estas Políticas de Uso cuando sea necesario debido a cambios en el funcionamiento del sitio, nuestros servicios o la legislación aplicable.</p>
+    <p style="white-space:normal;">La versión vigente será la publicada en este sitio web.</p>
+
+    <h3 style="margin-bottom:8px;">16. Legislación aplicable</h3>
+    <p style="white-space:normal;">Estas Políticas de Uso se regirán por las leyes de la República de Colombia.</p>
+    <p style="white-space:normal;">Cualquier situación relacionada con el uso del sitio que no esté expresamente contemplada será atendida de acuerdo con la legislación colombiana aplicable.</p>
+  </section>
+
+  <section class="politica" id="cookies">
+    <h2>Política de cookies</h2>
+    <p style="white-space:normal; font-size:0.85rem; color:var(--tinta-suave);">Fecha de actualización: 12 de septiembre de 2026</p>
+    <p style="white-space:normal;">En Lana Rosa Crochet utilizamos cookies y tecnologías similares para facilitar el funcionamiento de nuestro sitio web, mejorar la experiencia de navegación, conocer cómo utilizan los visitantes nuestra página y, cuando corresponda, mostrar comunicaciones y publicidad más relevantes.</p>
+    <p style="white-space:normal;">Esta Política explica qué son las cookies, cómo las utilizamos y qué opciones tiene para gestionarlas.</p>
+
+    <h3 style="margin-bottom:8px;">1. ¿Qué son las cookies?</h3>
+    <p style="white-space:normal;">Las cookies son pequeños archivos de información que un sitio web puede almacenar en el dispositivo del visitante cuando este navega por sus páginas.</p>
+    <p style="white-space:normal;">Estas permiten, entre otras funciones, recordar determinadas preferencias, facilitar el funcionamiento de un carrito de compras, obtener estadísticas sobre el uso del sitio y mejorar la experiencia de navegación.</p>
+    <p style="white-space:normal;">Las cookies no permiten a Lana Rosa acceder a archivos personales almacenados en el dispositivo del usuario.</p>
+
+    <h3 style="margin-bottom:8px;">2. ¿Qué tipos de cookies utilizamos?</h3>
+    <p style="white-space:normal;"><strong>Cookies necesarias</strong> — Son aquellas necesarias para que determinadas funciones del sitio puedan operar correctamente. Pueden utilizarse, por ejemplo, para mantener el funcionamiento del carrito de compras, recordar información necesaria durante una sesión de navegación, permitir determinadas funciones de seguridad y facilitar procesos relacionados con la navegación y compra. Estas cookies son necesarias para el funcionamiento básico del sitio y no se utilizan para crear perfiles publicitarios por sí mismas.</p>
+    <p style="white-space:normal;"><strong>Cookies de análisis o estadísticas</strong> — Utilizamos herramientas de análisis para conocer cómo los visitantes utilizan nuestro sitio web. Entre estas herramientas puede encontrarse Google Analytics, que permite obtener información estadística como las páginas visitadas, duración aproximada de las visitas, forma de llegada al sitio y comportamiento general de navegación.</p>
+    <p style="white-space:normal;"><strong>Cookies de publicidad y medición</strong> — Nuestro sitio puede utilizar Meta Pixel u otras tecnologías similares para medir el rendimiento de nuestras campañas publicitarias, comprender determinadas interacciones con el sitio y mostrar publicidad más relevante en las plataformas correspondientes.</p>
+
+    <h3 style="margin-bottom:8px;">3. Cookies de terceros</h3>
+    <p style="white-space:normal;">Algunas cookies pueden ser instaladas por proveedores externos cuyos servicios utilizamos en nuestro sitio web, entre ellos Google (Google Analytics), Meta (Meta Pixel), y proveedores tecnológicos relacionados con el funcionamiento del sitio, pagos, comunicaciones u otros servicios que puedan incorporarse posteriormente.</p>
+    <p style="white-space:normal;">Las cookies de terceros están sujetas también a las políticas de privacidad y condiciones de cada proveedor.</p>
+
+    <h3 style="margin-bottom:8px;">4. ¿Para qué utilizamos las cookies?</h3>
+    <ul style="margin:0 0 14px; padding-left:20px;">
+      <li>Permitir el funcionamiento adecuado del sitio web.</li>
+      <li>Facilitar el funcionamiento del carrito de compras.</li>
+      <li>Recordar determinadas preferencias de navegación.</li>
+      <li>Analizar el tráfico y uso del sitio.</li>
+      <li>Mejorar nuestros productos, contenidos y experiencia de usuario.</li>
+      <li>Medir el rendimiento de nuestras campañas de publicidad.</li>
+      <li>Comprender cómo interactúan los visitantes con nuestros contenidos.</li>
+      <li>Realizar actividades de marketing y publicidad cuando corresponda y exista la autorización requerida.</li>
+    </ul>
+
+    <h3 style="margin-bottom:8px;">5. Gestión y desactivación de cookies</h3>
+    <p style="white-space:normal;">El usuario puede configurar su navegador para aceptar, bloquear o eliminar determinadas cookies.</p>
+    <p style="white-space:normal;">La desactivación de algunas cookies puede afectar el funcionamiento de determinadas características del sitio, especialmente aquellas necesarias para procesos como el carrito de compras o determinadas funciones de navegación.</p>
+
+    <h3 style="margin-bottom:8px;">6. Consentimiento</h3>
+    <p style="white-space:normal;">Cuando la legislación aplicable lo requiera, solicitaremos al usuario su consentimiento antes de utilizar determinadas cookies que no sean estrictamente necesarias para el funcionamiento del sitio.</p>
+    <p style="white-space:normal;">El usuario podrá modificar o retirar su consentimiento mediante las opciones disponibles en el sitio o utilizando la configuración de su navegador, según corresponda.</p>
+
+    <h3 style="margin-bottom:8px;">7. Relación con el tratamiento de datos personales</h3>
+    <p style="white-space:normal;">Algunas cookies y tecnologías similares pueden permitir la recopilación de información que, dependiendo de las circunstancias, podría asociarse con una persona identificable. El tratamiento de los datos personales que realice Lana Rosa se encuentra regulado por nuestra <a href="#datos">Política de Tratamiento de Datos Personales</a>.</p>
+
+    <h3 style="margin-bottom:8px;">8. Actualizaciones de esta política</h3>
+    <p style="white-space:normal;">Lana Rosa podrá actualizar esta Política de Cookies cuando se incorporen nuevas herramientas, tecnologías, proveedores o funcionalidades al sitio web, o cuando existan cambios en la legislación aplicable. La versión vigente estará disponible en esta página.</p>
+    <p style="white-space:normal; font-size:0.85rem; color:var(--tinta-suave);">Última actualización: 12 de septiembre de 2026</p>
   </section>
 </main>
 
@@ -148,16 +440,24 @@ section.politica p { white-space: pre-line; margin-bottom: 14px; }
       <h3>Nosotros</h3>
       <ul>
         <li><a href="sobre-nosotras.html">Quiénes somos</a></li>
-        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">Contáctanos</a></li>
       </ul>
     </div>
     <div>
       <h3>Tienda</h3>
       <ul>
         <li><a href="tienda.html">Ver catálogo</a></li>
+        <li><a href="merceria.html">Mercería</a></li>
         <li><a href="personaliza.html">Personalizados</a></li>
         <li><a href="aprende.html">Talleres</a></li>
         <li><a href="https://lana-rosa-crochet.cercia.co/" target="_blank" rel="noopener">Comprar en línea</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contáctanos</h3>
+      <ul>
+        <li><a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a></li>
+        <li><a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a></li>
+        <li>Calle 10 #5-37 Centro, Villamaría, Caldas</li>
       </ul>
     </div>
     <div>
@@ -174,16 +474,19 @@ section.politica p { white-space: pre-line; margin-bottom: 14px; }
       <div class="pie-pagos">
         <span>Efectivo</span><span>Nequi</span><span>Bre-B</span><span>Tarjeta débito/crédito</span>
       </div>
-      <p>
-        <a href="mailto:hola@lanarosacrochet.com">hola@lanarosacrochet.com</a><br>
-        <a href="https://wa.me/573205072801" target="_blank" rel="noopener">320 507 2801</a>
-      </p>
     </div>
+  </div>
+  <div class="contenedor pie-apoyo">
+    <span>Con el apoyo de:</span>
+    <img src="img/logo-sena.png" alt="SENA" onerror="this.style.display='none'">
+    <img src="img/logo-fondo-emprender.png" alt="Fondo Emprender SENA" onerror="this.style.display='none'">
   </div>
   <div class="contenedor pie-legal">
     <a href="politicas.html#envios">Política de envíos</a>
     <a href="politicas.html#cambios">Política de cambios</a>
     <a href="politicas.html#datos">Tratamiento de datos</a>
+    <a href="politicas.html#uso">Uso del sitio</a>
+    <a href="politicas.html#cookies">Cookies</a>
   </div>
   <p class="derechos contenedor">© 2026 Lana Rosa Crochet. Todos los derechos reservados.</p>
 </footer>
@@ -204,6 +507,19 @@ section.politica p { white-space: pre-line; margin-bottom: 14px; }
   boton.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+})();
+</script>
+<script>
+(function() {
+  var boton = document.getElementById('boton-menu-movil');
+  var panel = document.getElementById('nav-movil-panel');
+  if (boton && panel) {
+    boton.addEventListener('click', function() {
+      var abierto = panel.classList.toggle('abierto');
+      boton.setAttribute('aria-expanded', abierto);
+      boton.textContent = abierto ? '✕' : '☰';
+    });
+  }
 })();
 </script>
 </body>
