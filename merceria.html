@@ -129,6 +129,51 @@ a { color: var(--rosa-principal); }
 .boton-agregar-carrito:hover { background: var(--rosa-suave); }
 .boton-agregar-carrito.agregado { background: #2e7d32; border-color: #2e7d32; color: #fff; }
 
+.boton-carrito-header {
+  position: relative; background: var(--blanco); border: 1.5px solid var(--rosa-suave); border-radius: 50%;
+  width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.15rem; color: var(--tinta); flex-shrink: 0;
+}
+.boton-carrito-header:hover { border-color: var(--rosa-principal); }
+.contador-carrito {
+  position: absolute; top: -4px; right: -4px; background: var(--rosa-principal); color: #fff;
+  font-size: 0.68rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.overlay-carrito {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999;
+  display: none;
+}
+.overlay-carrito.abierto { display: block; }
+.panel-carrito {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%;
+  background: var(--blanco-hueso); z-index: 1000; box-shadow: -6px 0 24px rgba(0,0,0,0.2);
+  transition: right 0.3s ease; display: flex; flex-direction: column;
+}
+.panel-carrito.abierto { right: 0; }
+.panel-carrito-contenido { padding: 24px; display: flex; flex-direction: column; height: 100%; }
+.panel-carrito-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.panel-carrito-header h2 { margin: 0; }
+.panel-carrito-header button { background: none; border: none; font-size: 1.8rem; line-height: 1; cursor: pointer; color: var(--tinta); }
+#items-carrito { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+.item-carrito { display: flex; gap: 12px; background: var(--blanco); border-radius: 14px; padding: 12px; align-items: center; }
+.item-carrito .info-item-carrito { flex-grow: 1; }
+.item-carrito h4 { margin: 0 0 4px; font-size: 0.92rem; }
+.item-carrito .precio-item-carrito { color: var(--rosa-principal); font-weight: 600; font-size: 0.88rem; margin: 0; }
+.controles-cantidad { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.controles-cantidad button { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--rosa-suave); background: var(--blanco); cursor: pointer; font-weight: 700; }
+.boton-eliminar-item { background: none; border: none; color: var(--tinta-suave); font-size: 1.2rem; cursor: pointer; align-self: flex-start; }
+.carrito-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; padding: 16px 0; border-top: 1px solid rgba(69,69,74,0.12); margin-top: 12px; }
+.carrito-total span:last-child { color: var(--rosa-principal); }
+.boton-agregar-carrito {
+  margin-top: 8px; text-align: center; background: var(--blanco); color: var(--rosa-principal);
+  border: 1.5px solid var(--rosa-principal); padding: 9px; border-radius: 999px; font-size: 0.85rem;
+  font-weight: 600; cursor: pointer; width: 100%;
+}
+.boton-agregar-carrito:hover { background: var(--rosa-suave); }
+.boton-agregar-carrito.agregado { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+
 .boton-carrito-flotante {
   position: fixed; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); left: calc(24px + env(safe-area-inset-left, 0px)); z-index: 998;
   width: 56px; height: 56px; background: var(--rosa-principal); border: none; border-radius: 50%;
@@ -292,6 +337,9 @@ a { color: var(--rosa-principal); }
       </ul>
     </nav>
     <button class="menu-movil" id="boton-menu-movil" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="boton-carrito-header" id="boton-carrito" aria-label="Ver carrito de compras">
+      🛒<span class="contador-carrito" id="contador-carrito">0</span>
+    </button>
     <a class="boton-whatsapp" href="https://wa.me/573205072801" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   </div>
 </header>
@@ -372,6 +420,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Almendra%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Amarillo" data-precio="17600">
@@ -385,6 +434,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Amarillo%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Azul Rey" data-precio="17600">
@@ -398,6 +448,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Azul%20Rey%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Blanco" data-precio="17600">
@@ -411,6 +462,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Blanco%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Crema" data-precio="17600">
@@ -424,6 +476,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Crema%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Gris Claro T18" data-precio="17600">
@@ -437,6 +490,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Gris%20Claro%20T18%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Gris Oscuro" data-precio="17600">
@@ -450,6 +504,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Gris%20Oscuro%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Manzana" data-precio="17600">
@@ -463,6 +518,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Manzana%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Naranja T17" data-precio="17600">
@@ -476,6 +532,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Naranja%20T17%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Piel" data-precio="17600">
@@ -489,6 +546,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Piel%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Rosado Claro" data-precio="17600">
@@ -502,6 +560,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Rosado%20Claro%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Chelin — Vinotinto T134" data-precio="17600">
@@ -515,6 +574,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$17.600 COP <span class="nota-presentacion">/ madeja de 160 g</span></p>
             <p class="ficha-merceria">Poliester · 125 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Chelin%20-%20Vinotinto%20T134%20%28160g%20-%20$17.600%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Ecological Cotton — 204" data-precio="12000">
@@ -528,6 +588,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Algodón · 300 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20204%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Ecological Cotton — Gris Claro 106" data-precio="12000">
@@ -541,6 +602,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Algodón · 300 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Gris%20Claro%20106%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Ecological Cotton — Lila 505" data-precio="12000">
@@ -554,6 +616,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Algodón · 300 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Lila%20505%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Ecological Cotton — Magenta 503" data-precio="12000">
@@ -567,6 +630,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$12.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Algodón · 300 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Ecological%20Cotton%20-%20Magenta%20503%20%28100g%20-%20$12.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Amarillo" data-precio="4500">
@@ -580,6 +644,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Amarillo%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Azul Claro" data-precio="4500">
@@ -593,6 +658,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Azul%20Claro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Azul" data-precio="4500">
@@ -606,6 +672,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Azul%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Blanco" data-precio="4500">
@@ -619,6 +686,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Blanco%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Fucsia" data-precio="4500">
@@ -632,6 +700,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Fucsia%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Magenta" data-precio="4500">
@@ -645,6 +714,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Magenta%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Morado" data-precio="4500">
@@ -658,6 +728,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Morado%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Negro" data-precio="4500">
@@ -671,6 +742,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Negro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Rosado" data-precio="4500">
@@ -684,6 +756,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Rosado%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Turquesa" data-precio="4500">
@@ -697,6 +770,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Turquesa%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Verde claro" data-precio="4500">
@@ -710,6 +784,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20claro%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Happy Chenille — Verde Gris" data-precio="4500">
@@ -723,6 +798,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20Gris%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Papatya Love — Morado 4550" data-precio="13000">
@@ -736,6 +812,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Acrilico · 360 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Morado%204550%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Papatya Love — Rosado Claro 4020" data-precio="13000">
@@ -749,6 +826,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Acrilico · 360 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Rosado%20Claro%204020%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Papatya Love — Verde Esmeralda 6550" data-precio="13000">
@@ -762,6 +840,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Acrilico · 360 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Verde%20Esmeralda%206550%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Polar — Blanco 03" data-precio="13000">
@@ -775,6 +854,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Poliester · 55 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Polar%20-%20Blanco%2003%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
         <article class="producto-card" data-nombre="Lana Papatya Love — Azul Claro 5050" data-precio="13000">
@@ -788,6 +868,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$13.000 COP <span class="nota-presentacion">/ madeja de 100 g</span></p>
             <p class="ficha-merceria">Acrilico · 360 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Papatya%20Love%20-%20Azul%20Claro%205050%20%28100g%20-%20$13.000%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -806,6 +887,7 @@ a { color: var(--rosa-principal); }
             <p class="producto-precio">$4.500 COP <span class="nota-presentacion">/ madeja de 15 g</span></p>
             <p class="ficha-merceria">Acrílico/Poliéster · 38 m</p>
             <a class="boton-pedir" href="https://wa.me/573205072801?text=Hola!%20Me%20interesa%3A%20Lana%20Happy%20Chenille%20-%20Verde%20Limón%20%2815g%20-%20$4.500%29" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+            <button type="button" class="boton-agregar-carrito">🛒 Agregar al carrito</button>
           </div>
         </article>
       </div>
@@ -1049,6 +1131,166 @@ function manejarErrorFoto(img) {
   boton.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+})();
+</script>
+
+<div class="overlay-carrito" id="overlay-carrito"></div>
+<div class="panel-carrito" id="panel-carrito">
+  <div class="panel-carrito-contenido">
+    <div class="panel-carrito-header">
+      <h2>Tu carrito</h2>
+      <button id="cerrar-carrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div id="items-carrito"></div>
+    <p id="carrito-vacio" style="display:none; color:var(--tinta-suave); text-align:center; padding:30px 0;">Tu carrito está vacío.</p>
+    <div class="carrito-total">
+      <span>Total</span>
+      <span id="total-carrito">$0</span>
+    </div>
+    <a id="boton-checkout-whatsapp" class="boton-primario" style="text-align:center;" href="#" target="_blank" rel="noopener">Finalizar pedido por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var CLAVE_CARRITO = 'carritoLanaRosa';
+
+  function cargarCarrito() {
+    try {
+      return JSON.parse(localStorage.getItem(CLAVE_CARRITO)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function guardarCarrito(carrito) {
+    localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+  }
+
+  function formatoCOP(valor) {
+    return '$' + valor.toLocaleString('es-CO');
+  }
+
+  var botonCarrito = document.getElementById('boton-carrito');
+  var contadorCarrito = document.getElementById('contador-carrito');
+  var panelCarrito = document.getElementById('panel-carrito');
+  var overlayCarrito = document.getElementById('overlay-carrito');
+  var cerrarCarrito = document.getElementById('cerrar-carrito');
+  var itemsCarrito = document.getElementById('items-carrito');
+  var carritoVacio = document.getElementById('carrito-vacio');
+  var totalCarritoEl = document.getElementById('total-carrito');
+  var botonCheckout = document.getElementById('boton-checkout-whatsapp');
+
+  function actualizarContador() {
+    var carrito = cargarCarrito();
+    var totalItems = carrito.reduce(function(s, i) { return s + i.cantidad; }, 0);
+    contadorCarrito.textContent = totalItems;
+  }
+
+  function renderizarCarrito() {
+    var carrito = cargarCarrito();
+    itemsCarrito.innerHTML = '';
+
+    if (carrito.length === 0) {
+      carritoVacio.style.display = 'block';
+      botonCheckout.style.pointerEvents = 'none';
+      botonCheckout.style.opacity = '0.5';
+    } else {
+      carritoVacio.style.display = 'none';
+      botonCheckout.style.pointerEvents = '';
+      botonCheckout.style.opacity = '';
+    }
+
+    var total = 0;
+    carrito.forEach(function(item, indice) {
+      total += item.precio * item.cantidad;
+      var div = document.createElement('div');
+      div.className = 'item-carrito';
+      div.innerHTML =
+        '<div class="info-item-carrito">' +
+          '<h4>' + item.nombre + '</h4>' +
+          '<p class="precio-item-carrito">' + formatoCOP(item.precio) + ' c/u</p>' +
+          '<div class="controles-cantidad">' +
+            '<button type="button" data-accion="restar" data-indice="' + indice + '">−</button>' +
+            '<span>' + item.cantidad + '</span>' +
+            '<button type="button" data-accion="sumar" data-indice="' + indice + '">+</button>' +
+          '</div>' +
+        '</div>' +
+        '<button type="button" class="boton-eliminar-item" data-accion="eliminar" data-indice="' + indice + '" aria-label="Eliminar">&times;</button>';
+      itemsCarrito.appendChild(div);
+    });
+
+    totalCarritoEl.textContent = formatoCOP(total);
+
+    botonCheckout.href = 'https://wa.me/573205072801?text=' + encodeURIComponent(
+      'Hola! Quiero pedir:\n' + carrito.map(function(item) {
+        return '- ' + item.cantidad + 'x ' + item.nombre + ' (' + formatoCOP(item.precio) + ' c/u)';
+      }).join('\n') + '\n\nTotal: ' + formatoCOP(total)
+    );
+
+    actualizarContador();
+  }
+
+  function abrirCarrito() {
+    panelCarrito.classList.add('abierto');
+    overlayCarrito.classList.add('abierto');
+    renderizarCarrito();
+  }
+
+  function cerrarPanelCarrito() {
+    panelCarrito.classList.remove('abierto');
+    overlayCarrito.classList.remove('abierto');
+  }
+
+  botonCarrito.addEventListener('click', abrirCarrito);
+  cerrarCarrito.addEventListener('click', cerrarPanelCarrito);
+  overlayCarrito.addEventListener('click', cerrarPanelCarrito);
+
+  itemsCarrito.addEventListener('click', function(evento) {
+    var boton = evento.target.closest('button');
+    if (!boton) return;
+    var indice = parseInt(boton.dataset.indice, 10);
+    var carrito = cargarCarrito();
+    var accion = boton.dataset.accion;
+
+    if (accion === 'sumar') carrito[indice].cantidad++;
+    if (accion === 'restar') {
+      carrito[indice].cantidad--;
+      if (carrito[indice].cantidad <= 0) carrito.splice(indice, 1);
+    }
+    if (accion === 'eliminar') carrito.splice(indice, 1);
+
+    guardarCarrito(carrito);
+    renderizarCarrito();
+  });
+
+  document.querySelectorAll('.boton-agregar-carrito').forEach(function(boton) {
+    boton.addEventListener('click', function() {
+      var tarjeta = boton.closest('.producto-card');
+      var id = tarjeta.querySelector('img').dataset.id;
+      var nombre = tarjeta.dataset.nombre;
+      var precio = parseInt(tarjeta.dataset.precio, 10);
+
+      var carrito = cargarCarrito();
+      var existente = carrito.find(function(i) { return i.id === id; });
+      if (existente) {
+        existente.cantidad++;
+      } else {
+        carrito.push({ id: id, nombre: nombre, precio: precio, cantidad: 1 });
+      }
+      guardarCarrito(carrito);
+      actualizarContador();
+
+      boton.textContent = '✓ Agregado';
+      boton.classList.add('agregado');
+      setTimeout(function() {
+        boton.textContent = '🛒 Agregar al carrito';
+        boton.classList.remove('agregado');
+      }, 1200);
+    });
+  });
+
+  actualizarContador();
 })();
 </script>
 </body>
